@@ -1,0 +1,201 @@
+---
+// FAQ.astro - FAQ section matching OKIENERD's FAQ structure
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+
+const faqCategories = [
+  {
+    id: 'general',
+    title: 'General Questions',
+    items: [
+      {
+        question: 'What makes SilverLink different from other IT companies?',
+        answer: 'Three things: (1) Same technician every time — MK knows your setup, your preferences, and your history. (2) No jargon — we explain things in plain English, not technobabble. (3) We come to you — no hauling towers to a shop, no waiting rooms. On-site or remote, your call.'
+      },
+      {
+        question: 'Are you licensed and insured?',
+        answer: 'Yes. SilverLink LLC is a registered Oklahoma business with full general liability and professional liability insurance. MK holds ITIL certification and 20+ years in enterprise IT infrastructure, cloud, and security.'
+      },
+      {
+        question: 'Do you work with Macs, PCs, and Linux?',
+        answer: 'Primarily Windows and Mac. Linux servers by arrangement. If it plugs in and has an OS, we can probably help — just ask.'
+      },
+      {
+        question: 'What are your hours?',
+        answer: 'On-site: Mon–Fri 9am–6pm, Sat 10am–2pm. Remote emergency: 24/7 for Complete Care clients. Standard remote: Mon–Fri 8am–8pm, weekends 10am–4pm.'
+      }
+    ]
+  },
+  {
+    id: 'pricing',
+    title: 'Pricing & Plans',
+    items: [
+      {
+        question: 'Is there a contract or cancellation fee?',
+        answer: 'No contracts. No cancellation fees. Monthly plans are month-to-month. Price is locked for 12 months from signup. Cancel anytime — just let us know before your next billing date.'
+      },
+      {
+        question: 'What\'s included in the Complete Care monthly visit?',
+        answer: 'One hour on-site per month for proactive maintenance: updates, security checks, backup verification, cleanup, and answering your questions. Unused time doesn\'t roll over, but extra time is at a discounted hourly rate.'
+      },
+      {
+        question: 'How do travel fees work?',
+        answer: 'OKC metro (15-mile radius from downtown): $0 travel fee for all plans. Extended area (15–50 miles): one-time fee per visit ($35–$60 depending on distance). Beyond 50 miles: remote only, or custom quote for on-site.'
+      },
+      {
+        question: 'Can I switch plans later?',
+        answer: 'Yes, anytime. Upgrades take effect immediately. Downgrades take effect at your next billing cycle. No penalties, no prorated hassles.'
+      },
+      {
+        question: 'Do you offer senior or veteran discounts?',
+        answer: 'Yes. 10% off monthly plans for seniors (65+), veterans, active military, first responders, and educators. Just mention it when you sign up.'
+      }
+    ]
+  },
+  {
+    id: 'services',
+    title: 'Services & Support',
+    items: [
+      {
+        question: 'What if I need help between monthly visits?',
+        answer: 'Complete Care includes unlimited remote support — call, text, or email anytime. Emergency remote is 24/7. Most issues are resolved remotely in under 30 minutes.'
+      },
+      {
+        question: 'Can you help with my business\'s Microsoft 365 or Google Workspace?',
+        answer: 'Yes. Business Essentials includes full admin: user management, security policies, shared drives, email routing, compliance settings, and license optimization.'
+      },
+      {
+        question: 'Do you sell hardware or software?',
+        answer: 'We don\'t resell hardware (no markup, no conflict of interest). We\'ll spec exactly what you need, order it for you, and set it up — you pay retailer price. Software licenses at our partner cost.'
+      },
+      {
+        question: 'Can you recover data from a failed drive?',
+        answer: 'Level 1 (logical/software): yes, on-site. Level 2 (hardware failure): we partner with a cleanroom lab — we handle the logistics, you pay lab direct. Level 3 (catastrophic): referral only.'
+      },
+      {
+        question: 'Do you do virus/malware removal?',
+        answer: 'Yes. Included in Complete Care and Remote Help. We remove the threat, harden the system, and teach you how to avoid reinfection. No scare tactics, no upsells.'
+      }
+    ]
+  },
+  {
+    id: 'coverage',
+    title: 'Coverage & Remote',
+    items: [
+      {
+        question: 'I live outside your service area. Can you still help?',
+        answer: 'Absolutely. Remote Help covers the entire US. 24/7 emergency remote for Complete Care clients. Same MK, same quality, zero travel fees. Screen sharing, secure connection, full troubleshooting.'
+      },
+      {
+        question: 'How does remote support work?',
+        answer: 'We send a secure link. You click it, approve the connection, and we see your screen (with your permission). You watch everything we do. Session ends when you close the window. No software stays behind.'
+      },
+      {
+        question: 'Is remote support secure?',
+        answer: 'End-to-end encrypted. You control access — we can\'t connect without your explicit approval each time. No unattended access unless you specifically set it up for managed devices.'
+      }
+    ]
+  }
+];
+---
+
+<section id="faq" class={`faq section section-lg ${className}`} aria-labelledby="faq-title">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8">
+    <header class="section-header text-center max-w-3xl mx-auto mb-10 md:mb-14">
+      <SectionLabel ruled>Frequently Asked</SectionLabel>
+      <h2 id="faq-title" class="font-display text-display-lg md:text-display-xl text-text-primary mb-4">
+        Straight Answers
+      </h2>
+      <p class="font-body text-body-lg text-text-secondary">
+        No fine print. No runaround. If your question isn\'t here, just ask.
+      </p>
+    </header>
+
+    <!-- Category Tabs -->
+    <div class="faq-tabs-wrapper mb-10 md:mb-14">
+      <div class="tabs flex gap-2 md:gap-4 mb-8 border-b border-border-primary" role="tablist">
+        {faqCategories.map((cat, index) => (
+          <button
+            role="tab"
+            aria-selected={index === 0}
+            aria-controls={`${cat.id}-panel`}
+            id={`${cat.id}-tab`}
+            data-tab={cat.id}
+            class="tab font-body font-medium text-body-sm px-4 py-3 text-text-muted hover:text-text-primary border-b-2 border-transparent transition-all duration-fast ease-smooth focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset"
+          >
+            {cat.title}
+          </button>
+        ))}
+      </div>
+
+      <div class="tab-panels">
+        {faqCategories.map((cat, index) => (
+          <div
+            role="tabpanel"
+            id={`${cat.id}-panel`}
+            aria-labelledby={`${cat.id}-tab`}
+            class="tab-panel"
+            hidden={index !== 0}
+          >
+            <Accordion items={cat.items} />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Still have questions? -->
+    <div class="faq-cta text-center p-6 md:p-8 bg-background-card border border-border-primary rounded-card">
+      <h3 class="font-display text-heading-lg text-text-primary mb-3">Still Have Questions?</h3>
+      <p class="font-body text-body text-text-secondary mb-6 max-w-xl mx-auto">
+        Can\'t find what you\'re looking for? Ask MK directly — no bots, no ticket numbers, no runaround.
+      </p>
+      <Button variant="primary" size="lg" href="#contact" icon="arrow-right" iconPosition="right">
+        Ask MK
+      </Button>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Tab functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const tablist = document.querySelector('.faq-tabs-wrapper .tabs');
+    if (!tablist) return;
+
+    const tabs = tablist.querySelectorAll('[role="tab"]');
+    const panels = tablist.parentElement?.querySelectorAll('[role="tabpanel"]');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const tabId = tab.dataset.tab;
+        
+        tabs.forEach(t => {
+          t.setAttribute('aria-selected', t.dataset.tab === tabId);
+        });
+        
+        panels?.forEach(panel => {
+          panel.hidden = panel.id !== `${tabId}-panel`;
+        });
+      });
+
+      tab.addEventListener('keydown', (e) => {
+        const index = Array.from(tabs).indexOf(tab);
+        let newIndex = index;
+        
+        if (e.key === 'ArrowRight') newIndex = (index + 1) % tabs.length;
+        if (e.key === 'ArrowLeft') newIndex = (index - 1 + tabs.length) % tabs.length;
+        if (e.key === 'Home') newIndex = 0;
+        if (e.key === 'End') newIndex = tabs.length - 1;
+        
+        if (newIndex !== index) {
+          e.preventDefault();
+          tabs[newIndex].click();
+          tabs[newIndex].focus();
+        }
+      });
+    });
+  });
+</script>

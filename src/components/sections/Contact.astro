@@ -1,0 +1,291 @@
+---
+import Button from '../ui/Button.astro';
+import SectionLabel from '../ui/SectionLabel.astro';
+import Input from '../ui/Input.astro';
+import Modal from '../ui/Modal.astro';
+
+// Contact.astro - Contact form and info section
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<section id="contact" class={`contact section section-lg ${className}`} aria-labelledby="contact-title">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8">
+    <header class="section-header text-center max-w-3xl mx-auto mb-10 md:mb-14">
+      <SectionLabel ruled>Get In Touch</SectionLabel>
+      <h2 id="contact-title" class="font-display text-display-lg md:text-display-xl text-text-primary mb-4">
+        Let\'s Fix Your IT
+      </h2>
+      <p class="font-body text-body-lg text-text-secondary">
+        No bots. No ticket numbers. MK responds personally — usually within hours.
+      </p>
+    </header>
+
+    <div class="contact-grid grid gap-8 md:gap-12 lg:grid-cols-2">
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <div class="contact-methods space-y-6">
+          <div class="contact-method flex items-start gap-4 p-5 bg-background-card border border-border-primary rounded-card hover:border-gold-500/50 transition-all duration-fast">
+            <div class="method-icon flex-shrink-0 w-12 h-12 rounded-xl bg-gold-100/50 dark:bg-gold-900/20 flex items-center justify-center text-gold-600 dark:text-gold-400">
+              <svg class="icon icon-lg" aria-hidden="true"><use href="/icons.svg#icon-phone" /></svg>
+            </div>
+            <div>
+              <h3 class="font-display text-heading-md text-text-primary mb-1">Call or Text</h3>
+              <a href="tel:+14058772223" class="font-body text-body-lg text-text-secondary hover:text-gold-500 transition-colors duration-fast">(405) 877-2223</a>
+              <p class="font-body text-caption text-text-muted mt-1">Mon–Fri 8am–8pm • Sat 10am–4pm</p>
+            </div>
+          </div>
+
+          <div class="contact-method flex items-start gap-4 p-5 bg-background-card border border-border-primary rounded-card hover:border-gold-500/50 transition-all duration-fast">
+            <div class="method-icon flex-shrink-0 w-12 h-12 rounded-xl bg-gold-100/50 dark:bg-gold-900/20 flex items-center justify-center text-gold-600 dark:text-gold-400">
+              <svg class="icon icon-lg" aria-hidden="true"><use href="/icons.svg#icon-mail" /></svg>
+            </div>
+            <div>
+              <h3 class="font-display text-heading-md text-text-primary mb-1">Email</h3>
+              <a href="mailto:mk@silverlinkok.com" class="font-body text-body-lg text-text-secondary hover:text-gold-500 transition-colors duration-fast">mk@silverlinkok.com</a>
+              <p class="font-body text-caption text-text-muted mt-1">Replies within 4 business hours</p>
+            </div>
+          </div>
+
+          <div class="contact-method flex items-start gap-4 p-5 bg-background-card border border-border-primary rounded-card hover:border-gold-500/50 transition-all duration-fast">
+            <div class="method-icon flex-shrink-0 w-12 h-12 rounded-xl bg-gold-100/50 dark:bg-gold-900/20 flex items-center justify-center text-gold-600 dark:text-gold-400">
+              <svg class="icon icon-lg" aria-hidden="true"><use href="/icons.svg#icon-map-pin" /></svg>
+            </div>
+            <div>
+              <h3 class="font-display text-heading-md text-text-primary mb-1">Service Area</h3>
+              <address class="font-body text-body text-text-secondary not-italic">Edmond, Deer Creek, Oakdale & NW OKC</address>
+              <p class="font-body text-caption text-text-muted mt-1">15-mile radius included • Extended: travel fee</p>
+            </div>
+          </div>
+
+          <div class="contact-method flex items-start gap-4 p-5 bg-background-card border border-border-primary rounded-card hover:border-gold-500/50 transition-all duration-fast">
+            <div class="method-icon flex-shrink-0 w-12 h-12 rounded-xl bg-gold-100/50 dark:bg-gold-900/20 flex items-center justify-center text-gold-600 dark:text-gold-400">
+              <svg class="icon icon-lg" aria-hidden="true"><use href="/icons.svg#icon-clock" /></svg>
+            </div>
+            <div>
+              <h3 class="font-display text-heading-md text-text-primary mb-1">Emergency Remote</h3>
+              <span class="font-body text-body-lg font-medium text-gold-500">24/7</span>
+              <p class="font-body text-caption text-text-muted mt-1">For Complete Care clients only</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick links -->
+        <div class="contact-quicklinks mt-10 pt-6 border-t border-border-primary">
+          <h4 class="font-display text-heading-sm text-text-primary mb-4">Quick Actions</h4>
+          <div class="flex flex-wrap gap-3">
+            <Button variant="secondary" size="sm" href="#pricing">View Pricing</Button>
+            <Button variant="secondary" size="sm" href="#coverage">Check Coverage</Button>
+            <Button variant="secondary" size="sm" href="#faq">Read FAQ</Button>
+            <Button variant="secondary" size="sm" href="https://ko-fi.com/silverlinkllctechsupport/shop" target="_blank" rel="noopener noreferrer">Digital Guides</Button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-wrapper">
+        <form id="contact-form" class="contact-form bg-background-card border border-border-primary rounded-card p-6 md:p-8" novalidate>
+          <div class="form-row grid gap-4 md:grid-cols-2">
+            <Input
+              id="name"
+              name="name"
+              type="text"
+              label="Your Name"
+              placeholder="Matt Janway"
+              required
+              autocomplete="name"
+            />
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              label="Email Address"
+              placeholder="mk@silverlinkok.com"
+              required
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="form-row grid gap-4 md:grid-cols-2 mt-4">
+            <Input
+              id="phone"
+              name="phone"
+              type="tel"
+              label="Phone (optional)"
+              placeholder="(405) 555-0123"
+              autocomplete="tel"
+              pattern="[\d\s\-\(\)\+]{10,}"
+            />
+            <Input
+              id="zip"
+              name="zip"
+              type="text"
+              label="ZIP Code"
+              placeholder="73013"
+              required
+              autocomplete="postal-code"
+              pattern="[0-9]{5}"
+              maxlength="5"
+            />
+          </div>
+
+          <Input
+            id="subject"
+            name="subject"
+            type="text"
+            label="What Do You Need Help With?"
+            placeholder="e.g., Slow laptop, Wi-Fi issues, new setup, business IT..."
+            required
+            class="mt-4"
+          />
+
+          <div class="form-field mt-4">
+            <label for="message" class="block font-body font-medium text-body-sm text-text-primary mb-1.5">
+              Details <span class="text-error-500" aria-hidden="true">*</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              class="w-full font-body text-body bg-background-input border border-border-primary rounded-input px-4 py-3.5 text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-inset focus:ring-border-focus focus:border-transparent transition-all duration-fast resize-y min-h-[120px]"
+              placeholder="Tell me what\'s going on. The more detail, the better I can prepare."
+              required
+              aria-describedby="message-hint"
+            ></textarea>
+            <p id="message-hint" class="font-body text-caption text-text-muted mt-1.5">Include: device type, when it started, what you've tried, any error messages.</p>
+          </div>
+
+          <div class="form-field mt-4">
+            <label class="flex items-center gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                name="newsletter"
+                class="w-4 h-4 rounded border-border-primary text-gold-500 focus:ring-gold-500 focus:ring-2"
+              />
+              <span class="font-body text-body-sm text-text-secondary">Occasional tips & updates (monthly, no spam)</span>
+            </label>
+          </div>
+
+          <Button type="submit" variant="primary" size="xl" fullWidth class="mt-6" icon="arrow-right" iconPosition="right">
+            Send Message
+          </Button>
+
+          <p class="form-disclaimer font-body text-caption text-text-muted text-center mt-4">
+            By submitting, you agree to our <a href="#privacy" class="underline hover:text-gold-500">Privacy Policy</a>. We never sell your data.
+          </p>
+
+          <!-- Hidden honeypot -->
+          <input type="hidden" name="honeypot" value="" tabindex="-1" autocomplete="off" />
+        </form>
+
+        <!-- Success modal -->
+        <Modal
+          id="contact-success"
+          title="Message Sent!"
+          subtitle="Thanks for reaching out."
+        >
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-success-100 flex items-center justify-center text-success-500">
+              <svg class="icon icon-xl" aria-hidden="true"><use href="/icons.svg#icon-check" /></svg>
+            </div>
+            <h3 class="font-display text-heading-lg text-text-primary mb-2">We Got Your Message</h3>
+            <p class="font-body text-body text-text-secondary mb-6">MK will reply personally — usually within a few hours during business hours.</p>
+            <p class="font-body text-body-sm text-text-muted">Emergency? Call or text <a href="tel:+14058772223" class="font-medium text-gold-500 hover:underline">(405) 877-2223</a></p>
+            <Button variant="primary" size="md" class="mt-4" data-modal-close="contact-success">
+              Got It
+            </Button>
+          </div>
+        </Modal>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Form handling
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
+    const successModal = (window as any).modals?.['contact-success'];
+
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Honeypot check
+      const honeypot = form.querySelector('input[name="honeypot"]') as HTMLInputElement;
+      if (honeypot?.value) return; // Bot detected
+
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const originalText = submitBtn?.textContent;
+      
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+
+      // Collect form data
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        // In production, replace with your form endpoint
+        // const response = await fetch('/api/contact', {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify(data)
+        // });
+        
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // Show success
+        successModal?.open();
+        form.reset();
+      } catch (error) {
+        console.error('Form submission error:', error);
+        alert('Something went wrong. Please try again or call directly.');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText || 'Send Message';
+        }
+      }
+    });
+
+    // Real-time ZIP validation
+    const zipInput = form?.querySelector('input[name="zip"]') as HTMLInputElement;
+    zipInput?.addEventListener('input', (e) => {
+      (e.target as HTMLInputElement).value = (e.target as HTMLInputElement).value.replace(/\D/g, '');
+    });
+
+    // Phone formatting
+    const phoneInput = form?.querySelector('input[name="phone"]') as HTMLInputElement;
+    phoneInput?.addEventListener('input', (e) => {
+      let value = (e.target as HTMLInputElement).value.replace(/\D/g, '');
+      if (value.length > 0) {
+        if (value.length <= 3) value = `(${value}`;
+        else if (value.length <= 6) value = `(${value.slice(0,3)}) ${value.slice(3)}`;
+        else value = `(${value.slice(0,3)}) ${value.slice(3,6)}-${value.slice(6,10)}`;
+      }
+      (e.target as HTMLInputElement).value = value;
+    });
+  });
+</script>
+
+<style>
+  .contact-form-wrapper {
+    position: relative;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .contact-method { padding: 1rem; }
+    .method-icon { width: 2.5rem; height: 2.5rem; }
+  }
+</style>

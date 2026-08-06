@@ -1,0 +1,77 @@
+---
+// Input.astro - Form input component
+interface Props {
+  id: string;
+  name: string;
+  type?: 'text' | 'email' | 'tel' | 'password' | 'number' | 'url';
+  label: string;
+  placeholder?: string;
+  required?: boolean;
+  error?: string;
+  hint?: string;
+  value?: string;
+  class?: string;
+  autocomplete?: string;
+  pattern?: string;
+  maxlength?: number;
+  min?: string;
+  max?: string;
+  step?: string;
+}
+
+const {
+  id,
+  name,
+  type = 'text',
+  label,
+  placeholder,
+  required = false,
+  error,
+  hint,
+  value,
+  class: className = '',
+  autocomplete,
+  pattern,
+  maxlength,
+  min,
+  max,
+  step
+} = Astro.props;
+
+const hasError = !!error;
+---
+
+<div class={`form-field space-y-1.5 ${className}`}>
+  <label for={id} class="block font-body font-medium text-body-sm text-text-primary">
+    {label} {required && <span class="text-error-500" aria-hidden="true">*</span>}
+  </label>
+  <input
+    type={type}
+    id={id}
+    name={name}
+    class={`
+      w-full font-body text-body bg-background-input border rounded-input px-4 py-3.5
+      text-text-primary placeholder:text-text-muted
+      transition-all duration-fast ease-smooth
+      focus:outline-none focus:ring-2 focus:ring-inset focus:border-transparent
+      ${hasError ? 'border-border-error focus:ring-border-error' : 'border-border-primary focus:ring-border-focus'}
+    `}
+    placeholder={placeholder}
+    required={required}
+    value={value}
+    autocomplete={autocomplete}
+    pattern={pattern}
+    maxlength={maxlength}
+    min={min}
+    max={max}
+    step={step}
+    aria-invalid={hasError}
+    aria-describedby={error ? `${id}-error` : hint ? `${id}-hint` : undefined}
+  />
+  {hint && !error && (
+    <p id={`${id}-hint`} class="font-body text-caption text-text-muted">{hint}</p>
+  )}
+  {error && (
+    <p id={`${id}-error`} class="font-body text-caption text-error-500" role="alert">{error}</p>
+  )}
+</div>

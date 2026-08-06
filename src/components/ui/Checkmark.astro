@@ -1,0 +1,16 @@
+---
+// Checkmark.astro - Trust indicator with gold checkmark
+interface Props {
+  children: any;
+  class?: string;
+}
+
+const { children, class: className = '' } = Astro.props;
+---
+
+<div class={`flex items-center gap-3 ${className}`}>
+  <span class="flex-shrink-0 w-6 h-6 rounded-full bg-gold-100/50 dark:bg-gold-900/20 flex items-center justify-center text-gold-600 dark:text-gold-400 font-bold text-body" aria-hidden="true">
+    <svg class="icon icon-sm" aria-hidden="true"><use href="/icons.svg#icon-check" /></svg>
+  </span>
+  <span class="font-body text-body text-text-secondary">{children}</span>
+</div>

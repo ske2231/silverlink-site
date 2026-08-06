@@ -1,17 +1,18 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import Services from '../components/sections/Services.astro';
+import Pricing from '../components/sections/Pricing.astro';
+import Coverage from '../components/sections/Coverage.astro';
+import FAQ from '../components/sections/FAQ.astro';
+import Contact from '../components/sections/Contact.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="SilverLink IT Support — Oklahoma Owned & Operated" description="On-site computer repair, managed IT, and cybersecurity for Edmond, Deer Creek, Oakdale & NW OKC. No jargon. No stress. We come to you.">
+  <Hero />
+  <Services />
+  <Pricing />
+  <Coverage />
+  <FAQ />
+  <Contact />
+</BaseLayout>

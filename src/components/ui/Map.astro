@@ -1,0 +1,253 @@
+---
+// Map.astro - Interactive OKC Metro coverage map using Leaflet
+interface Props {
+  id?: string;
+  class?: string;
+  height?: string;
+}
+
+const { id = 'okc-map', class: className = '', height = '500px' } = Astro.props;
+---
+
+<div id={id} class={`map-wrapper bg-background-card border border-border-primary rounded-card overflow-hidden ${className}`}>
+  <div class="map-header p-4 md:p-6 border-b border-border-secondary flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <h3 class="font-display text-heading-lg text-text-primary">OKC Metro Coverage</h3>
+    <div class="map-legend flex flex-wrap gap-4 text-body-sm text-text-secondary">
+      <span class="legend-item flex items-center gap-2">
+        <span class="legend-pin solid w-3 h-3 rounded-full border-2 border-gold-500 bg-gold-500" aria-hidden="true"></span>
+        Included in Complete Care
+      </span>
+      <span class="legend-item flex items-center gap-2">
+        <span class="legend-pin dashed w-3 h-3 rounded-full border-2 border-gold-500 bg-transparent" style="background-image: repeating-conic-gradient(var(--color-gold-500) 0 25%, transparent 25% 50%);" aria-hidden="true"></span>
+        Travel fee applies
+      </span>
+    </div>
+  </div>
+  <div id={`${id}-canvas`} class="map-canvas w-full" style={height} role="application" aria-label="OKC Metro service area map"></div>
+  <div class="map-controls absolute bottom-4 right-4 flex flex-col gap-1">
+    <button class="map-btn w-10 h-10 rounded-md bg-background-card border border-border-primary text-text-primary font-bold text-body-lg flex items-center justify-center hover:bg-background-hover hover:border-gold-500 shadow-md transition-all duration-fast" aria-label="Zoom in" data-map-zoom="in">+</button>
+    <button class="map-btn w-10 h-10 rounded-md bg-background-card border border-border-primary text-text-primary font-bold text-body-lg flex items-center justify-center hover:bg-background-hover hover:border-gold-500 shadow-md transition-all duration-fast" aria-label="Zoom out" data-map-zoom="out">−</button>
+    <button class="map-btn w-10 h-10 rounded-md bg-background-card border border-border-primary text-text-primary font-bold text-body-lg flex items-center justify-center hover:bg-background-hover hover:border-gold-500 shadow-md transition-all duration-fast" aria-label="Reset view" data-map-zoom="reset">⌂</button>
+  </div>
+</div>
+
+<script>
+  // Dynamic import Leaflet only when needed
+  async function initMap() {
+    const { default: L } = await import('leaflet');
+    
+    // Fix Leaflet marker icons
+    delete (L.Icon.Default.prototype as any)._getIconUrl;
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+      iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+      shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png'
+    });
+
+    const canvas = document.getElementById(`${id}-canvas`);
+    if (!canvas || (canvas as any)._leaflet_map) return;
+
+    // OKC Metro center
+    const OKC_CENTER = [35.4676, -97.5164];
+    
+    const map = L.map(`${id}-canvas`, {
+      center: OKC_CENTER,
+      zoom: 10,
+      zoomControl: false,
+      scrollWheelZoom: true,
+      doubleClickZoom: true,
+      boxZoom: true,
+      keyboard: true,
+      dragPan: true,
+      inertia: true
+    });
+
+    (canvas as any)._leaflet_map = map;
+
+    // OSM tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 18
+    }).addTo(map);
+
+    // Custom pin icons
+    const includedIcon = L.divIcon({
+      className: 'custom-marker included-marker',
+      html: '<div class="pin solid"></div>',
+      iconSize: [24, 24],
+      iconAnchor: [12, 12]
+    });
+
+    const travelIcon = L.divIcon({
+      className: 'custom-marker travel-marker',
+      html: '<div class="pin dashed"></div>',
+      iconSize: [24, 24],
+      iconAnchor: [12, 12]
+    });
+
+    // Included areas (OKC Metro + 15 miles)
+    const includedAreas = [
+      { name: 'Downtown OKC', coords: [35.4676, -97.5164], zip: '73102' },
+      { name: 'North OKC', coords: [35.5500, -97.5200], zip: '73116' },
+      { name: 'South OKC', coords: [35.3800, -97.5200], zip: '73109' },
+      { name: 'Edmond', coords: [35.6528, -97.4781], zip: '73013' },
+      { name: 'Moore', coords: [35.3395, -97.4867], zip: '73160' },
+      { name: 'Norman', coords: [35.2226, -97.4395], zip: '73072' },
+      { name: 'Yukon', coords: [35.5067, -97.7625], zip: '73099' },
+      { name: 'Mustang', coords: [35.3842, -97.7242], zip: '73064' },
+      { name: 'Midwest City', coords: [35.4495, -97.3967], zip: '73110' },
+      { name: 'Del City', coords: [35.4428, -97.4550], zip: '73115' },
+      { name: 'Nichols Hills', coords: [35.5600, -97.5500], zip: '73116' },
+      { name: 'The Village', coords: [35.5600, -97.5500], zip: '73120' },
+      { name: 'Bethany', coords: [35.5187, -97.6322], zip: '73008' },
+      { name: 'Warr Acres', coords: [35.5265, -97.6181], zip: '73122' },
+    ];
+
+    // Travel fee areas (15-50 miles)
+    const travelAreas = [
+      { name: 'Shawnee', coords: [35.3273, -96.9253], zip: '74801', fee: 50 },
+      { name: 'Stillwater', coords: [36.1156, -97.0584], zip: '74074', fee: 60 },
+      { name: 'Guthrie', coords: [35.8789, -97.4253], zip: '73044', fee: 40 },
+      { name: 'El Reno', coords: [35.5323, -97.9551], zip: '73036', fee: 45 },
+      { name: 'Purcell', coords: [35.0142, -97.3611], zip: '73080', fee: 45 },
+      { name: 'Pauls Valley', coords: [34.7387, -97.2197], zip: '73075', fee: 50 },
+    ];
+
+    // Add included markers
+    includedAreas.forEach(area => {
+      const marker = L.marker(area.coords, { icon: includedIcon })
+        .bindTooltip(`${area.name} (${area.zip}) — Included`, { permanent: false, direction: 'top' })
+        .addTo(map);
+    });
+
+    // Add travel markers
+    travelAreas.forEach(area => {
+      const marker = L.marker(area.coords, { icon: travelIcon })
+        .bindTooltip(`${area.name} (${area.zip}) — $${area.fee} travel fee`, { permanent: false, direction: 'top' })
+        .addTo(map);
+    });
+
+    // Custom controls
+    document.querySelectorAll(`#${id} [data-map-zoom]`).forEach(btn => {
+      btn.addEventListener('click', () => {
+        const action = btn.getAttribute('data-map-zoom');
+        if (action === 'in') map.zoomIn();
+        else if (action === 'out') map.zoomOut();
+        else if (action === 'reset') map.setView(OKC_CENTER, 10);
+      });
+    });
+
+    // Neighborhood selector integration
+    const selector = document.getElementById('neighborhood-selector');
+    if (selector) {
+      selector.addEventListener('change', (e) => {
+        const value = (e.target as HTMLSelectElement).value;
+        if (!value) return;
+        
+        const allAreas = [...includedAreas, ...travelAreas];
+        const area = allAreas.find(a => a.zip === value || a.name.toLowerCase() === value.toLowerCase());
+        if (area) {
+          map.setView(area.coords, 13);
+          // Open tooltip
+          map.eachLayer(layer => {
+            if (layer instanceof L.Marker && layer.getTooltip()) {
+              const tooltipContent = layer.getTooltip().getContent();
+              if (tooltipContent.includes(area.name)) {
+                layer.openTooltip();
+              }
+            }
+          });
+        }
+      });
+    }
+  }
+
+  // Initialize when component is visible
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMap);
+  } else {
+    initMap();
+  }
+
+  // Also initialize on Astro navigation
+  document.addEventListener('astro:after-swap', initMap);
+</script>
+
+<style>
+  .map-wrapper {
+    position: relative;
+  }
+
+  .map-canvas {
+    width: 100%;
+    height: var(--map-height, 500px);
+  }
+
+  .legend-pin {
+    display: inline-block;
+  }
+
+  .legend-pin.solid {
+    background: var(--color-gold-500);
+  }
+
+  .legend-pin.dashed {
+    background-image: repeating-conic-gradient(var(--color-gold-500) 0 25%, transparent 25% 50%);
+  }
+
+  /* Custom marker styles */
+  .custom-marker {
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .custom-marker .pin {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--color-gold-500);
+    transition: transform 0.2s ease;
+  }
+
+  .custom-marker .pin.solid {
+    background: var(--color-gold-500);
+    box-shadow: 0 2px 8px rgba(200, 150, 46, 0.4);
+  }
+
+  .custom-marker .pin.dashed {
+    background: transparent;
+    background-image: repeating-conic-gradient(var(--color-gold-500) 0 25%, transparent 25% 50%);
+    box-shadow: 0 2px 8px rgba(200, 150, 46, 0.3);
+  }
+
+  .custom-marker:hover .pin {
+    transform: scale(1.2);
+  }
+
+  /* Leaflet tooltip customization */
+  .leaflet-tooltip {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-primary) !important;
+    color: var(--text-primary) !important;
+    box-shadow: var(--shadow-md) !important;
+    border-radius: 8px !important;
+    padding: 6px 10px !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.875rem !important;
+  }
+
+  .leaflet-tooltip::before {
+    border-top-color: var(--border-primary) !important;
+  }
+
+  .leaflet-tooltip.leaflet-tooltip-top::before {
+    border-top-color: var(--border-primary) !important;
+  }
+
+  /* Map container focus */
+  .map-canvas:focus {
+    outline: none;
+    ring: 2px solid var(--border-focus);
+    ring-offset: 2px;
+  }
+</style>

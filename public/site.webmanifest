@@ -1,0 +1,17 @@
+{
+  "name": "SilverLink IT Support",
+  "short_name": "SilverLink",
+  "description": "Oklahoma owned & operated IT support. No jargon. No stress. We come to you.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a3e",
+  "theme_color": "#1a1a3e",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

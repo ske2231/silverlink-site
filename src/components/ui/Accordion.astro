@@ -1,0 +1,59 @@
+---
+// Accordion.astro - FAQ accordion component
+interface Props {
+  items: Array<{
+    question: string;
+    answer: string;
+    open?: boolean;
+  }>;
+  class?: string;
+}
+
+const { items, class: className = '' } = Astro.props;
+---
+
+<div class={`space-y-3 ${className}`}>
+  {items.map((item, index) => (
+    <details class="accordion bg-background-card border border-border-primary rounded-card overflow-hidden" open={item.open}>
+      <summary class="accordion-trigger w-full flex items-center justify-between gap-4 p-5 font-body font-medium text-body text-text-primary bg-transparent border-none text-left cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-border-focus list-none">
+        <span class="accordion-title">{item.question}</span>
+        <svg class="accordion-icon flex-shrink-0 w-5 h-5 text-text-muted transition-transform duration-fast" aria-hidden="true"><use href="/icons.svg#icon-chevron-down" /></svg>
+      </summary>
+      <div class="accordion-content overflow-hidden">
+        <div class="accordion-body px-5 pb-5 font-body text-body text-text-secondary">
+          {item.answer}
+        </div>
+      </div>
+    </details>
+  ))}
+</div>
+
+<style>
+  .accordion-trigger::-webkit-details-marker { display: none; }
+  .accordion[open] .accordion-icon { transform: rotate(180deg); }
+  .accordion-content { transition: max-height 0.3s ease-out; }
+</style>
+
+<script>
+  // Smooth height animation for accordion
+  document.querySelectorAll('.accordion').forEach(accordion => {
+    const content = accordion.querySelector('.accordion-content');
+    const body = accordion.querySelector('.accordion-body');
+    
+    function updateHeight() {
+      if (accordion.open) {
+        content.style.maxHeight = body.scrollHeight + 'px';
+      } else {
+        content.style.maxHeight = '0px';
+      }
+    }
+    
+    // Initial setup
+    content.style.maxHeight = accordion.open ? body.scrollHeight + 'px' : '0px';
+    content.style.transition = 'max-height 0.3s ease-out';
+    
+    // Watch for open/close
+    const observer = new MutationObserver(updateHeight);
+    observer.observe(accordion, { attributes: true, attributeFilter: ['open'] });
+  });
+</script>

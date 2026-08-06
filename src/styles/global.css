@@ -1,0 +1,296 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   SILVERLINK DESIGN SYSTEM - CSS Custom Properties
+   ========================================================================== */
+
+:root {
+  /* === SILVERLINK BRAND COLORS === */
+  --color-navy-900: #1a1a3e;
+  --color-navy-800: #1f1f4a;
+  --color-navy-700: #2d2d5e;
+  --color-navy-600: #3d3d6b;
+  --color-navy-500: #5a5a7a;
+  --color-navy-400: #7a7a9a;
+  --color-navy-300: #a8a49a;
+  --color-navy-200: #d4cfc4;
+  --color-navy-100: #e8e4d8;
+  --color-navy-50:  #f8f6f1;
+
+  --color-gold-600: #b8861e;
+  --color-gold-500: #c8962e;
+  --color-gold-400: #d8a63e;
+  --color-gold-300: #e8c56d;
+  --color-gold-200: #f0d8a0;
+  --color-gold-100: #f8ebd0;
+
+  /* === SEMANTIC COLORS === */
+  --color-success-500: #2e7d32;
+  --color-success-100: #e8f5e9;
+  --color-error-500:  #c62828;
+  --color-error-100:  #fdeaea;
+  --color-warning-500: #f57c00;
+  --color-warning-100: #fff3e0;
+  --color-info-500:   #1976d2;
+  --color-info-100:   #e3f2fd;
+
+  /* === NEUTRAL === */
+  --color-white:      #ffffff;
+  --color-black:      #000000;
+
+  /* === THEME-AWARE SEMANTIC TOKENS (Dark mode default) === */
+  --bg-primary:       var(--color-navy-900);
+  --bg-secondary:     var(--color-navy-800);
+  --bg-tertiary:      var(--color-navy-700);
+  --bg-card:          var(--color-navy-800);
+  --bg-input:         var(--color-navy-700);
+  --bg-hover:         var(--color-navy-700);
+  --bg-active:        var(--color-navy-600);
+
+  --text-primary:     var(--color-white);
+  --text-secondary:   var(--color-navy-400);
+  --text-muted:       var(--color-navy-500);
+  --text-inverse:     var(--color-navy-900);
+  --text-on-gold:     var(--color-navy-900);
+
+  --border-primary:   var(--color-navy-600);
+  --border-secondary: var(--color-navy-700);
+  --border-focus:     var(--color-gold-400);
+  --border-error:     var(--color-error-500);
+
+  --accent-primary:   var(--color-gold-500);
+  --accent-hover:     var(--color-gold-400);
+  --accent-subtle:    var(--color-gold-200);
+  --accent-text:      var(--color-navy-900);
+
+  --shadow-sm:        0 1px 2px rgba(26, 26, 62, 0.15);
+  --shadow-md:        0 4px 12px rgba(26, 26, 62, 0.2);
+  --shadow-lg:        0 8px 30px rgba(26, 26, 62, 0.25);
+  --shadow-xl:        0 16px 48px rgba(26, 26, 62, 0.3);
+}
+
+/* Light mode override */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg-primary:       var(--color-navy-50);
+    --bg-secondary:     var(--color-white);
+    --bg-tertiary:      var(--color-navy-100);
+    --bg-card:          var(--color-white);
+    --bg-input:         var(--color-white);
+    --bg-hover:         var(--color-navy-100);
+    --bg-active:        var(--color-navy-200);
+
+    --text-primary:     var(--color-navy-900);
+    --text-secondary:   var(--color-navy-500);
+    --text-muted:       var(--color-navy-400);
+    --text-inverse:     var(--color-white);
+    --text-on-gold:     var(--color-navy-900);
+
+    --border-primary:   var(--color-navy-200);
+    --border-secondary: var(--color-navy-100);
+    --border-focus:     var(--color-gold-500);
+    --border-error:     var(--color-error-500);
+
+    --accent-primary:   var(--color-gold-600);
+    --accent-hover:     var(--color-gold-500);
+    --accent-subtle:    var(--color-gold-100);
+    --accent-text:      var(--color-navy-900);
+
+    --shadow-sm:        0 1px 2px rgba(26, 26, 62, 0.08);
+    --shadow-md:        0 4px 12px rgba(26, 26, 62, 0.1);
+    --shadow-lg:        0 8px 30px rgba(26, 26, 62, 0.12);
+    --shadow-xl:        0 16px 48px rgba(26, 26, 62, 0.15);
+  }
+}
+
+/* Explicit theme toggle support */
+[data-theme="light"] {
+  --bg-primary:       var(--color-navy-50);
+  --bg-secondary:     var(--color-white);
+  --bg-tertiary:      var(--color-navy-100);
+  --bg-card:          var(--color-white);
+  --bg-input:         var(--color-white);
+  --bg-hover:         var(--color-navy-100);
+  --bg-active:        var(--color-navy-200);
+  --text-primary:     var(--color-navy-900);
+  --text-secondary:   var(--color-navy-500);
+  --text-muted:       var(--color-navy-400);
+  --text-inverse:     var(--color-white);
+  --border-primary:   var(--color-navy-200);
+  --border-secondary: var(--color-navy-100);
+  --accent-primary:   var(--color-gold-600);
+  --accent-hover:     var(--color-gold-500);
+  --accent-subtle:    var(--color-gold-100);
+}
+
+[data-theme="dark"] {
+  --bg-primary:       var(--color-navy-900);
+  --bg-secondary:     var(--color-navy-800);
+  --bg-tertiary:      var(--color-navy-700);
+  --bg-card:          var(--color-navy-800);
+  --bg-input:         var(--color-navy-700);
+  --bg-hover:         var(--color-navy-700);
+  --bg-active:        var(--color-navy-600);
+  --text-primary:     var(--color-white);
+  --text-secondary:   var(--color-navy-400);
+  --text-muted:       var(--color-navy-500);
+  --text-inverse:     var(--color-navy-900);
+  --border-primary:   var(--color-navy-600);
+  --border-secondary: var(--color-navy-700);
+  --accent-primary:   var(--color-gold-500);
+  --accent-hover:     var(--color-gold-400);
+  --accent-subtle:    var(--color-gold-200);
+}
+
+/* ==========================================================================
+   BASE STYLES & RESET
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin: 0 0 1rem;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+h4 { font-size: clamp(1.125rem, 2vw, 1.25rem); }
+
+p { margin: 0 0 1rem; }
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover { color: var(--accent-hover); }
+a:focus-visible {
+  outline: none;
+  ring: 2px solid var(--border-focus);
+  ring-offset: 2px;
+  ring-offset-color: var(--bg-primary);
+  border-radius: 4px;
+}
+
+.font-display { font-family: var(--font-display), Georgia, serif; }
+.font-body    { font-family: var(--font-body), system-ui, sans-serif; }
+.font-mono    { font-family: var(--font-mono), Menlo, monospace; }
+
+/* ==========================================================================
+   UTILITY CLASSES (Tailwind will handle most, but these are fallbacks)
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: 80rem; /* 1280px */
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 640px) { .container { padding: 0 2rem; } }
+@media (min-width: 1024px) { .container { padding: 0 3rem; } }
+
+.section { padding: 4.5rem 0; }
+@media (min-width: 768px) { .section { padding: 5.5rem 0; } }
+@media (min-width: 1024px) { .section { padding: 6.5rem 0; } }
+
+.section-sm { padding: 3rem 0; }
+@media (min-width: 768px) { .section-sm { padding: 4rem 0; } }
+
+.section-lg { padding: 5.5rem 0; }
+@media (min-width: 768px) { .section-lg { padding: 7rem 0; } }
+@media (min-width: 1024px) { .section-lg { padding: 8rem 0; } }
+
+/* ==========================================================================
+   FOCUS VISIBLE (Accessibility)
+   ========================================================================== */
+
+:focus-visible {
+  outline: none;
+  ring: 2px solid var(--border-focus);
+  ring-offset: 2px;
+  ring-offset-color: var(--bg-primary);
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   SKIP LINK
+   ========================================================================== */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent-primary);
+  color: var(--text-on-gold);
+  font-weight: 600;
+  border-radius: 0 0 8px 8px;
+  z-index: 1000;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus { top: 0; }
+
+/* ==========================================================================
+   ICON SYSTEM (inline SVG sprite)
+   ========================================================================== */
+
+.icon {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
+
+.icon-sm { width: 1rem; height: 1rem; }
+.icon-md { width: 1.25rem; height: 1.25rem; }
+.icon-lg { width: 1.5rem; height: 1.5rem; }
+.icon-xl { width: 2rem; height: 2rem; }
+
+/* ==========================================================================
+   SCROLLBAR STYLING
+   ========================================================================== */
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--border-primary); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-primary); }

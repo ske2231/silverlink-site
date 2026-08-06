@@ -1,0 +1,19 @@
+---
+// SectionLabel.astro - // DIVIDER component
+interface Props {
+  children: any;
+  ruled?: boolean;
+  class?: string;
+}
+
+const { children, ruled = false, class: className = '' } = Astro.props;
+---
+
+<span class={`font-body font-semibold text-section-label text-gold-500 tracking-widest uppercase block mb-2 ${ruled ? 'relative flex items-center gap-4' : ''} ${className}`}>
+  {children}
+  {ruled && <span class="flex-1 h-px bg-border-primary" aria-hidden="true" />}
+</span>
+
+<style>
+  :host { display: block; }
+</style>

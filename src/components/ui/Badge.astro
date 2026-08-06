@@ -1,0 +1,22 @@
+---
+// Badge.astro - Tag/badge component
+interface Props {
+  children: any;
+  variant?: 'gold' | 'navy' | 'success' | 'warning' | 'error';
+  class?: string;
+}
+
+const { children, variant = 'gold', class: className = '' } = Astro.props;
+
+const variantClasses = {
+  gold: 'bg-gold-100 text-gold-600 dark:bg-gold-900/30 dark:text-gold-400',
+  navy: 'bg-navy-100 text-navy-700 dark:bg-navy-800 dark:text-navy-300',
+  success: 'bg-success-100 text-success-500',
+  warning: 'bg-warning-100 text-warning-500',
+  error: 'bg-error-100 text-error-500'
+};
+---
+
+<span class={`inline-flex items-center font-body font-medium text-caption px-3 py-1 rounded-badge ${variantClasses[variant]} ${className}`}>
+  {children}
+</span>

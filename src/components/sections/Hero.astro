@@ -1,0 +1,117 @@
+---
+import Button from '../ui/Button.astro';
+import Badge from '../ui/Badge.astro';
+import ZipChecker from '../ui/ZipChecker.astro';
+
+// Hero.astro - Hero section matching OKIENERD structure
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<section id="hero" class={`hero relative overflow-hidden ${className}`} aria-labelledby="hero-title">
+  <div class="hero-bg absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-700" />
+    <div class="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
+    <div class="absolute top-0 left-0 right-0 h-96 bg-gradient-to-b from-gold-500/10 to-transparent" />
+  </div>
+
+  <div class="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+    <div class="hero-content max-w-4xl mx-auto text-center py-20 md:py-28 lg:py-32">
+      <!-- Trust badges -->
+      <div class="hero-badges flex flex-wrap justify-center gap-2 md:gap-3 mb-6 md:mb-8">
+        <Badge variant="gold">Oklahoma Owned & Operated</Badge>
+        <Badge variant="gold">No Jargon. No Stress.</Badge>
+        <Badge variant="gold">We Come to You</Badge>
+        <Badge variant="navy">ITIL Certified</Badge>
+      </div>
+
+      <!-- Main headline -->
+      <h1 id="hero-title" class="font-display text-display-lg md:text-display-xl lg:text-display-2xl text-text-primary mb-6 md:mb-8 leading-tight">
+        IT Support That
+        <span class="text-gold-500"> Actually Shows Up</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="font-body text-body-lg md:text-heading-sm text-text-secondary max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed">
+        On-site computer repair, managed IT, and cybersecurity for Edmond, Deer Creek, Oakdale & NW OKC.
+        Same MK. Same quality. Every visit.
+      </p>
+
+      <!-- Primary CTA group -->
+      <div class="hero-cta flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 md:mb-12">
+        <Button variant="primary" size="xl" href="#contact" icon="arrow-right" iconPosition="right">
+          Schedule Your Visit
+        </Button>
+        <Button variant="secondary" size="xl" href="#pricing">
+          View Plans & Pricing
+        </Button>
+      </div>
+
+      <!-- ZIP Checker inline -->
+      <div class="hero-zip-checker max-w-md mx-auto">
+        <ZipChecker id="hero-zip" />
+      </div>
+
+      <!-- Trust indicators -->
+      <div class="hero-trust flex flex-wrap items-center justify-center gap-6 md:gap-10 mt-12 md:mt-16 pt-8 md:pt-12 border-t border-border-primary/50">
+        <div class="trust-item flex flex-col items-center gap-1">
+          <span class="font-display text-heading-xl md:text-display-sm text-gold-500">15+</span>
+          <span class="font-body text-body-sm text-text-muted">Years Experience</span>
+        </div>
+        <div class="trust-divider w-px h-10 bg-border-primary/50 hidden md:block" aria-hidden="true" />
+        <div class="trust-item flex flex-col items-center gap-1">
+          <span class="font-display text-heading-xl md:text-display-sm text-gold-500">500+</span>
+          <span class="font-body text-body-sm text-text-muted">Happy Clients</span>
+        </div>
+        <div class="trust-divider w-px h-10 bg-border-primary/50 hidden md:block" aria-hidden="true" />
+        <div class="trust-item flex flex-col items-center gap-1">
+          <span class="font-display text-heading-xl md:text-display-sm text-gold-500">24/7</span>
+          <span class="font-body text-body-sm text-text-muted">Remote Support</span>
+        </div>
+        <div class="trust-divider w-px h-10 bg-border-primary/50 hidden md:block" aria-hidden="true" />
+        <div class="trust-item flex flex-col items-center gap-1">
+          <span class="font-display text-heading-xl md:text-display-sm text-gold-500">$0</span>
+          <span class="font-body text-body-sm text-text-muted">Travel Fee (Local)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-scroll absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce" aria-hidden="true">
+    <svg class="w-6 h-6 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+  </div>
+</section>
+
+<style>
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(ellipse 80% 50% at 50% -20%, var(--color-gold-500/15), transparent),
+      radial-gradient(ellipse 60% 40% at 80% 100%, var(--color-gold-500/10), transparent);
+    pointer-events: none;
+  }
+
+  .hero-scroll {
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
+  }
+
+  @media (max-width: 767px) {
+    .hero-trust { gap: 4px !important; }
+    .trust-item { padding: 0 1rem; }
+  }
+</style>

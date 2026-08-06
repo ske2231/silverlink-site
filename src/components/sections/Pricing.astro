@@ -1,0 +1,202 @@
+---
+import Button from '../ui/Button.astro';
+import SectionLabel from '../ui/SectionLabel.astro';
+import PlanCard from '../ui/PlanCard.astro';
+
+// Pricing.astro - Pricing section matching OKIENERD's membership + one-time model
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+
+const plans = [
+  {
+    name: 'Complete Care',
+    price: 199,
+    period: '/month',
+    popular: true,
+    perk: 'Monthly on-site visit included',
+    features: [
+      'Monthly 1-hour on-site visit',
+      'Unlimited remote support (24/7)',
+      'Proactive monitoring & alerts',
+      'Automated patch management',
+      'Antivirus/EDR managed',
+      'Backup health checks',
+      'Quarterly security review',
+      'Priority scheduling & response',
+      'No travel fees (OKC metro)',
+      'Discounted hourly rate for extra work'
+    ],
+    ctaText: 'Start Complete Care',
+    ctaHref: '#contact',
+    ctaVariant: 'primary' as const
+  },
+  {
+    name: 'Remote Only',
+    price: 49,
+    period: '/month',
+    popular: false,
+    perk: 'Nationwide coverage',
+    features: [
+      'Unlimited remote sessions',
+      '24/7 emergency remote access',
+      'Screen-sharing troubleshooting',
+      'Software install & config help',
+      'Email/account/security setup',
+      'Cloud backup guidance',
+      'Password manager setup',
+      'Monthly check-in call (15 min)',
+      'Available anywhere in US',
+      'On-site visits at discounted rate'
+    ],
+    ctaText: 'Get Remote Only',
+    ctaHref: '#contact',
+    ctaVariant: 'secondary' as const
+  },
+  {
+    name: 'Business Essentials',
+    price: 350,
+    period: '/month',
+    popular: false,
+    perk: 'Up to 10 employees',
+    features: [
+      'Everything in Complete Care',
+      'Covers up to 10 users/devices',
+      'Microsoft 365 / Google Workspace admin',
+      'Vendor & license management',
+      'Compliance documentation (HIPAA/CMMC)',
+      'Network monitoring & firewall mgmt',
+      'Employee onboarding/offboarding IT',
+      'Security awareness training (quarterly)',
+      'Business continuity planning',
+      'Quarterly strategy review (1 hr)'
+    ],
+    ctaText: 'Discuss Business Plan',
+    ctaHref: '#contact',
+    ctaVariant: 'secondary' as const
+  }
+];
+
+const oneTimeServices = [
+  { name: 'Diagnostic & Repair', price: 149, description: 'Full system checkup + fix', includes: 'Travel included (local)' },
+  { name: 'New Device Setup', price: 179, description: 'Unbox, configure, transfer data', includes: 'Travel included (local)' },
+  { name: 'Network/Wi-Fi Optimization', price: 199, description: 'Mesh setup, channel tuning, coverage', includes: 'Travel included (local)' },
+  { name: 'Security Hardening', price: 249, description: 'Lock down devices, accounts, network', includes: 'Travel included (local)' },
+  { name: 'Data Transfer & Backup Setup', price: 149, description: 'Move files, configure automatic backup', includes: 'Travel included (local)' },
+  { name: 'Smart Home Device Config', price: 129, description: 'Cameras, locks, lights, hubs', includes: 'Travel included (local)' },
+  { name: 'Tech Buying Consultation', price: 99, description: '1-hour advice session (remote or on-site)', includes: 'Credited toward purchase' },
+  { name: 'Emergency On-Site (After Hours)', price: 299, description: 'Nights, weekends, holidays', includes: '2-hour minimum' }
+];
+---
+
+<section id="pricing" class={`pricing section section-lg ${className}`} aria-labelledby="pricing-title">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8">
+    <!-- Monthly Plans -->
+    <div class="pricing-monthly mb-16 md:mb-20">
+      <header class="section-header text-center max-w-3xl mx-auto mb-10 md:mb-14">
+        <SectionLabel ruled>Monthly Plans</SectionLabel>
+        <h2 id="pricing-title" class="font-display text-display-lg md:text-display-xl text-text-primary mb-4">
+          Ongoing Support That Fits
+        </h2>
+        <p class="font-body text-body-lg text-text-secondary">
+          Cancel anytime. No contracts. Price locked for 12 months.
+        </p>
+      </header>
+
+      <div class="pricing-grid grid gap-6 md:gap-8 md:grid-cols-3">
+        {plans.map(plan => (
+          <PlanCard
+            name={plan.name}
+            price={plan.price}
+            period={plan.period}
+            popular={plan.popular}
+            perk={plan.perk}
+            features={plan.features}
+            ctaText={plan.ctaText}
+            ctaHref={plan.ctaHref}
+            ctaVariant={plan.ctaVariant}
+          />
+        ))}
+      </div>
+
+      <!-- Plan comparison note -->
+      <p class="pricing-note text-center mt-8 font-body text-body-sm text-text-muted">
+        All monthly plans include travel within OKC metro (15-mile radius). Extended areas: travel fee applies.
+      </p>
+    </div>
+
+    <!-- One-Time Services (matching OKIENERD's one-time pricing) -->
+    <div class="pricing-onetime">
+      <header class="section-header text-center max-w-3xl mx-auto mb-10 md:mb-14">
+        <SectionLabel ruled>One-Time Services</SectionLabel>
+        <h3 class="font-display text-display-md text-text-primary mb-4">Pay Per Visit — No Commitment</h3>
+        <p class="font-body text-body-lg text-text-secondary">
+          Need a single fix, setup, or checkup? Book exactly what you need.
+        </p>
+      </header>
+
+      <div class="onetime-grid grid gap-4 md:gap-6 lg:grid-cols-2 xl:grid-cols-4">
+        {oneTimeServices.map(service => (
+          <article class="onetime-card bg-background-card border border-border-primary rounded-card p-6 hover:border-gold-500/50 hover:shadow-md transition-all duration-normal ease-smooth">
+            <div class="onetime-header mb-4">
+              <h4 class="font-display text-heading-md text-text-primary mb-1">{service.name}</h4>
+              <p class="font-body text-body-sm text-text-muted">{service.description}</p>
+            </div>
+            <div class="onetime-price mb-4">
+              <span class="font-display text-display-sm text-gold-500">${service.price}</span>
+              <span class="font-body text-body text-text-muted ml-2">flat rate</span>
+            </div>
+            <p class="onetime-includes font-body text-caption text-gold-600 dark:text-gold-400 flex items-center gap-1.5">
+              <svg class="icon icon-xs" aria-hidden="true"><use href="/icons.svg#icon-check" /></svg>
+              {service.includes}
+            </p>
+            <Button variant="ghost" size="sm" fullWidth href="#contact" class="mt-4">
+              Book This
+            </Button>
+          </article>
+        ))}
+      </div>
+
+      <!-- Scope clarity (matching OKIENERD's "What's included") -->
+      <div class="scope-clarity mt-12 md:mt-16 p-6 md:p-8 bg-background-card border border-border-primary rounded-card">
+        <h4 class="font-display text-heading-lg text-text-primary mb-4 text-center md:text-left">What Every Visit Includes</h4>
+        <div class="scope-grid grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {[
+            'Diagnosis & explanation in plain English',
+            'Written summary emailed after visit',
+            'No upsells — we only fix what\'s broken',
+            '30-day warranty on work performed'
+          ].map(item => (
+            <div class="scope-item flex items-start gap-3">
+              <span class="flex-shrink-0 w-6 h-6 rounded-full bg-gold-100/50 dark:bg-gold-900/20 flex items-center justify-center text-gold-600 dark:text-gold-400 font-bold text-caption">
+                <svg class="icon icon-xs" aria-hidden="true"><use href="/icons.svg#icon-check" /></svg>
+              </span>
+              <span class="font-body text-body-sm text-text-secondary">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing-grid {
+    align-items: stretch;
+  }
+
+  .onetime-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .onetime-card .btn-ghost {
+    margin-top: auto;
+  }
+
+  @media (max-width: 767px) {
+    .scope-grid { grid-template-columns: 1fr; }
+  }
+</style>
