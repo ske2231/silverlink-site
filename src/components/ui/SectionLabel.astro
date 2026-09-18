@@ -1,5 +1,5 @@
 ---
-// SectionLabel.astro - // DIVIDER component
+// SectionLabel.astro - Section label component
 interface Props {
   children: any;
   ruled?: boolean;
@@ -9,11 +9,30 @@ interface Props {
 const { children, ruled = false, class: className = '' } = Astro.props;
 ---
 
-<span class={`font-body font-semibold text-section-label text-gold-500 tracking-widest uppercase block mb-2 ${ruled ? 'relative flex items-center gap-4' : ''} ${className}`}>
+<span class={`section-label ${className}`}>
   {children}
-  {ruled && <span class="flex-1 h-px bg-border-primary" aria-hidden="true" />}
+  {ruled && <span class="section-label-rule"></span>}
 </span>
 
 <style>
-  :host { display: block; }
+  .section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    margin-bottom: 0.75rem;
+    position: relative;
+  }
+
+  .section-label-rule {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 1.75rem;
+    height: 2.5px;
+    background: var(--accent-primary);
+    border-radius: 1px;
+  }
 </style>

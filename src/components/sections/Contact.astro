@@ -1,25 +1,19 @@
 ---
+// Contact.astro - Contact & Consultation section for Silverlink 2
 import Button from '../ui/Button.astro';
 import SectionLabel from '../ui/SectionLabel.astro';
 import Input from '../ui/Input.astro';
 import Modal from '../ui/Modal.astro';
-
-// Contact.astro - Contact form and info section
-interface Props {
-  class?: string;
-}
-
-const { class: className = '' } = Astro.props;
 ---
 
-<section id="contact" class={`contact section section-lg ${className}`} aria-labelledby="contact-title">
+<section id="contact" class="contact section section-lg" aria-labelledby="contact-title">
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
-    <header class="section-header text-center max-w-3xl mx-auto mb-10 md:mb-14">
+    <header class="section-header text-center max-w-3xl mx-auto mb-12 md:mb-16">
       <SectionLabel ruled>Get In Touch</SectionLabel>
-      <h2 id="contact-title" class="font-display text-display-lg md:text-display-xl text-text-primary mb-4">
-        Let\'s Fix Your IT
+      <h2 id="contact-title" class="font-display text-[var(--text-primary)] text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
+        Request a Consultation
       </h2>
-      <p class="font-body text-body-lg text-text-secondary">
+      <p class="font-body text-[var(--text-secondary)] text-lg md:text-xl max-w-xl mx-auto">
         No bots. No ticket numbers. MK responds personally — usually within hours.
       </p>
     </header>
@@ -27,57 +21,57 @@ const { class: className = '' } = Astro.props;
     <div class="contact-grid grid gap-8 md:gap-12 lg:grid-cols-2">
       <!-- Contact Info -->
       <div class="contact-info">
-        <div class="contact-methods space-y-6">
-          <div class="contact-method flex items-start gap-4 p-5 bg-background-card border border-border-primary rounded-card hover:border-gold-500/50 transition-all duration-fast">
-            <div class="method-icon flex-shrink-0 w-12 h-12 rounded-xl bg-gold-100/50 dark:bg-gold-900/20 flex items-center justify-center text-gold-600 dark:text-gold-400">
+        <div class="contact-methods space-y-4 md:space-y-5">
+          <div class="contact-method card p-5 md:p-6">
+            <div class="method-icon w-11 h-11 md:w-12 md:h-12 rounded-xl bg-[var(--accent-subtle)] flex items-center justify-center text-[var(--accent-primary)] mb-3">
               <svg class="icon icon-lg" aria-hidden="true"><use href="/icons.svg#icon-phone" /></svg>
             </div>
             <div>
-              <h3 class="font-display text-heading-md text-text-primary mb-1">Call or Text</h3>
-              <a href="tel:+14058772223" class="font-body text-body-lg text-text-secondary hover:text-gold-500 transition-colors duration-fast">(405) 877-2223</a>
-              <p class="font-body text-caption text-text-muted mt-1">Mon–Fri 8am–8pm • Sat 10am–4pm</p>
+              <h3 class="font-display text-[var(--text-primary)] text-base md:text-lg font-bold mb-1">Call or Text</h3>
+              <a href="tel:+14058772223" class="font-body text-[var(--text-secondary)] text-base md:text-lg hover:text-[var(--accent-primary)] transition-colors duration-200">(405) 877-2223</a>
+              <p class="font-body text-xs md:text-sm text-[var(--text-muted)] mt-1.5">Mon–Fri 9am–6pm • Sat 10am–2pm</p>
             </div>
           </div>
 
-          <div class="contact-method flex items-start gap-4 p-5 bg-background-card border border-border-primary rounded-card hover:border-gold-500/50 transition-all duration-fast">
-            <div class="method-icon flex-shrink-0 w-12 h-12 rounded-xl bg-gold-100/50 dark:bg-gold-900/20 flex items-center justify-center text-gold-600 dark:text-gold-400">
+          <div class="contact-method card p-5 md:p-6">
+            <div class="method-icon w-11 h-11 md:w-12 md:h-12 rounded-xl bg-[var(--accent-subtle)] flex items-center justify-center text-[var(--accent-primary)] mb-3">
               <svg class="icon icon-lg" aria-hidden="true"><use href="/icons.svg#icon-mail" /></svg>
             </div>
             <div>
-              <h3 class="font-display text-heading-md text-text-primary mb-1">Email</h3>
-              <a href="mailto:mk@silverlinkok.com" class="font-body text-body-lg text-text-secondary hover:text-gold-500 transition-colors duration-fast">mk@silverlinkok.com</a>
-              <p class="font-body text-caption text-text-muted mt-1">Replies within 4 business hours</p>
+              <h3 class="font-display text-[var(--text-primary)] text-base md:text-lg font-bold mb-1">Email</h3>
+              <a href="mailto:mk@silverlinkok.com" class="font-body text-[var(--text-secondary)] text-base md:text-lg hover:text-[var(--accent-primary)] transition-colors duration-200">mk@silverlinkok.com</a>
+              <p class="font-body text-xs md:text-sm text-[var(--text-muted)] mt-1.5">Replies within 4 business hours</p>
             </div>
           </div>
 
-          <div class="contact-method flex items-start gap-4 p-5 bg-background-card border border-border-primary rounded-card hover:border-gold-500/50 transition-all duration-fast">
-            <div class="method-icon flex-shrink-0 w-12 h-12 rounded-xl bg-gold-100/50 dark:bg-gold-900/20 flex items-center justify-center text-gold-600 dark:text-gold-400">
+          <div class="contact-method card p-5 md:p-6">
+            <div class="method-icon w-11 h-11 md:w-12 md:h-12 rounded-xl bg-[var(--accent-subtle)] flex items-center justify-center text-[var(--accent-primary)] mb-3">
               <svg class="icon icon-lg" aria-hidden="true"><use href="/icons.svg#icon-map-pin" /></svg>
             </div>
             <div>
-              <h3 class="font-display text-heading-md text-text-primary mb-1">Service Area</h3>
-              <address class="font-body text-body text-text-secondary not-italic">Edmond, Deer Creek, Oakdale & NW OKC</address>
-              <p class="font-body text-caption text-text-muted mt-1">15-mile radius included • Extended: travel fee</p>
+              <h3 class="font-display text-[var(--text-primary)] text-base md:text-lg font-bold mb-1">Service Area</h3>
+              <address class="font-body text-[var(--text-secondary)] not-italic">Edmond, Deer Creek, Oakdale &amp; NW OKC</address>
+              <p class="font-body text-xs md:text-sm text-[var(--text-muted)] mt-1.5">15-mile radius included • Extended areas: travel fee</p>
             </div>
           </div>
 
-          <div class="contact-method flex items-start gap-4 p-5 bg-background-card border border-border-primary rounded-card hover:border-gold-500/50 transition-all duration-fast">
-            <div class="method-icon flex-shrink-0 w-12 h-12 rounded-xl bg-gold-100/50 dark:bg-gold-900/20 flex items-center justify-center text-gold-600 dark:text-gold-400">
+          <div class="contact-method card p-5 md:p-6">
+            <div class="method-icon w-11 h-11 md:w-12 md:h-12 rounded-xl bg-[var(--accent-subtle)] flex items-center justify-center text-[var(--accent-primary)] mb-3">
               <svg class="icon icon-lg" aria-hidden="true"><use href="/icons.svg#icon-clock" /></svg>
             </div>
             <div>
-              <h3 class="font-display text-heading-md text-text-primary mb-1">Emergency Remote</h3>
-              <span class="font-body text-body-lg font-medium text-gold-500">24/7</span>
-              <p class="font-body text-caption text-text-muted mt-1">For Complete Care clients only</p>
+              <h3 class="font-display text-[var(--text-primary)] text-base md:text-lg font-bold mb-1">Emergency Remote</h3>
+              <span class="font-body font-semibold text-[var(--accent-primary)] text-lg">24/7</span>
+              <p class="font-body text-xs md:text-sm text-[var(--text-muted)] mt-1.5">For Essential Care and Business Care clients</p>
             </div>
           </div>
         </div>
 
-        <!-- Quick links -->
-        <div class="contact-quicklinks mt-10 pt-6 border-t border-border-primary">
-          <h4 class="font-display text-heading-sm text-text-primary mb-4">Quick Actions</h4>
+        <!-- Quick actions -->
+        <div class="contact-quicklinks mt-8 pt-6 border-t border-[var(--border-primary)]">
+          <h4 class="font-display text-[var(--text-primary)] text-sm font-semibold mb-4 uppercase tracking-wider">Quick Actions</h4>
           <div class="flex flex-wrap gap-3">
-            <Button variant="secondary" size="sm" href="#pricing">View Pricing</Button>
+            <Button variant="secondary" size="sm" href="#plans">View Plans &amp; Pricing</Button>
             <Button variant="secondary" size="sm" href="#coverage">Check Coverage</Button>
             <Button variant="secondary" size="sm" href="#faq">Read FAQ</Button>
             <Button variant="secondary" size="sm" href="https://ko-fi.com/silverlinkllctechsupport/shop" target="_blank" rel="noopener noreferrer">Digital Guides</Button>
@@ -85,119 +79,148 @@ const { class: className = '' } = Astro.props;
         </div>
       </div>
 
-      <!-- Contact Form -->
+      <!-- Consultation Form -->
       <div class="contact-form-wrapper">
-        <form id="contact-form" class="contact-form bg-background-card border border-border-primary rounded-card p-6 md:p-8" novalidate>
-          <div class="form-row grid gap-4 md:grid-cols-2">
-            <Input
-              id="name"
-              name="name"
-              type="text"
-              label="Your Name"
-              placeholder="Matt Janway"
-              required
-              autocomplete="name"
-            />
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              label="Email Address"
-              placeholder="mk@silverlinkok.com"
-              required
-              autocomplete="email"
-            />
+        <div class="contact-form card overflow-hidden">
+          <div class="form-header bg-[var(--bg-tertiary)] px-6 md:px-7 py-4 border-b border-[var(--border-primary)]">
+            <h3 class="font-display text-[var(--text-primary)] text-lg font-bold">Consultation Request</h3>
+            <p class="font-body text-xs text-[var(--text-muted)]">Demo only — no data is sent until configured</p>
           </div>
 
-          <div class="form-row grid gap-4 md:grid-cols-2 mt-4">
-            <Input
-              id="phone"
-              name="phone"
-              type="tel"
-              label="Phone (optional)"
-              placeholder="(405) 555-0123"
-              autocomplete="tel"
-              pattern="[\d\s\-\(\)\+]{10,}"
-            />
-            <Input
-              id="zip"
-              name="zip"
-              type="text"
-              label="ZIP Code"
-              placeholder="73013"
-              required
-              autocomplete="postal-code"
-              pattern="[0-9]{5}"
-              maxlength="5"
-            />
-          </div>
-
-          <Input
-            id="subject"
-            name="subject"
-            type="text"
-            label="What Do You Need Help With?"
-            placeholder="e.g., Slow laptop, Wi-Fi issues, new setup, business IT..."
-            required
-            class="mt-4"
-          />
-
-          <div class="form-field mt-4">
-            <label for="message" class="block font-body font-medium text-body-sm text-text-primary mb-1.5">
-              Details <span class="text-error-500" aria-hidden="true">*</span>
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              class="w-full font-body text-body bg-background-input border border-border-primary rounded-input px-4 py-3.5 text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-inset focus:ring-border-focus focus:border-transparent transition-all duration-fast resize-y min-h-[120px]"
-              placeholder="Tell me what\'s going on. The more detail, the better I can prepare."
-              required
-              aria-describedby="message-hint"
-            ></textarea>
-            <p id="message-hint" class="font-body text-caption text-text-muted mt-1.5">Include: device type, when it started, what you've tried, any error messages.</p>
-          </div>
-
-          <div class="form-field mt-4">
-            <label class="flex items-center gap-3 cursor-pointer">
-              <input
-                type="checkbox"
-                name="newsletter"
-                class="w-4 h-4 rounded border-border-primary text-gold-500 focus:ring-gold-500 focus:ring-2"
+          <form id="contact-form" class="contact-form-body p-6 md:p-7" novalidate>
+            <div class="form-row grid gap-4 md:grid-cols-2">
+              <Input
+                id="name"
+                name="name"
+                type="text"
+                label="Your Name"
+                placeholder="Your name"
+                required
+                autocomplete="name"
+                class="bg-[var(--bg-input)]"
               />
-              <span class="font-body text-body-sm text-text-secondary">Occasional tips & updates (monthly, no spam)</span>
-            </label>
-          </div>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                label="Email Address"
+                placeholder="you@example.com"
+                required
+                autocomplete="email"
+                class="bg-[var(--bg-input)]"
+              />
+            </div>
 
-          <Button type="submit" variant="primary" size="xl" fullWidth class="mt-6" icon="arrow-right" iconPosition="right">
-            Send Message
-          </Button>
+            <div class="form-row grid gap-4 md:grid-cols-2 mt-4">
+              <Input
+                id="phone"
+                name="phone"
+                type="tel"
+                label="Phone (optional)"
+                placeholder="(405) 555-0123"
+                autocomplete="tel"
+                pattern="[\d\s\-\(\)\+]{10,}"
+                class="bg-[var(--bg-input)]"
+              />
+              <Input
+                id="zip"
+                name="zip"
+                type="text"
+                label="ZIP Code"
+                placeholder="73013"
+                required
+                autocomplete="postal-code"
+                pattern="[0-9]{5}"
+                maxlength="5"
+                class="bg-[var(--bg-input)]"
+              />
+            </div>
 
-          <p class="form-disclaimer font-body text-caption text-text-muted text-center mt-4">
-            By submitting, you agree to our <a href="#privacy" class="underline hover:text-gold-500">Privacy Policy</a>. We never sell your data.
-          </p>
+            <Input
+              id="service-interest"
+              name="service-interest"
+              type="select"
+              label="Service of Interest"
+              required
+              class="bg-[var(--bg-input)] mt-4"
+            >
+              <option value="">Select a service…</option>
+              <option value="remote">Remote Support</option>
+              <option value="onsite">On-Site Visit</option>
+              <option value="essential">Essential Care (monthly)</option>
+              <option value="business">Business Care (monthly)</option>
+              <option value="other">Other / Not sure</option>
+            </Input>
 
-          <!-- Hidden honeypot -->
-          <input type="hidden" name="honeypot" value="" tabindex="-1" autocomplete="off" />
-        </form>
+            <Input
+              id="subject"
+              name="subject"
+              type="text"
+              label="What Do You Need Help With?"
+              placeholder="e.g., Slow laptop, Wi-Fi issues, new setup, business IT…"
+              required
+              class="bg-[var(--bg-input)] mt-4"
+            />
+
+            <div class="form-field mt-4">
+              <label for="message" class="block font-body text-sm font-medium text-[var(--text-primary)] mb-1.5">
+                Details <span class="text-[var(--color-error-500)]" aria-hidden="true">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                class="w-full font-body text-sm bg-[var(--bg-input)] border border-[var(--border-primary)] rounded-lg px-4 py-3 text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--border-focus)] focus:border-transparent transition-all duration-200 resize-y min-h-[120px]"
+                placeholder="Tell me what's going on. The more detail, the better I can prepare."
+                required
+                aria-describedby="message-hint"
+              ></textarea>
+              <p id="message-hint" class="font-body text-xs text-[var(--text-muted)] mt-1.5">Include: device type, when it started, what you've tried, any error messages.</p>
+            </div>
+
+            <div class="form-field mt-4">
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  name="newsletter"
+                  class="w-4 h-4 rounded border-[var(--border-primary)] text-[var(--accent-primary)] focus:ring-[var(--accent-primary)] focus:ring-2"
+                />
+                <span class="font-body text-xs text-[var(--text-secondary)]">Occasional tips &amp; updates (monthly, no spam)</span>
+              </label>
+            </div>
+
+            <Button type="submit" variant="primary" size="xl" fullWidth class="mt-6" icon="arrow-right" iconPosition="right">
+              Send Request
+            </Button>
+
+            <p class="form-disclaimer font-body text-xs text-[var(--text-muted)] text-center mt-4">
+              By submitting, you agree to our <a href="#privacy" class="underline hover:text-[var(--accent-primary)]">Privacy Policy</a>. We never sell your data.
+            </p>
+
+            <!-- Hidden honeypot -->
+            <input type="hidden" name="honeypot" value="" tabindex="-1" autocomplete="off" />
+          </form>
+        </div>
 
         <!-- Success modal -->
-        <Modal
-          id="contact-success"
-          title="Message Sent!"
-          subtitle="Thanks for reaching out."
-        >
-          <div class="text-center">
-            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-success-100 flex items-center justify-center text-success-500">
-              <svg class="icon icon-xl" aria-hidden="true"><use href="/icons.svg#icon-check" /></svg>
+        <div class="mt-4">
+          <Modal
+            id="contact-success"
+            title="Request Received"
+            subtitle="Thanks for reaching out."
+          >
+            <div class="text-center">
+              <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-[var(--color-success-100)] flex items-center justify-center text-[var(--color-success-500)]">
+                <svg class="icon icon-xl" aria-hidden="true"><use href="/icons.svg#icon-check" /></svg>
+              </div>
+              <h3 class="font-display text-[var(--text-primary)] text-xl font-bold mb-2">We Got Your Message</h3>
+              <p class="font-body text-[var(--text-secondary)] text-sm md:text-base mb-5">MK will reply personally — usually within a few hours during business hours.</p>
+              <p class="font-body text-xs text-[var(--text-muted)]">Emergency? Call or text <a href="tel:+14058772223" class="font-medium text-[var(--accent-primary)] hover:underline">(405) 877-2223</a></p>
+              <Button variant="primary" size="md" class="mt-4" data-modal-close="contact-success">
+                Got It
+              </Button>
             </div>
-            <h3 class="font-display text-heading-lg text-text-primary mb-2">We Got Your Message</h3>
-            <p class="font-body text-body text-text-secondary mb-6">MK will reply personally — usually within a few hours during business hours.</p>
-            <p class="font-body text-body-sm text-text-muted">Emergency? Call or text <a href="tel:+14058772223" class="font-medium text-gold-500 hover:underline">(405) 877-2223</a></p>
-            <Button variant="primary" size="md" class="mt-4" data-modal-close="contact-success">
-              Got It
-            </Button>
-          </div>
-        </Modal>
+          </Modal>
+        </div>
       </div>
     </div>
   </div>
@@ -220,13 +243,12 @@ const { class: className = '' } = Astro.props;
 
       const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
       const originalText = submitBtn?.textContent;
-      
+
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
+        submitBtn.textContent = 'Sending…';
       }
 
-      // Collect form data
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
 
@@ -237,11 +259,10 @@ const { class: className = '' } = Astro.props;
         //   headers: { 'Content-Type': 'application/json' },
         //   body: JSON.stringify(data)
         // });
-        
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        
-        // Show success
+
+        // Demo: simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1200));
+
         successModal?.open();
         form.reset();
       } catch (error) {
@@ -250,7 +271,7 @@ const { class: className = '' } = Astro.props;
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.textContent = originalText || 'Send Message';
+          submitBtn.textContent = originalText || 'Send Request';
         }
       }
     });
@@ -282,6 +303,11 @@ const { class: className = '' } = Astro.props;
 
   .contact-form {
     width: 100%;
+    overflow: hidden;
+  }
+
+  .form-header {
+    background: var(--bg-tertiary);
   }
 
   @media (max-width: 767px) {

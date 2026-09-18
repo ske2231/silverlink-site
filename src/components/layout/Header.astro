@@ -8,67 +8,81 @@ const { scrolled = false } = Astro.props;
 import Button from '../ui/Button.astro';
 ---
 
-<header class={`site-header fixed top-0 left-0 right-0 z-header transition-all duration-normal ease-smooth ${scrolled ? 'bg-background-primary/95 backdrop-blur-md border-b border-border-primary shadow-md' : 'bg-transparent'}`}>
+<header class={`site-header fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${scrolled ? 'scrolled' : ''}`}>
   <nav class="container mx-auto px-4 md:px-6 lg:px-8" aria-label="Main navigation">
     <div class="flex items-center justify-between h-16 md:h-20 gap-4">
       <!-- Logo -->
-      <a href="/" class="logo flex items-center gap-3 shrink-0" aria-label="SilverLink Home">
-        <svg class="w-8 h-8 text-gold-500" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <rect width="32" height="32" rx="6" fill="currentColor"/>
-          <path d="M8 16 L14 22 L24 10" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <a href="/" class="logo flex items-center gap-3 shrink-0" aria-label="SilverLink LLC Home">
+        <!-- SilverLink LLC linked logo mark -->
+        <svg class="w-8 h-8" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="var(--accent-primary)"/>
+          <path d="M7 24 L14 11 L21 18 L25 10" stroke="var(--color-white)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
-        <span class="font-display text-heading-lg text-text-primary hidden sm:block">SilverLink</span>
+        <span class="font-display text-[var(--text-primary)] text-lg md:text-xl font-bold tracking-tight">SilverLink LLC</span>
       </a>
 
       <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center gap-8 nav-links">
-        <a href="#services" class="nav-link font-body font-medium text-body text-text-secondary hover:text-text-primary transition-colors duration-fast">Services</a>
-        <a href="#pricing" class="nav-link font-body font-medium text-body text-text-secondary hover:text-text-primary transition-colors duration-fast">Pricing</a>
-        <a href="#coverage" class="nav-link font-body font-medium text-body text-text-secondary hover:text-text-primary transition-colors duration-fast">Coverage</a>
-        <a href="#faq" class="nav-link font-body font-medium text-body text-text-secondary hover:text-text-primary transition-colors duration-fast">FAQ</a>
-        <a href="#contact" class="nav-link font-body font-medium text-body text-text-secondary hover:text-text-primary transition-colors duration-fast">Contact</a>
+      <div class="hidden md:flex items-center gap-7 nav-links">
+        <a href="#services" class="nav-link font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200">Services</a>
+        <a href="#plans" class="nav-link font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200">Plans</a>
+        <a href="#about" class="nav-link font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200">About</a>
+        <a href="#contact" class="nav-link font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200">Contact</a>
       </div>
 
       <!-- Desktop CTA -->
       <div class="hidden md:flex items-center gap-3 nav-cta">
-        <a href="tel:+14058772223" class="nav-phone font-body font-medium text-body text-text-secondary hover:text-text-primary transition-colors duration-fast flex items-center gap-1.5">
+        <a href="tel:+14058772223" class="nav-phone font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 flex items-center gap-1.5">
           <svg class="icon icon-sm" aria-hidden="true"><use href="/icons.svg#icon-phone" /></svg>
           <span>(405) 877-2223</span>
         </a>
         <Button variant="primary" size="md" href="#contact">
-          Get Started
+          Request Consultation
         </Button>
       </div>
 
-      <!-- Mobile Menu Button -->
-      <button
-        class="mobile-menu-btn md:hidden p-2 rounded-lg bg-background-tertiary text-text-primary flex items-center justify-center transition-colors duration-fast hover:bg-background-hover"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-        data-mobile-menu-toggle
-      >
-        <svg class="icon icon-lg" aria-hidden="true"><use href="/icons.svg#icon-menu" /></svg>
-      </button>
+      <!-- Theme Toggle + Mobile Menu Button -->
+      <div class="flex items-center gap-2 md:hidden">
+        <button
+          class="theme-toggle w-9 h-9 rounded-lg flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-colors duration-200"
+          aria-label="Toggle theme"
+          data-theme-toggle
+        >
+          <svg class="icon icon-md" aria-hidden="true" data-theme-sun><use href="/icons.svg#icon-sun" /></svg>
+          <svg class="icon icon-md hidden" aria-hidden="true" data-theme-moon><use href="/icons.svg#icon-moon" /></svg>
+        </button>
+        <button
+          class="mobile-menu-btn p-2 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-colors duration-200"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          data-mobile-menu-toggle
+        >
+          <svg class="icon icon-lg" aria-hidden="true" data-menu-icon-open><use href="/icons.svg#icon-menu" /></svg>
+          <svg class="icon icon-lg hidden" aria-hidden="true" data-menu-icon-close><use href="/icons.svg#icon-x" /></svg>
+        </button>
+      </div>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="mobile-menu md:hidden overflow-hidden transition-all duration-normal ease-smooth max-h-0 opacity-0" role="navigation" aria-label="Mobile navigation">
-      <div class="py-4 space-y-2 border-t border-border-primary">
-        <a href="#services" class="mobile-nav-link block px-4 py-3 font-body font-medium text-body-lg text-text-secondary hover:text-text-primary hover:bg-background-tertiary rounded-lg transition-colors duration-fast">Services</a>
-        <a href="#pricing" class="mobile-nav-link block px-4 py-3 font-body font-medium text-body-lg text-text-secondary hover:text-text-primary hover:bg-background-tertiary rounded-lg transition-colors duration-fast">Pricing</a>
-        <a href="#coverage" class="mobile-nav-link block px-4 py-3 font-body font-medium text-body-lg text-text-secondary hover:text-text-primary hover:bg-background-tertiary rounded-lg transition-colors duration-fast">Coverage</a>
-        <a href="#faq" class="mobile-nav-link block px-4 py-3 font-body font-medium text-body-lg text-text-secondary hover:text-text-primary hover:bg-background-tertiary rounded-lg transition-colors duration-fast">FAQ</a>
-        <a href="#contact" class="mobile-nav-link block px-4 py-3 font-body font-medium text-body-lg text-text-secondary hover:text-text-primary hover:bg-background-tertiary rounded-lg transition-colors duration-fast">Contact</a>
-        <div class="pt-2 border-t border-border-primary">
-          <a href="tel:+14058772223" class="mobile-nav-link block px-4 py-3 font-body font-medium text-body-lg text-text-secondary hover:text-text-primary flex items-center gap-3">
+    <div id="mobile-menu" class="mobile-menu md:hidden overflow-hidden transition-all duration-300 ease-out" role="navigation" aria-label="Mobile navigation">
+      <div class="py-4 space-y-1 border-t border-[var(--border-primary)]">
+        <a href="#services" class="mobile-nav-link block px-4 py-3 rounded-lg font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-colors duration-200">Services</a>
+        <a href="#plans" class="mobile-nav-link block px-4 py-3 rounded-lg font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-colors duration-200">Plans</a>
+        <a href="#about" class="mobile-nav-link block px-4 py-3 rounded-lg font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-colors duration-200">About</a>
+        <a href="#contact" class="mobile-nav-link block px-4 py-3 rounded-lg font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-colors duration-200">Contact</a>
+        <div class="pt-3 border-t border-[var(--border-primary)]">
+          <a href="tel:+14058772223" class="block px-4 py-3 rounded-lg font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-colors duration-200 flex items-center gap-3">
             <svg class="icon icon-md" aria-hidden="true"><use href="/icons.svg#icon-phone" /></svg>
             (405) 877-2223
           </a>
+          <a href="mailto:mk@silverlinkok.com" class="block px-4 py-3 rounded-lg font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-colors duration-200 flex items-center gap-3">
+            <svg class="icon icon-md" aria-hidden="true"><use href="/icons.svg#icon-mail" /></svg>
+            mk@silverlinkok.com
+          </a>
         </div>
-        <div class="pt-2">
+        <div class="pt-3">
           <Button variant="primary" size="lg" fullWidth href="#contact" class="w-full">
-            Get Started
+            Request Consultation
           </Button>
         </div>
       </div>
@@ -80,7 +94,7 @@ import Button from '../ui/Button.astro';
   // Header scroll effect
   const header = document.querySelector('.site-header');
   let lastScroll = 0;
-  
+
   function handleScroll() {
     const currentScroll = window.scrollY;
     if (currentScroll > 20) {
@@ -100,16 +114,21 @@ import Button from '../ui/Button.astro';
     menuOpen = !menuOpen;
     menuToggle?.setAttribute('aria-expanded', menuOpen.toString());
     menuToggle?.setAttribute('aria-label', menuOpen ? 'Close menu' : 'Open menu');
-    
+
+    const openIcon = menuToggle?.querySelector('[data-menu-icon-open]');
+    const closeIcon = menuToggle?.querySelector('[data-menu-icon-close]');
+
     if (menuOpen) {
       mobileMenu?.classList.remove('max-h-0', 'opacity-0');
-      mobileMenu?.classList.add('max-h-96', 'opacity-100');
-      menuToggle.innerHTML = '<svg class="icon icon-lg" aria-hidden="true"><use href="/icons.svg#icon-x" /></svg>';
+      mobileMenu?.classList.add('max-h-screen', 'opacity-100');
+      if (openIcon) openIcon.classList.add('hidden');
+      if (closeIcon) closeIcon.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
     } else {
       mobileMenu?.classList.add('max-h-0', 'opacity-0');
-      mobileMenu?.classList.remove('max-h-96', 'opacity-100');
-      menuToggle.innerHTML = '<svg class="icon icon-lg" aria-hidden="true"><use href="/icons.svg#icon-menu" /></svg>';
+      mobileMenu?.classList.remove('max-h-screen', 'opacity-100');
+      if (openIcon) openIcon.classList.remove('hidden');
+      if (closeIcon) closeIcon.classList.add('hidden');
       document.body.style.overflow = '';
     }
   }
@@ -123,8 +142,35 @@ import Button from '../ui/Button.astro';
     });
   });
 
+  // Theme toggle
+  const themeToggle = document.querySelector('[data-theme-toggle]');
+  const themeSun = document.querySelector('[data-theme-sun]');
+  const themeMoon = document.querySelector('[data-theme-moon]');
+  const html = document.documentElement;
+
+  function setTheme(theme) {
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    if (theme === 'light') {
+      if (themeSun) themeSun.classList.add('hidden');
+      if (themeMoon) themeMoon.classList.remove('hidden');
+    } else {
+      if (themeSun) themeSun.classList.remove('hidden');
+      if (themeMoon) themeMoon.classList.add('hidden');
+    }
+  }
+
+  // Load saved theme
+  const saved = localStorage.getItem('theme') || 'dark';
+  setTheme(saved);
+
+  themeToggle?.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme') || 'dark';
+    setTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
   // Scroll handler with debounce
-  let scrollTimeout: number;
+  let scrollTimeout;
   window.addEventListener('scroll', () => {
     clearTimeout(scrollTimeout);
     scrollTimeout = window.setTimeout(handleScroll, 10);
@@ -135,33 +181,42 @@ import Button from '../ui/Button.astro';
 </script>
 
 <style>
+  .site-header {
+    background: transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .site-header.scrolled {
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-primary);
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
   .nav-link {
     position: relative;
+    padding-bottom: 2px;
   }
-  
+
   .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -4px;
+    bottom: -2px;
     left: 0;
     width: 0;
     height: 2px;
     background: var(--accent-primary);
     transition: width 0.2s ease;
   }
-  
+
   .nav-link:hover::after {
     width: 100%;
   }
 
-  .mobile-menu {
-    background: var(--bg-primary);
-    border-bottom: 1px solid var(--border-primary);
-  }
-
   @media (max-width: 767px) {
     .site-header.scrolled {
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-sm);
     }
   }
 </style>

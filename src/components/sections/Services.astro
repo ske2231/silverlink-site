@@ -1,159 +1,150 @@
 ---
-// Services.astro - Services section matching OKIENERD's "How it works" structure
-interface Props {
-  class?: string;
-}
-
-const { class: className = '' } = Astro.props;
+// Services.astro - Services section for Silverlink 2
 import Button from '../ui/Button.astro';
 import SectionLabel from '../ui/SectionLabel.astro';
 
 const services = [
   {
-    id: 'complete-care',
-    title: 'Complete Care',
-    subtitle: 'Monthly managed IT',
-    description: 'Proactive maintenance, unlimited remote help, and monthly on-site visits — all included. We monitor, patch, and secure your systems so you don\'t have to think about IT.',
-    icon: 'shield',
-    features: [
-      'Monthly on-site visit (1 hour included)',
-      'Unlimited remote support',
-      '24/7 monitoring & alerting',
-      'Automated patch management',
-      'Antivirus/EDR management',
-      'Backup verification',
-      'Quarterly security review',
-      'Priority scheduling'
-    ],
-    ctaText: 'Get Complete Care',
-    ctaHref: '#contact',
-    popular: true,
-    price: 199,
-    period: '/month'
-  },
-  {
-    id: 'remote-help',
-    title: 'Remote Help',
-    subtitle: 'On-demand support',
-    description: 'Fast, secure remote assistance for any issue — no travel fee, no wait. Same MK you know, available 24/7 for emergencies.',
-    icon: 'message-square',
+    id: 'remote-support',
+    title: 'Remote Support',
+    subtitle: 'On-demand screen-share help',
+    description: 'Fast, secure remote assistance for any issue — no travel fee, no wait. Same MK you know, available 24/7 for emergencies. Screen sharing, secure connection, full troubleshooting.',
+    icon: 'message-circle',
     features: [
       'Screen-sharing troubleshooting',
-      'Software install & config',
-      'Email & account setup',
-      'Virus/malware removal',
-      'Printer & peripheral help',
-      'Cloud backup setup',
-      'Password manager setup',
-      'Available nationwide'
+      'Software install & configuration',
+      'Email, account & password setup',
+      'Virus and malware removal',
+      'Printer and peripheral help',
+      'Cloud backup setup guidance',
+      'Password manager configuration',
+      'Available nationwide — 24/7 emergency'
     ],
     ctaText: 'Start Remote Session',
     ctaHref: '#contact',
-    price: 75,
-    period: '/hour'
+    price: null
   },
   {
-    id: 'one-time',
-    title: 'One-Time Visits',
-    subtitle: 'Per-visit pricing',
-    description: 'Need a single fix, setup, or checkup? Book a one-time on-site visit. No contracts, no commitments — just the help you need, when you need it.',
+    id: 'on-site',
+    title: 'On-Site Visits',
+    subtitle: 'Hands-on tech help',
+    description: 'Same-day or scheduled on-site visits for anything remote can\'t fix. We bring the expertise, the tools, and the patience — you bring the problem. No jargon, no runaround.',
     icon: 'home',
     features: [
       'Diagnostic & repair',
-      'New device setup',
-      'Network/Wi-Fi optimization',
-      'Smart home device config',
-      'Data transfer & backup',
+      'New device setup and data transfer',
+      'Network and Wi-Fi optimization',
+      'Smart home device configuration',
+      'Data backup and recovery setup',
       'Security hardening',
-      'Tech buying advice',
-      'Travel included (local)'
+      'Tech buying consultation',
+      'Travel included within OKC metro'
     ],
-    ctaText: 'Book a Visit',
+    ctaText: 'Book an On-Site Visit',
     ctaHref: '#contact',
-    price: 149,
-    period: '/visit'
+    price: null
   },
   {
-    id: 'business',
-    title: 'Business IT',
-    subtitle: 'Fractional CTO & MSP',
-    description: 'Strategic IT leadership for small businesses and nonprofits. From compliance to cloud migration — we handle the tech so you can focus on your mission.',
+    id: 'essential-care',
+    title: 'Essential Care',
+    subtitle: 'Up to 3 devices · 2 hours/month',
+    description: 'Monthly managed IT for homes and small setups. Includes proactive checkups, unlimited remote help, and a monthly on-site visit window. Good for households with a few devices or a solo small office.',
+    icon: 'zap',
+    features: [
+      'Up to 3 devices covered',
+      '2 remote support hours included per month',
+      'Monthly on-site visit window',
+      'Proactive monitoring & alerting',
+      'Automated patch management',
+      'Antivirus/EDR management',
+      'Backup health checks',
+      'Quarterly security review'
+    ],
+    ctaText: 'Start Essential Care',
+    ctaHref: '#contact',
+    price: 199,
+    period: '/month',
+    popular: true
+  },
+  {
+    id: 'business-care',
+    title: 'Business Care',
+    subtitle: 'Up to 10 devices · 5 hours/month',
+    description: 'Fractional IT leadership for small businesses, nonprofits, and professional firms. Strategic planning, compliance documentation, vendor management, and hands-on support — you focus on your mission.',
     icon: 'building',
     features: [
-      'IT strategy & roadmap',
-      'Vendor management',
-      'Compliance (HIPAA, CMMC, etc.)',
+      'Up to 10 devices covered',
+      '5 remote support hours per month',
       'Microsoft 365 / Google Workspace admin',
-      'Network infrastructure',
-      'Business continuity planning',
-      'Employee onboarding/offboarding',
-      'Security awareness training'
+      'Vendor & license management',
+      'Compliance documentation (HIPAA, CMMC)',
+      'Network monitoring & firewall management',
+      'Security awareness training',
+      'Quarterly strategy review (1 hour)'
     ],
-    ctaText: 'Discuss Your Needs',
+    ctaText: 'Discuss Business Plan',
     ctaHref: '#contact',
-    price: 350,
+    price: 449,
     period: '/month'
   }
 ];
 ---
 
-<section id="services" class={`services section section-lg ${className}`} aria-labelledby="services-title">
+<section id="services" class="services section section-lg" aria-labelledby="services-title">
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
-    <header class="section-header text-center max-w-3xl mx-auto mb-12 md:mb-16">
-      <SectionLabel ruled>Our Services</SectionLabel>
-      <h2 id="services-title" class="font-display text-display-lg md:text-display-xl text-text-primary mb-4">
-        Four Ways We Help
+    <header class="section-header text-center max-w-3xl mx-auto mb-14 md:mb-18">
+      <SectionLabel ruled>What We Do</SectionLabel>
+      <h2 id="services-title" class="font-display text-[var(--text-primary)] text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
+        Services &amp; Plans
       </h2>
-      <p class="font-body text-body-lg text-text-secondary">
-        From monthly managed care to one-time fixes, we match our support to your needs.
-        Every tier includes the same MK, the same quality, and the same no-jargon approach.
+      <p class="font-body text-[var(--text-secondary)] text-lg md:text-xl max-w-2xl mx-auto">
+        From one-time fixes to ongoing managed care, we match our support to your needs.
+        Every tier, every visit — same MK, same quality, same no-jargon approach.
       </p>
     </header>
 
-    <div class="services-grid grid gap-6 md:gap-8 lg:grid-cols-2">
-      {services.map((service, index) => (
-        <article class={`service-card bg-background-card border-2 ${service.popular ? 'border-gold-500' : 'border-border-primary'} rounded-card overflow-hidden flex flex-col ${service.popular ? 'shadow-lg relative' : 'transition-all duration-normal ease-smooth hover:border-gold-500/50 hover:shadow-lg'}`}>
+    <div class="services-grid grid gap-5 md:gap-6 lg:grid-cols-2">
+      {services.map((service) => (
+        <article class={`service-card card flex flex-col ${service.popular ? 'ring-2 ring-[var(--accent-primary)] shadow-lg' : ''}`}>
           {service.popular && (
             <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-              <span class="bg-gold-500 text-navy-900 text-caption font-semibold px-3 py-1 rounded-badge">Most Popular</span>
+              <span class="bg-[var(--accent-primary)] text-[var(--text-on-blue)] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Most Popular</span>
             </div>
           )}
-          
-          <div class="p-6 md:p-8 flex flex-col h-full">
+
+          <div class="p-6 md:p-7 flex flex-col h-full">
             <!-- Icon & Header -->
-            <div class="flex items-start gap-4 mb-6">
-              <div class={`service-icon flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center ${service.popular ? 'bg-gold-100 dark:bg-gold-900/30 text-gold-600 dark:text-gold-400' : 'bg-gold-100/50 dark:bg-gold-900/20 text-gold-600 dark:text-gold-400'}`}>
-                <svg class="icon icon-xl" aria-hidden="true"><use href={`/icons.svg#icon-${service.icon}`} /></svg>
+            <div class="flex items-start gap-4 mb-5">
+              <div class="service-icon w-12 h-12 md:w-14 md:h-14 rounded-xl bg-[var(--accent-subtle)] flex items-center justify-center text-[var(--accent-primary)] flex-shrink-0">
+                <svg class="icon icon-xl md:icon-2xl" aria-hidden="true"><use href={`/icons.svg#icon-${service.icon}`} /></svg>
               </div>
-              <div class="flex-1">
-                <h3 class="font-display text-heading-xl text-text-primary mb-1">{service.title}</h3>
-                <p class="font-body text-body text-gold-600 dark:text-gold-400 font-medium">{service.subtitle}</p>
+              <div class="flex-1 min-w-0">
+                <h3 class="font-display text-[var(--text-primary)] text-xl md:text-2xl font-bold mb-1 tracking-tight">{service.title}</h3>
+                <p class="font-body text-sm text-[var(--text-muted)]">{service.subtitle}</p>
               </div>
             </div>
 
             <!-- Description -->
-            <p class="font-body text-body text-text-secondary mb-6 flex-1">{service.description}</p>
+            <p class="font-body text-[var(--text-secondary)] text-sm md:text-base leading-relaxed mb-5 flex-1">{service.description}</p>
 
             <!-- Features -->
-            <ul class="service-features space-y-3 mb-6 flex-1">
+            <ul class="service-features space-y-2.5 mb-5 flex-1">
               {service.features.map(feature => (
-                <li class="flex items-start gap-3 text-body text-text-secondary">
-                  <span class="flex-shrink-0 w-5 h-5 rounded-full bg-gold-100/50 dark:bg-gold-900/20 flex items-center justify-center text-gold-600 dark:text-gold-400 font-bold text-caption mt-0.5">
-                    <svg class="icon icon-xs" aria-hidden="true"><use href="/icons.svg#icon-check" /></svg>
-                  </span>
+                <li class="flex items-start gap-3 text-sm text-[var(--text-secondary)]">
+                  <svg class="icon icon-xs flex-shrink-0 mt-0.5 text-[var(--accent-primary)]" aria-hidden="true"><use href="/icons.svg#icon-check" /></svg>
                   <span>{feature}</span>
                 </li>
               ))}
             </ul>
 
             <!-- Pricing & CTA -->
-            <div class="service-footer pt-4 border-t border-border-primary">
-              <div class="flex items-baseline justify-between gap-4 mb-4">
-                <div>
-                  <span class="font-display text-display-sm text-gold-500">${service.price}</span>
-                  <span class="font-body text-body text-text-muted">{service.period}</span>
+            <div class="service-footer pt-4 border-t border-[var(--border-primary)]">
+              {service.price && (
+                <div class="flex items-baseline gap-1 mb-4">
+                  <span class="font-display text-xl md:text-2xl font-bold text-[var(--accent-primary)]">${service.price}</span>
+                  <span class="font-body text-sm text-[var(--text-muted)]">{service.period}</span>
                 </div>
-              </div>
+              )}
               <Button
                 variant={service.popular ? 'primary' : 'secondary'}
                 size="lg"
@@ -168,31 +159,27 @@ const services = [
       ))}
     </div>
 
-    <!-- Process Steps (matching OKIENERD's step-by-step) -->
-    <div class="process-section mt-16 md:mt-24">
+    <!-- Three-step process -->
+    <div class="process-section mt-16 md:mt-20">
       <header class="section-header text-center max-w-2xl mx-auto mb-10 md:mb-14">
         <SectionLabel ruled>How It Works</SectionLabel>
-        <h3 class="font-display text-display-md text-text-primary mb-3">Simple as 1-2-3</h3>
-        <p class="font-body text-body text-text-secondary">No complex onboarding. No tickets. No runaround.</p>
+        <h3 class="font-display text-[var(--text-primary)] text-xl md:text-2xl font-bold mb-3 tracking-tight">Simple as 1-2-3</h3>
+        <p class="font-body text-base text-[var(--text-secondary)]">No complex onboarding. No tickets. No runaround.</p>
       </header>
 
-      <ol class="process-steps grid gap-6 md:gap-8 md:grid-cols-3">
+      <ol class="process-steps grid gap-6 md:gap-10 lg:gap-14 lg:grid-cols-3">
         {[
-          { step: '01', title: 'Reach Out', description: 'Call, text, email, or fill the form. We respond same day — usually within hours.', icon: 'message-square' },
-          { step: '02', title: 'We Show Up', description: 'On-site or remote, MK arrives ready. No scripts, no escalation tiers — just expertise.', icon: 'truck' },
-          { step: '03', title: 'It\'s Fixed', description: 'You confirm it works. We document everything. You get back to what matters.', icon: 'check' }
+          { step: '01', title: 'Reach Out', description: 'Call, text, email, or fill the form. We respond same day — usually within hours.', icon: 'message-circle' },
+          { step: '02', title: 'We Show Up', description: 'On-site or remote, MK arrives ready. No scripts, no escalation tiers — just expertise.', icon: 'phone' },
+          { step: '03', title: 'It\'s Fixed', description: 'You confirm it works. We document everything. You get back to what matters.', icon: 'check-circle' }
         ].map((step, index) => (
-          <li class="process-step relative">
-            <div class="process-step-marker mb-4">
-              <span class="font-display text-heading-xl md:text-display-sm text-gold-500/30 font-bold">{step.step}</span>
-            </div>
-            <div class="process-step-icon w-12 h-12 rounded-xl bg-gold-100/50 dark:bg-gold-900/20 flex items-center justify-center text-gold-600 dark:text-gold-400 mb-4 mx-auto md:mx-0">
-              <svg class="icon icon-lg" aria-hidden="true"><use href={`/icons.svg#icon-${step.icon}`} /></svg>
-            </div>
-            <h4 class="font-display text-heading-lg text-text-primary text-center md:text-left mb-2">{step.title}</h4>
-            <p class="font-body text-body text-text-secondary text-center md:text-left">{step.description}</p>
+          <li class="process-step relative flex flex-col items-center text-center md:text-left">
+            <span class="process-step-number font-display text-3xl md:text-4xl font-bold text-[var(--accent-primary)]/30 mb-4">{step.step}</span>
+            <svg class="icon icon-xl text-[var(--accent-primary)] mb-4" aria-hidden="true"><use href={`/icons.svg#icon-${step.icon}`} /></svg>
+            <h4 class="font-display text-lg font-bold text-[var(--text-primary)] mb-1.5">{step.title}</h4>
+            <p class="font-body text-sm text-[var(--text-secondary)] leading-relaxed max-w-xs">{step.description}</p>
             {index < 2 && (
-              <div class="process-connector absolute top-[2.5rem] left-[calc(50%+2.25rem)] w-full md:w-[calc(50%_-_2.25rem)] h-px bg-border-primary hidden md:block" aria-hidden="true" />
+              <div class="process-connector absolute top-7 md:top-8 left-1/2 md:left-auto md:right-[-50%] w-full md:w-[calc(50%+3rem)] h-px bg-[var(--border-primary)] hidden md:block -z-10" aria-hidden="true" />
             )}
           </li>
         ))}
@@ -202,12 +189,38 @@ const services = [
 </section>
 
 <style>
+  .service-card {
+    position: relative;
+    padding: 1.5rem;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .service-card .service-icon {
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .service-card:hover .service-icon {
+    background-color: var(--accent-primary);
+    color: var(--text-on-blue);
+    transform: scale(1.05);
+  }
+
   .process-step { position: relative; }
-  
-  .process-step:last-child .process-connector { display: none; }
+  .process-connector { display: none; }
+
+  @media (min-width: 1024px) {
+    .process-connector {
+      display: block;
+    }
+  }
 
   @media (max-width: 767px) {
+    .service-card { padding: 1.25rem; }
     .process-connector { display: none !important; }
-    .process-step { text-align: center; }
   }
 </style>
