@@ -195,6 +195,9 @@ img, video { max-width: 100%; display: block; }
 
 /* Pricing */
 .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; align-items: stretch; }
+.plans-2 { grid-template-columns: repeat(2, 1fr); max-width: 58rem; margin-left: auto; margin-right: auto; }
+.pricing-sub { text-align: center; font-size: 1.3rem; margin: 2.8rem 0 1.2rem; }
+.opt { color: var(--muted); font-weight: 400; font-size: 0.85em; }
 .addons { text-align: center; margin-top: 1.6rem; color: var(--muted); font-size: 0.95rem; }
 .addons strong { color: var(--text); }
 @media (max-width: 860px) { .plans { grid-template-columns: 1fr; max-width: 26rem; margin: 0 auto; } }
