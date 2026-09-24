@@ -1,17 +1,337 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/sections/Hero.astro';
-import Services from '../components/sections/Services.astro';
-import Pricing from '../components/sections/Pricing.astro';
-import Coverage from '../components/sections/Coverage.astro';
-import FAQ from '../components/sections/FAQ.astro';
-import Contact from '../components/sections/Contact.astro';
+import "../styles/global.css";
+
+const title = "SilverLink — Virtual Walkthrough Videos for Realtors | Oklahoma City";
+const description = "SilverLink turns your listing photos into smooth, room-to-room virtual walkthrough videos. 48-hour turnaround. Serving the Oklahoma City metro.";
 ---
 
-<BaseLayout title="SilverLink LLC — Reliable IT. Fewer interruptions." description="On-site computer repair, managed IT, and cybersecurity for Edmond, Deer Creek, Oakdale & NW OKC. Same MK. No jargon. Request a consultation.">
-  <Hero />
-  <Services />
-  <Pricing />
-  <FAQ />
-  <Contact />
-</BaseLayout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SilverLink" />
+    <meta property="og:title" content="SilverLink — Virtual Walkthrough Videos for Realtors" />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://www.silverlinkok.com/" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="#top" aria-label="SilverLink home">
+          <span class="brand-mark" aria-hidden="true">S</span>
+          SilverLink
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="#how-it-works">How It Works</a>
+          <a href="#sample">Sample Tour</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="header-cta">
+          <a class="phone-link" href="tel:+14058772223">(405) 877-2223</a>
+          <a class="btn btn-primary" href="#contact">Book a Tour</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero" id="top">
+        <div class="wrap hero-grid">
+          <div>
+            <span class="eyebrow">Virtual walkthrough videos · Oklahoma City metro</span>
+            <h1>Turn your listing photos into a <span class="grad">walkthrough</span> buyers can't scroll past.</h1>
+            <p class="lede">
+              Send us the photos you already have. We build a smooth, room-to-room video tour —
+              with room labels, your branding, and a shareable link — ready in as little as 48 hours.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Book a Walkthrough</a>
+              <a class="btn btn-ghost" href="#sample">See a Sample Tour</a>
+            </div>
+            <p class="hero-note">
+              <strong>No videographer. No scheduling. No reshoots.</strong><br />
+              Just the photos on your phone, turned into a video that sells the showing.
+            </p>
+          </div>
+          <div>
+            <div class="hero-video">
+              <video controls preload="metadata" poster="/tour-poster.jpg" aria-label="Sample virtual walkthrough video">
+                <source src="/sample-tour.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div class="video-caption">
+                <span><strong>Sample tour</strong> — 9313 Southlake Dr, Oklahoma City</span>
+                <span>0:57</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FACTS -->
+      <div class="facts" role="list" aria-label="Service highlights">
+        <div class="wrap">
+          <div class="fact" role="listitem"><div class="n">48 hrs</div><div class="d">Standard turnaround</div></div>
+          <div class="fact" role="listitem"><div class="n">Room-to-room</div><div class="d">True walking motion, not a slideshow</div></div>
+          <div class="fact" role="listitem"><div class="n">1 link</div><div class="d">Plays anywhere — MLS, Zillow, social</div></div>
+          <div class="fact" role="listitem"><div class="n">Local</div><div class="d">Oklahoma owned &amp; operated</div></div>
+        </div>
+      </div>
+
+      <!-- HOW IT WORKS -->
+      <section class="section" id="how-it-works">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>From photos to walkthrough in three steps</h2>
+            <p>You already took the photos. We do everything else.</p>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <div class="num" aria-hidden="true">1</div>
+              <h3>Send your listing photos</h3>
+              <p>Upload the shots from your phone or your photographer's set — plus the address and listing details. Takes five minutes.</p>
+            </div>
+            <div class="step">
+              <div class="num" aria-hidden="true">2</div>
+              <h3>We build your walking tour</h3>
+              <p>Smooth forward-motion video, room labels, a branded title card, and your contact info on the closing card.</p>
+            </div>
+            <div class="step">
+              <div class="num" aria-hidden="true">3</div>
+              <h3>Share the link everywhere</h3>
+              <p>Post it on the MLS, Zillow, Facebook, Instagram, and email. One link that plays beautifully on any phone.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SAMPLE -->
+      <section class="section alt" id="sample">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Watch a real sample tour</h2>
+            <p>Built from ordinary listing photos — no film crew, no special equipment.</p>
+          </div>
+          <div class="sample-grid">
+            <div class="sample-video">
+              <video controls preload="metadata" poster="/tour-poster.jpg" aria-label="Sample virtual walkthrough of 9313 Southlake Dr">
+                <source src="/sample-tour.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="prop-card">
+              <span class="tag">Sample listing</span>
+              <h3>Rental Walkthrough</h3>
+              <p class="addr">9313 Southlake Dr<br />Oklahoma City, OK 73159</p>
+              <div class="prop-specs">
+                <div><div class="v">3</div><div class="k">Bedrooms</div></div>
+                <div><div class="v">2</div><div class="k">Bathrooms</div></div>
+                <div><div class="v">1,706</div><div class="k">Sq. Ft.</div></div>
+              </div>
+              <p class="fine">Sample tour created with the property owner's permission. Your tours carry your branding and contact info.</p>
+              <a class="btn btn-primary" href="#contact">Get a Tour Like This</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section class="section" id="pricing">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Simple pricing, per listing</h2>
+            <p>No contracts on single tours. Pay per property, or bundle and save.</p>
+          </div>
+          <div class="plans">
+            <div class="plan">
+              <h3>Single Tour</h3>
+              <p class="price">$149</p>
+              <p class="per">per listing</p>
+              <ul>
+                <li>One room-to-room video tour</li>
+                <li>Up to 25 listing photos</li>
+                <li>Room labels &amp; branded cards</li>
+                <li>48-hour turnaround</li>
+                <li>Shareable link + video file</li>
+              </ul>
+              <a class="btn btn-ghost" href="#contact">Book a Single Tour</a>
+            </div>
+            <div class="plan featured">
+              <span class="badge">Most Popular</span>
+              <h3>3-Tour Pack</h3>
+              <p class="price">$379</p>
+              <p class="per">3 listings · use within 6 months</p>
+              <ul>
+                <li>Everything in Single Tour</li>
+                <li>Save $68 vs. booking separately</li>
+                <li>Priority scheduling</li>
+                <li>Your logo &amp; colors on every tour</li>
+                <li>One round of revisions included</li>
+              </ul>
+              <a class="btn btn-primary" href="#contact">Book the 3-Pack</a>
+            </div>
+            <div class="plan">
+              <h3>Listing Partner</h3>
+              <p class="price">$599</p>
+              <p class="per">per month · up to 5 tours</p>
+              <ul>
+                <li>Everything in 3-Tour Pack</li>
+                <li>Up to 5 tours every month</li>
+                <li>24-hour rush turnaround</li>
+                <li>Agent intro/outro branding</li>
+                <li>Cancel anytime</li>
+              </ul>
+              <a class="btn btn-ghost" href="#contact">Become a Partner</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section alt" id="faq">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Questions, answered</h2>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>How fast will I get my video?</summary>
+              <p>Standard turnaround is 48 hours from the time we receive your photos. Listing Partner plans include 24-hour rush turnaround.</p>
+            </details>
+            <details>
+              <summary>What do you need from me?</summary>
+              <p>Your listing photos (phone snapshots or professional shots), the property address and specs, and your logo or branding. That's it — no filming appointment needed.</p>
+            </details>
+            <details>
+              <summary>Is this a slideshow with zoom effects?</summary>
+              <p>No. Each photo is animated with smooth forward camera motion and stitched in walking order, room to room — so it feels like actually walking through the home.</p>
+            </details>
+            <details>
+              <summary>Who owns the finished video?</summary>
+              <p>You do. Every tour comes with full usage rights and a downloadable file, plus a shareable link you can post anywhere.</p>
+            </details>
+            <details>
+              <summary>What areas do you serve?</summary>
+              <p>We build tours remotely from your photos, so we serve the entire Oklahoma City metro — and anywhere else in Oklahoma.</p>
+            </details>
+            <details>
+              <summary>What if I want changes?</summary>
+              <p>One round of revisions is included with every pack and partner plan — reordering rooms, fixing labels, or swapping the closing card.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Book your walkthrough</h2>
+            <p>Tell us about the listing — we'll take it from there.</p>
+          </div>
+          <div class="contact-grid">
+            <div class="contact-info">
+              <h3>Talk to a human</h3>
+              <div class="contact-line"><span class="label">Phone</span><a href="tel:+14058772223">(405) 877-2223</a></div>
+              <div class="contact-line"><span class="label">Email</span><a href="mailto:mk@silverlinkok.com">mk@silverlinkok.com</a></div>
+              <div class="contact-line"><span class="label">Hours</span><span>Mon–Fri 9 AM–6 PM<br />Sat 10 AM–2 PM</span></div>
+              <p style="color: var(--muted); font-size: 0.95rem;">
+                Prefer to talk it through first? Call or text — we usually answer same-day during business hours.
+              </p>
+            </div>
+            <form class="contact-form" id="booking-form" aria-label="Book a walkthrough">
+              <h3>Request a tour</h3>
+              <p class="sub">Fill this out and it will open a pre-addressed email to us — nothing is stored on this site.</p>
+              <div class="form-row">
+                <div class="field">
+                  <label for="f-name">Your name</label>
+                  <input id="f-name" name="name" type="text" autocomplete="name" required />
+                </div>
+                <div class="field">
+                  <label for="f-phone">Phone</label>
+                  <input id="f-phone" name="phone" type="tel" autocomplete="tel" required />
+                </div>
+              </div>
+              <div class="field">
+                <label for="f-email">Email</label>
+                <input id="f-email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div class="field">
+                <label for="f-address">Property address</label>
+                <input id="f-address" name="address" type="text" placeholder="e.g. 1234 Main St, Oklahoma City, OK" />
+              </div>
+              <div class="field">
+                <label for="f-package">Interested in</label>
+                <select id="f-package" name="package">
+                  <option value="Single Tour ($149)">Single Tour ($149)</option>
+                  <option value="3-Tour Pack ($379)">3-Tour Pack ($379)</option>
+                  <option value="Listing Partner ($599/mo)">Listing Partner ($599/mo)</option>
+                  <option value="Not sure yet">Not sure yet — just have questions</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-msg">Anything we should know?</label>
+                <textarea id="f-msg" name="message" placeholder="Timeline, number of photos, branding files…"></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit" style="width: 100%;">Send Booking Request</button>
+              <p class="form-note">Submitting opens your email app with the details filled in — just hit send.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href="#top" aria-label="SilverLink home">
+              <span class="brand-mark" aria-hidden="true">S</span>
+              SilverLink
+            </a>
+            <p>Virtual walkthrough videos for Oklahoma realtors. Oklahoma owned &amp; operated.</p>
+          </div>
+          <nav class="footer-nav" aria-label="Footer">
+            <a href="#how-it-works">How It Works</a>
+            <a href="#sample">Sample Tour</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+        <p class="copyright">© 2026 SilverLink LLC · Oklahoma City, OK · <a href="tel:+14058772223">(405) 877-2223</a></p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("booking-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const data = new FormData(e.target);
+        const lines = [
+          "New walkthrough request from silverlinkok.com",
+          "",
+          "Name: " + (data.get("name") || ""),
+          "Phone: " + (data.get("phone") || ""),
+          "Email: " + (data.get("email") || ""),
+          "Property: " + (data.get("address") || ""),
+          "Interested in: " + (data.get("package") || ""),
+          "",
+          "Details:",
+          data.get("message") || "(none)",
+        ];
+        const subject = encodeURIComponent("Walkthrough request — " + (data.get("name") || "new lead"));
+        const body = encodeURIComponent(lines.join("\n"));
+        window.location.href = "mailto:mk@silverlinkok.com?subject=" + subject + "&body=" + body;
+      });
+    </script>
+  </body>
+</html>

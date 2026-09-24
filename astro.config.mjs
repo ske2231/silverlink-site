@@ -1,16 +1,6 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from "astro/config";
 
-// https://astro.build/config
 export default defineConfig({
-  vite: {
-    plugins: [tailwindcss()]
-  },
-  site: 'https://silverlinkok.com',
-  trailingSlash: 'always',
-  compressHTML: true,
-  build: {
-    inlineStylesheets: 'auto'
-  }
+  site: "https://www.silverlinkok.com",
+  outDir: "./dist",
 });
