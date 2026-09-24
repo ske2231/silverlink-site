@@ -195,6 +195,8 @@ img, video { max-width: 100%; display: block; }
 
 /* Pricing */
 .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; align-items: stretch; }
+.addons { text-align: center; margin-top: 1.6rem; color: var(--muted); font-size: 0.95rem; }
+.addons strong { color: var(--text); }
 @media (max-width: 860px) { .plans { grid-template-columns: 1fr; max-width: 26rem; margin: 0 auto; } }
 .plan {
   background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
