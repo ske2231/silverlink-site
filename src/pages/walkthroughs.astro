@@ -1,0 +1,204 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Video Walkthroughs for Realtors | SilverLink Oklahoma";
+const description = "SilverLink turns your listing photos into smooth, room-to-room video walkthroughs for Oklahoma realtors. 48-hour turnaround from $149. Branded + MLS-ready versions included.";
+---
+
+<BaseLayout title={title} description={description} active="walkthroughs">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">For Oklahoma realtors</span>
+        <h1>Your listing photos, <span class="warm">walking and talking.</span></h1>
+        <p class="lede">
+          Send the photos you already have. Get back a smooth, room-to-room video tour
+          with your branding — ready for the MLS, Zillow, and social. No film crew,
+          no appointments, no hassle. From <strong>$149</strong> with 48-hour turnaround.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-large" href="/book/">Book a Walkthrough</a>
+          <a class="btn btn-ghost" href="#pricing">See Pricing</a>
+        </div>
+        <p class="hero-note">
+          <strong>First listing?</strong> The sample tour below was built from ordinary
+          listing photos — yours will look this good too.
+        </p>
+      </div>
+      <div>
+        <div class="hero-media">
+          <video controls preload="metadata" poster="/tour-poster.jpg" aria-label="Sample virtual walkthrough video">
+            <source src="/sample-tour.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="media-caption">
+            <span><strong>Sample tour</strong> — 9313 Southlake Dr, Oklahoma City</span>
+            <span>0:57</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEFORE / AFTER -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The magic part</span>
+        <h2>Still photos in. A walking tour out.</h2>
+        <p>
+          Every photo gets smooth forward camera motion, then the rooms are stitched
+          together in walking order — front door to back fence. Watch the sample above
+          again: these are the photos it came from.
+        </p>
+      </div>
+      <div class="photo-strip" aria-label="Listing photos used in the sample tour">
+        <figure><img src="/images/photo-01.webp" alt="Listing photo: home exterior" loading="lazy" /><figcaption>Front exterior</figcaption></figure>
+        <figure><img src="/images/photo-02.webp" alt="Listing photo: entryway" loading="lazy" /><figcaption>Entryway</figcaption></figure>
+        <figure><img src="/images/photo-03.webp" alt="Listing photo: living room" loading="lazy" /><figcaption>Living room</figcaption></figure>
+        <figure><img src="/images/photo-04.webp" alt="Listing photo: living room second angle" loading="lazy" /><figcaption>Living room</figcaption></figure>
+        <figure><img src="/images/photo-05.webp" alt="Listing photo: kitchen" loading="lazy" /><figcaption>Kitchen</figcaption></figure>
+        <figure><img src="/images/photo-06.webp" alt="Listing photo: kitchen second angle" loading="lazy" /><figcaption>Kitchen</figcaption></figure>
+      </div>
+      <div class="promise-box">
+        <h3>Our promise to every realtor</h3>
+        <p>
+          A true <strong>walking</strong> video — smooth forward motion, room to room.
+          Never a slideshow of zooming stills. If it doesn't feel like walking through
+          the home, we re-do it. That's the whole business.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Three steps, five minutes of your time</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num" aria-hidden="true">1</div>
+          <h3>Send your photos</h3>
+          <p>Phone snapshots or your photographer's set — plus the address, specs, and your logo. However you want to send them works.</p>
+        </div>
+        <div class="step">
+          <div class="num" aria-hidden="true">2</div>
+          <h3>We build the tour</h3>
+          <p>Room-to-room walking motion, room labels, a branded title card with your info, and a closing card with your contact details.</p>
+        </div>
+        <div class="step">
+          <div class="num" aria-hidden="true">3</div>
+          <h3>You share it everywhere</h3>
+          <p>You get a downloadable file plus a shareable link — post it on the MLS (unbranded version included), Zillow, Facebook, Instagram, and email.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Honest pricing</span>
+        <h2>Walkthrough pricing</h2>
+        <p>No fine print. You own the finished video, with full usage rights.</p>
+      </div>
+      <div class="plans">
+        <div class="plan">
+          <h3>Single Tour</h3>
+          <p class="price">$149</p>
+          <p class="per">per listing</p>
+          <ul>
+            <li>One room-to-room video tour</li>
+            <li>Up to 25 listing photos</li>
+            <li>Room labels &amp; branded cards</li>
+            <li>Branded + unbranded (MLS-ready) versions</li>
+            <li>48-hour turnaround</li>
+            <li>One revision included</li>
+          </ul>
+          <a class="btn btn-ghost" href="/book/">Book a Single Tour</a>
+        </div>
+        <div class="plan featured">
+          <span class="badge">Most Popular</span>
+          <h3>3-Tour Pack</h3>
+          <p class="price">$399</p>
+          <p class="per">3 listings · use within 6 months</p>
+          <ul>
+            <li>Everything in Single Tour</li>
+            <li>Save $48 vs. booking separately</li>
+            <li>Priority scheduling</li>
+            <li>Your logo &amp; colors on every tour</li>
+            <li>One round of revisions included</li>
+          </ul>
+          <a class="btn btn-primary" href="/book/">Book the 3-Pack</a>
+        </div>
+        <div class="plan">
+          <h3>Listing Partner</h3>
+          <p class="price">$499</p>
+          <p class="per">per month · up to 4 tours</p>
+          <ul>
+            <li>Everything in 3-Tour Pack</li>
+            <li>Up to 4 tours every month</li>
+            <li>24-hour turnaround</li>
+            <li>Agent intro/outro branding</li>
+            <li>Cancel anytime</li>
+          </ul>
+          <a class="btn btn-ghost" href="/book/">Become a Partner</a>
+        </div>
+      </div>
+      <p class="addons">Add-ons: 24-hour rush <strong>+$49</strong> · vertical cut for Reels &amp; TikTok <strong>+$39</strong> · extra revision <strong>+$25</strong></p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Realtor questions</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>What do you need from me?</summary>
+          <p>Your listing photos (phone snapshots or professional shots), the property address and specs, and your logo or branding. That's it — no filming appointment needed.</p>
+        </details>
+        <details>
+          <summary>How fast is turnaround, really?</summary>
+          <p>48 hours from when we receive your photos, on standard orders. Listing Partners get 24-hour turnaround, and a 24-hour rush is available on any tour for $49.</p>
+        </details>
+        <details>
+          <summary>Can I use it on the MLS?</summary>
+          <p>Yes. Every tour includes an unbranded version built for MLS rules, alongside your branded version for everything else.</p>
+        </details>
+        <details>
+          <summary>Is it just a slideshow with zoom effects?</summary>
+          <p>No — that's the whole point. Each photo is animated with smooth forward camera motion and stitched in walking order, room to room, so it feels like actually walking through the home.</p>
+        </details>
+        <details>
+          <summary>Who owns the finished video?</summary>
+          <p>You do. Full usage rights, a downloadable file, and a shareable link you can post anywhere.</p>
+        </details>
+        <details>
+          <summary>Do you film on-site?</summary>
+          <p>No — everything is built from the photos you send, which keeps it fast and affordable. All of Oklahoma is in our service area.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="padding-top: 1rem;">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Got a listing? Let's walk it.</h2>
+        <p>Send your photos today, share your tour in 48 hours.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary btn-large" href="/book/">Book a Walkthrough</a>
+          <a class="btn btn-ghost" href="tel:+14058772223">Call (405) 877-2223</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

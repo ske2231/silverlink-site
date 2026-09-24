@@ -1,0 +1,98 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  active?: "home" | "walkthroughs" | "it" | "book";
+}
+
+const { title, description, active } = Astro.props;
+const phone = "(405) 877-2223";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SilverLink" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://www.silverlinkok.com/" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/" aria-label="SilverLink home">
+          <span class="brand-mark" aria-hidden="true">S</span>
+          SilverLink
+        </a>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+        <nav class="nav" id="main-nav" aria-label="Primary">
+          <a href="/" class={active === "home" ? "active" : ""}>Home</a>
+          <a href="/walkthroughs/" class={active === "walkthroughs" ? "active" : ""}>Walkthroughs</a>
+          <a href="/it-support/" class={active === "it" ? "active" : ""}>IT Support</a>
+          <a href="/book/" class={active === "book" ? "active" : ""}>Book</a>
+        </nav>
+        <div class="header-cta">
+          <a class="phone-link" href="tel:+14058772223">{phone}</a>
+          <a class="btn btn-primary" href="/book/">Get Help</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href="/" aria-label="SilverLink home">
+              <span class="brand-mark" aria-hidden="true">S</span>
+              SilverLink
+            </a>
+            <p>
+              Video walkthroughs for Oklahoma realtors, and patient tech help for
+              homes, seniors, and small businesses. Oklahoma owned &amp; operated.
+            </p>
+          </div>
+          <nav class="footer-nav" aria-label="Footer">
+            <a href="/">Home</a>
+            <a href="/walkthroughs/">Walkthroughs</a>
+            <a href="/it-support/">IT Support</a>
+            <a href="/book/">Book</a>
+          </nav>
+        </div>
+        <p class="copyright">
+          © 2026 SilverLink LLC · Oklahoma City, OK ·
+          <a href="tel:+14058772223">{phone}</a> ·
+          <a href="mailto:mk@silverlinkok.com">mk@silverlinkok.com</a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      const btn = document.getElementById("menu-btn");
+      const nav = document.getElementById("main-nav");
+      btn?.addEventListener("click", () => {
+        const open = nav?.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    </script>
+  </body>
+</html>

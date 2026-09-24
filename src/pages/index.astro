@@ -1,452 +1,189 @@
 ---
-import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-const title = "SilverLink — Video Walkthroughs & Jargon-Free IT Support | Oklahoma City";
-const description = "SilverLink turns listing photos into room-to-room video walkthroughs for Oklahoma realtors — and provides patient, plain-English tech support for homes, small businesses, and seniors in the OKC metro.";
+const title = "SilverLink — Video Walkthroughs & Friendly IT Support | Oklahoma City";
+const description = "SilverLink turns listing photos into room-to-room video walkthroughs for Oklahoma realtors — and gives patient, plain-English tech help to homes, seniors, and small businesses in the OKC metro.";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="SilverLink" />
-    <meta property="og:title" content="SilverLink — Video Walkthroughs & IT Support" />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content="https://www.silverlinkok.com/" />
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-
-    <header class="site-header">
-      <div class="wrap">
-        <a class="brand" href="#top" aria-label="SilverLink home">
-          <span class="brand-mark" aria-hidden="true">S</span>
-          SilverLink
-        </a>
-        <nav class="nav" aria-label="Primary">
-          <a href="#walkthrough">Walkthroughs</a>
-          <a href="#it-support">IT Support</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <div class="header-cta">
-          <a class="phone-link" href="tel:+14058772223">(405) 877-2223</a>
-          <a class="btn btn-primary" href="#contact">Get Help</a>
+<BaseLayout title={title} description={description} active="home">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">SilverLink LLC · Oklahoma City, OK</span>
+        <h1>One friendly local expert — <span class="warm">for your listings and your laptop.</span></h1>
+        <p class="lede">
+          SilverLink does two things with the same care: we turn your listing photos
+          into smooth, room-to-room video tours for Oklahoma realtors — and we fix
+          tech headaches for homes, seniors, and small businesses, patiently and in
+          plain English. No jargon, no runaround, no call centers.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/walkthroughs/">Get a Walkthrough Video</a>
+          <a class="btn btn-ghost" href="/it-support/">Get Tech Help</a>
+        </div>
+        <p class="hero-note">
+          <strong>Realtor?</strong> Send photos, get a video back in 48 hours.<br />
+          <strong>Tech trouble?</strong> Call or text <a href="tel:+14058772223">(405) 877-2223</a> — a real person (MK) answers.
+        </p>
+      </div>
+      <div>
+        <div class="hero-media">
+          <video controls preload="metadata" poster="/tour-poster.jpg" aria-label="Sample virtual walkthrough video">
+            <source src="/sample-tour.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="media-caption">
+            <span><strong>Sample tour</strong> — built from ordinary listing photos</span>
+            <span>0:57</span>
+          </div>
         </div>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <main id="main">
-      <!-- HERO -->
-      <section class="hero" id="top">
-        <div class="wrap hero-grid">
-          <div>
-            <span class="eyebrow">Oklahoma City · Two services, one MK</span>
-            <h1>Walkthrough videos for <span class="grad">realtors</span>. Jargon-free tech help for <span class="grad">everyone else</span>.</h1>
-            <p class="lede">
-              SilverLink does two things well: we turn listing photos into smooth, room-to-room
-              video tours for Oklahoma realtors — and we fix tech headaches for homes, small
-              businesses, and seniors, patiently and in plain English.
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#walkthrough">Get a Walkthrough</a>
-              <a class="btn btn-ghost" href="#it-support">Get Tech Help</a>
-            </div>
-            <p class="hero-note">
-              <strong>Realtor?</strong> Send photos, get a video back in 48 hours.<br />
-              <strong>Tech trouble?</strong> Call or text <a href="tel:+14058772223">(405) 877-2223</a> — a human answers.
-            </p>
-          </div>
-          <div>
-            <div class="hero-video">
-              <video controls preload="metadata" poster="/tour-poster.jpg" aria-label="Sample virtual walkthrough video">
-                <source src="/sample-tour.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <div class="video-caption">
-                <span><strong>Sample tour</strong> — 9313 Southlake Dr, Oklahoma City</span>
-                <span>0:57</span>
-              </div>
-            </div>
+  <!-- TRUST -->
+  <div class="trust" role="list" aria-label="Why SilverLink">
+    <div class="wrap">
+      <div class="trust-item" role="listitem"><div class="t">48 hours</div><div class="s">Walkthrough turnaround</div></div>
+      <div class="trust-item" role="listitem"><div class="t">Same MK</div><div class="s">Every call, every visit</div></div>
+      <div class="trust-item" role="listitem"><div class="t">No jargon</div><div class="s">Plain-English tech help</div></div>
+      <div class="trust-item" role="listitem"><div class="t">Local</div><div class="s">Oklahoma owned &amp; operated</div></div>
+    </div>
+  </div>
+
+  <!-- TWO SERVICES -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Two services, one standard</span>
+        <h2>Helpful, honest, and close to home</h2>
+        <p>Whether you're selling a house or just trying to get your printer working, you get the same promise: done right, explained kindly.</p>
+      </div>
+      <div class="cards">
+        <div class="card accent-card">
+          <span class="icon" aria-hidden="true">🏠</span>
+          <h3>Video Walkthroughs for Realtors</h3>
+          <p>
+            You already took the photos — we do everything else. Smooth forward-motion
+            video, room labels, your branding on the title card, and a shareable link
+            that plays beautifully on any phone. From <strong>$149</strong> per listing.
+          </p>
+          <ul class="checklist">
+            <li>True walking motion — never a slideshow</li>
+            <li>Branded + MLS-ready unbranded versions</li>
+            <li>48-hour standard turnaround</li>
+          </ul>
+          <div class="card-actions">
+            <a class="btn btn-primary" href="/walkthroughs/">See How It Works</a>
+            <a class="btn btn-ghost" href="/book/">Book a Tour</a>
           </div>
         </div>
-      </section>
-
-      <!-- FACTS -->
-      <div class="facts" role="list" aria-label="Service highlights">
-        <div class="wrap">
-          <div class="fact" role="listitem"><div class="n">48 hrs</div><div class="d">Walkthrough turnaround</div></div>
-          <div class="fact" role="listitem"><div class="n">Room-to-room</div><div class="d">True walking motion, not a slideshow</div></div>
-          <div class="fact" role="listitem"><div class="n">No jargon</div><div class="d">Patient tech help, plain English</div></div>
-          <div class="fact" role="listitem"><div class="n">Local</div><div class="d">Oklahoma owned &amp; operated</div></div>
+        <div class="card accent-card">
+          <span class="icon" aria-hidden="true">💛</span>
+          <h3>Patient IT Support for Everyone Else</h3>
+          <p>
+            Phones, Wi-Fi, email, printers, scams, setups — the tech headaches that
+            eat your afternoon, fixed by someone who explains it like a neighbor
+            would. Remote or on-site, from <strong>$79</strong>.
+          </p>
+          <ul class="checklist">
+            <li>Seniors are our specialty — never rushed</li>
+            <li>Remote screen-share or we come to you</li>
+            <li>Month-to-month care plans available</li>
+          </ul>
+          <div class="card-actions">
+            <a class="btn btn-primary" href="/it-support/">Get Tech Help</a>
+            <a class="btn btn-ghost" href="/book/">Book a Visit</a>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- WALKTHROUGHS -->
-      <section class="section" id="walkthrough">
-        <div class="wrap">
-          <div class="section-head">
-            <span class="eyebrow">For realtors</span>
-            <h2>From photos to walkthrough in three steps</h2>
-            <p>You already took the photos. We do everything else.</p>
-          </div>
-          <div class="steps">
-            <div class="step">
-              <div class="num" aria-hidden="true">1</div>
-              <h3>Send your listing photos</h3>
-              <p>Upload the shots from your phone or your photographer's set — plus the address and listing details. Takes five minutes.</p>
-            </div>
-            <div class="step">
-              <div class="num" aria-hidden="true">2</div>
-              <h3>We build your walking tour</h3>
-              <p>Smooth forward-motion video, room labels, a branded title card, and your contact info on the closing card.</p>
-            </div>
-            <div class="step">
-              <div class="num" aria-hidden="true">3</div>
-              <h3>Share the link everywhere</h3>
-              <p>Post it on the MLS, Zillow, Facebook, Instagram, and email. One link that plays beautifully on any phone.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SAMPLE -->
-      <section class="section alt" id="sample">
-        <div class="wrap">
-          <div class="section-head">
-            <h2>Watch a real sample tour</h2>
-            <p>Built from ordinary listing photos — no film crew, no special equipment.</p>
-          </div>
-          <div class="sample-grid">
-            <div class="sample-video">
-              <video controls preload="metadata" poster="/tour-poster.jpg" aria-label="Sample virtual walkthrough of 9313 Southlake Dr">
-                <source src="/sample-tour.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="prop-card">
-              <span class="tag">Sample listing</span>
-              <h3>Rental Walkthrough</h3>
-              <p class="addr">9313 Southlake Dr<br />Oklahoma City, OK 73159</p>
-              <div class="prop-specs">
-                <div><div class="v">3</div><div class="k">Bedrooms</div></div>
-                <div><div class="v">2</div><div class="k">Bathrooms</div></div>
-                <div><div class="v">1,706</div><div class="k">Sq. Ft.</div></div>
-              </div>
-              <p class="fine">Sample tour created with the property owner's permission. Your tours carry your branding and contact info.</p>
-              <a class="btn btn-primary" href="#contact">Get a Tour Like This</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- IT SUPPORT -->
-      <section class="section" id="it-support">
-        <div class="wrap">
-          <div class="section-head">
-            <span class="eyebrow">IT support</span>
-            <h2>Tech help that speaks your language</h2>
-            <p>Same MK every time. No jargon, no runaround, no hauling your computer to a shop.</p>
-          </div>
-          <div class="steps">
-            <div class="step">
-              <div class="num" aria-hidden="true">★</div>
-              <h3>For Seniors</h3>
-              <p><strong>Our specialty.</strong> Unhurried help in plain English — no question too small, never rushed.</p>
-              <p>Phones, tablets &amp; email setup · video calls with family · spotting scams &amp; suspicious calls · printers · passwords you'll actually remember.</p>
-            </div>
-            <div class="step">
-              <div class="num" aria-hidden="true">⌂</div>
-              <h3>For Homes &amp; Families</h3>
-              <p>Wi-Fi that reaches every room, new devices set up right, and the nagging problems finally fixed.</p>
-              <p>New computer &amp; phone setup with data transfer · virus &amp; malware removal · backup setup · smart-home devices · network tune-ups.</p>
-            </div>
-            <div class="step">
-              <div class="num" aria-hidden="true">▣</div>
-              <h3>For Small Businesses</h3>
-              <p>Friendly managed IT without the enterprise price tag — or one-off help when something breaks.</p>
-              <p>Microsoft 365 &amp; Google Workspace admin · network &amp; Wi-Fi · employee onboarding &amp; offboarding · security basics · vendor wrangling.</p>
-            </div>
-          </div>
-          <div class="section-head" style="margin-top: 3rem;">
-            <h2 style="font-size: 1.4rem;">Two ways to get help</h2>
-          </div>
-          <div class="steps">
-            <div class="step">
-              <h3>Remote session</h3>
-              <p>Secure screen-share help for most software issues — no travel fee, often same-day. We guide you click by click.</p>
-            </div>
-            <div class="step">
-              <h3>On-site visit</h3>
-              <p>We come to you anywhere in the OKC metro. Hardware, Wi-Fi, and anything hands-on — diagnosed and fixed on the spot.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PRICING -->
-      <section class="section alt" id="pricing">
-        <div class="wrap">
-          <div class="section-head">
-            <h2>Pricing</h2>
-            <p>Honest numbers, no fine print. Month-to-month on every plan — cancel anytime.</p>
-          </div>
-
-          <h3 class="pricing-sub">Walkthrough videos</h3>
-          <div class="plans">
-            <div class="plan">
-              <h3>Single Tour</h3>
-              <p class="price">$149</p>
-              <p class="per">per listing</p>
-              <ul>
-                <li>One room-to-room video tour</li>
-                <li>Up to 25 listing photos</li>
-                <li>Room labels &amp; branded cards</li>
-                <li>Branded + unbranded (MLS-ready) versions</li>
-                <li>48-hour turnaround</li>
-                <li>One revision included</li>
-              </ul>
-              <a class="btn btn-ghost" href="#contact">Book a Single Tour</a>
-            </div>
-            <div class="plan featured">
-              <span class="badge">Most Popular</span>
-              <h3>3-Tour Pack</h3>
-              <p class="price">$399</p>
-              <p class="per">3 listings · use within 6 months</p>
-              <ul>
-                <li>Everything in Single Tour</li>
-                <li>Save $48 vs. booking separately</li>
-                <li>Priority scheduling</li>
-                <li>Your logo &amp; colors on every tour</li>
-                <li>One round of revisions included</li>
-              </ul>
-              <a class="btn btn-primary" href="#contact">Book the 3-Pack</a>
-            </div>
-            <div class="plan">
-              <h3>Listing Partner</h3>
-              <p class="price">$499</p>
-              <p class="per">per month · up to 4 tours</p>
-              <ul>
-                <li>Everything in 3-Tour Pack</li>
-                <li>Up to 4 tours every month</li>
-                <li>24-hour turnaround</li>
-                <li>Agent intro/outro branding</li>
-                <li>Cancel anytime</li>
-              </ul>
-              <a class="btn btn-ghost" href="#contact">Become a Partner</a>
-            </div>
-          </div>
-          <p class="addons">Add-ons: 24-hour rush <strong>+$49</strong> · vertical cut for Reels &amp; TikTok <strong>+$39</strong> · extra revision <strong>+$25</strong></p>
-
-          <h3 class="pricing-sub">IT support — one-time help</h3>
-          <div class="steps">
-            <div class="step">
-              <h3>Quick Fix — $79</h3>
-              <p>One remote troubleshooting session, up to 45 minutes. Screen-share, no travel fee, most issues solved on the call.</p>
-            </div>
-            <div class="step">
-              <h3>Setup &amp; Optimize — $149</h3>
-              <p>New computer or phone set up right: data transferred, accounts signed in, security baseline applied. Up to 90 minutes.</p>
-            </div>
-            <div class="step">
-              <h3>Network Tune-Up — $129</h3>
-              <p>Wi-Fi that actually reaches the back bedroom. Router placement, settings optimization, whole-home coverage check.</p>
-            </div>
-          </div>
-
-          <h3 class="pricing-sub">IT support — monthly care</h3>
-          <div class="plans plans-2">
-            <div class="plan">
-              <h3>Essential Care</h3>
-              <p class="price">$199</p>
-              <p class="per">per month</p>
-              <ul>
-                <li>Up to 3 devices covered</li>
-                <li>2 remote support hours included</li>
-                <li>Proactive checkups &amp; updates</li>
-                <li>Backup health monitoring</li>
-                <li>Priority scheduling</li>
-              </ul>
-              <a class="btn btn-ghost" href="#contact">Start Essential Care</a>
-            </div>
-            <div class="plan">
-              <h3>Business Care</h3>
-              <p class="price">$449</p>
-              <p class="per">per month</p>
-              <ul>
-                <li>Up to 10 devices covered</li>
-                <li>5 remote support hours included</li>
-                <li>Microsoft 365 / Google Workspace admin</li>
-                <li>Network monitoring</li>
-                <li>Employee onboarding &amp; offboarding</li>
-              </ul>
-              <a class="btn btn-ghost" href="#contact">Discuss Business Care</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section class="section" id="faq">
-        <div class="wrap">
-          <div class="section-head">
-            <h2>Questions, answered</h2>
-          </div>
-          <div class="faq">
-            <details>
-              <summary>I'm not very tech-savvy. Is this for me?</summary>
-              <p>Especially for you. A lot of our home clients are seniors, and everything is explained in plain English — no jargon, no rushing, no making you feel silly for asking. If you can describe what's wrong, we can fix it.</p>
-            </details>
-            <details>
-              <summary>Do I have to bring my computer somewhere?</summary>
-              <p>No. Most issues are handled over a secure screen-share while you watch, or we come to you anywhere in the OKC metro. You never haul equipment to a shop or wait in line.</p>
-            </details>
-            <details>
-              <summary>How fast will I get my walkthrough video?</summary>
-              <p>Standard turnaround is 48 hours from the time we receive your photos. Listing Partner plans include 24-hour turnaround, and a 24-hour rush is available on any tour for $49.</p>
-            </details>
-            <details>
-              <summary>What do you need from me for a walkthrough?</summary>
-              <p>Your listing photos (phone snapshots or professional shots), the property address and specs, and your logo or branding. That's it — no filming appointment needed.</p>
-            </details>
-            <details>
-              <summary>Is the walkthrough a slideshow with zoom effects?</summary>
-              <p>No. Each photo is animated with smooth forward camera motion and stitched in walking order, room to room — so it feels like actually walking through the home.</p>
-            </details>
-            <details>
-              <summary>Who owns the finished video?</summary>
-              <p>You do. Every tour comes with full usage rights and a downloadable file, plus a shareable link you can post anywhere.</p>
-            </details>
-            <details>
-              <summary>What are your hours?</summary>
-              <p>Mon–Fri 9 AM–6 PM, Sat 10 AM–2 PM. Care-plan members get priority response scheduling.</p>
-            </details>
-            <details>
-              <summary>What areas do you serve?</summary>
-              <p>Walkthrough videos are built remotely from your photos, so we serve all of Oklahoma. On-site IT visits cover the Oklahoma City metro, and remote support works anywhere.</p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section class="section alt" id="contact">
-        <div class="wrap">
-          <div class="section-head">
-            <h2>Book a walkthrough or get tech help</h2>
-            <p>Tell us what you need — a human (MK) will get back to you.</p>
-          </div>
-          <div class="contact-grid">
-            <div class="contact-info">
-              <h3>Talk to a human</h3>
-              <div class="contact-line"><span class="label">Phone</span><a href="tel:+14058772223">(405) 877-2223</a></div>
-              <div class="contact-line"><span class="label">Email</span><a href="mailto:mk@silverlinkok.com">mk@silverlinkok.com</a></div>
-              <div class="contact-line"><span class="label">Hours</span><span>Mon–Fri 9 AM–6 PM<br />Sat 10 AM–2 PM</span></div>
-              <p style="color: var(--muted); font-size: 0.95rem;">
-                Prefer to talk it through first? Call or text — we usually answer same-day during business hours.
-              </p>
-            </div>
-            <form class="contact-form" id="booking-form" aria-label="Request service">
-              <h3>Request service</h3>
-              <p class="sub">Fill this out and it will open a pre-addressed email to us — nothing is stored on this site.</p>
-              <div class="form-row">
-                <div class="field">
-                  <label for="f-name">Your name</label>
-                  <input id="f-name" name="name" type="text" autocomplete="name" required />
-                </div>
-                <div class="field">
-                  <label for="f-phone">Phone</label>
-                  <input id="f-phone" name="phone" type="tel" autocomplete="tel" required />
-                </div>
-              </div>
-              <div class="field">
-                <label for="f-email">Email</label>
-                <input id="f-email" name="email" type="email" autocomplete="email" required />
-              </div>
-              <div class="field">
-                <label for="f-address">Property address <span class="opt">(walkthroughs only)</span></label>
-                <input id="f-address" name="address" type="text" placeholder="e.g. 1234 Main St, Oklahoma City, OK" />
-              </div>
-              <div class="field">
-                <label for="f-package">I'm interested in</label>
-                <select id="f-package" name="package">
-                  <optgroup label="Video walkthroughs">
-                    <option value="Single Tour ($149)">Single Tour ($149)</option>
-                    <option value="3-Tour Pack ($399)">3-Tour Pack ($399)</option>
-                    <option value="Listing Partner ($499/mo)">Listing Partner ($499/mo)</option>
-                  </optgroup>
-                  <optgroup label="IT support — one-time">
-                    <option value="Quick Fix ($79)">Quick Fix — remote session ($79)</option>
-                    <option value="Setup & Optimize ($149)">Setup &amp; Optimize ($149)</option>
-                    <option value="Network Tune-Up ($129)">Network Tune-Up ($129)</option>
-                  </optgroup>
-                  <optgroup label="IT support — monthly">
-                    <option value="Essential Care ($199/mo)">Essential Care ($199/mo)</option>
-                    <option value="Business Care ($449/mo)">Business Care ($449/mo)</option>
-                  </optgroup>
-                  <option value="Not sure yet">Not sure yet — just have questions</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="f-msg">Anything we should know?</label>
-                <textarea id="f-msg" name="message" placeholder="Describe the tech issue, or the listing timeline…"></textarea>
-              </div>
-              <button class="btn btn-primary" type="submit" style="width: 100%;">Send Request</button>
-              <p class="form-note">Submitting opens your email app with the details filled in — just hit send.</p>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="wrap">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <a class="brand" href="#top" aria-label="SilverLink home">
-              <span class="brand-mark" aria-hidden="true">S</span>
-              SilverLink
-            </a>
-            <p>Walkthrough videos for realtors and friendly IT support for Oklahoma. Oklahoma owned &amp; operated.</p>
-          </div>
-          <nav class="footer-nav" aria-label="Footer">
-            <a href="#walkthrough">Walkthroughs</a>
-            <a href="#it-support">IT Support</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contact">Contact</a>
-          </nav>
-        </div>
-        <p class="copyright">© 2026 SilverLink LLC · Oklahoma City, OK · <a href="tel:+14058772223">(405) 877-2223</a></p>
+  <!-- HOW IT WORKS -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">For realtors</span>
+        <h2>From photos to walkthrough in three steps</h2>
+        <p>No filming appointments. No special equipment. You already did the hard part.</p>
       </div>
-    </footer>
+      <div class="steps">
+        <div class="step">
+          <div class="num" aria-hidden="true">1</div>
+          <h3>Send your listing photos</h3>
+          <p>Phone snapshots or professional shots — plus the address and specs. Takes about five minutes.</p>
+        </div>
+        <div class="step">
+          <div class="num" aria-hidden="true">2</div>
+          <h3>We build your walking tour</h3>
+          <p>Smooth forward-motion video stitched room to room, with room labels, a branded title card, and your contact info on the closing card.</p>
+        </div>
+        <div class="step">
+          <div class="num" aria-hidden="true">3</div>
+          <h3>Share it everywhere</h3>
+          <p>Post it on the MLS, Zillow, Facebook, Instagram, and email. One link that plays beautifully on any phone.</p>
+        </div>
+      </div>
+      <div class="photo-strip" aria-label="Example listing photos">
+        <figure><img src="/images/photo-01.webp" alt="Listing photo: home exterior" loading="lazy" /><figcaption>Your photos…</figcaption></figure>
+        <figure><img src="/images/photo-03.webp" alt="Listing photo: living room" loading="lazy" /><figcaption>…become rooms…</figcaption></figure>
+        <figure><img src="/images/photo-05.webp" alt="Listing photo: kitchen" loading="lazy" /><figcaption>…in a walking tour.</figcaption></figure>
+      </div>
+      <p class="transform-note">
+        The photos above became the <strong>57-second walking tour</strong> at the top of this page.
+        Same photos, same home — just moving.
+      </p>
+    </div>
+  </section>
 
-    <script>
-      document.getElementById("booking-form").addEventListener("submit", function (e) {
-        e.preventDefault();
-        const data = new FormData(e.target);
-        const lines = [
-          "New service request from silverlinkok.com",
-          "",
-          "Name: " + (data.get("name") || ""),
-          "Phone: " + (data.get("phone") || ""),
-          "Email: " + (data.get("email") || ""),
-          "Property: " + (data.get("address") || ""),
-          "Interested in: " + (data.get("package") || ""),
-          "",
-          "Details:",
-          data.get("message") || "(none)",
-        ];
-        const subject = encodeURIComponent("Website request — " + (data.get("name") || "new lead"));
-        const body = encodeURIComponent(lines.join("\n"));
-        window.location.href = "mailto:mk@silverlinkok.com?subject=" + subject + "&body=" + body;
-      });
-    </script>
-  </body>
-</html>
+  <!-- FAQ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Good questions</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>I'm not very tech-savvy. Is this for me?</summary>
+          <p>Especially for you. A lot of our home clients are seniors, and everything is explained in plain English — no jargon, no rushing, no making you feel silly for asking. If you can describe what's wrong, we can fix it.</p>
+        </details>
+        <details>
+          <summary>Do I have to bring my computer somewhere?</summary>
+          <p>No. Most issues are handled over a secure screen-share while you watch, or we come to you anywhere in the OKC metro. You never haul equipment to a shop or wait in line.</p>
+        </details>
+        <details>
+          <summary>Is the walkthrough a slideshow with zoom effects?</summary>
+          <p>No. Each photo is animated with smooth forward camera motion and stitched in walking order, room to room — so it feels like actually walking through the home.</p>
+        </details>
+        <details>
+          <summary>How fast will I get my walkthrough video?</summary>
+          <p>Standard turnaround is 48 hours from the time we receive your photos. Listing Partner plans include 24-hour turnaround, and a 24-hour rush is available on any tour for $49.</p>
+        </details>
+        <details>
+          <summary>Who owns the finished video?</summary>
+          <p>You do. Every tour comes with full usage rights and a downloadable file, plus a shareable link you can post anywhere.</p>
+        </details>
+        <details>
+          <summary>What areas do you serve?</summary>
+          <p>Walkthrough videos are built remotely from your photos, so we serve all of Oklahoma. On-site IT visits cover the Oklahoma City metro, and remote support works anywhere.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="padding-top: 1rem;">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Let's make your day a little easier</h2>
+        <p>A listing that needs a tour, a laptop that needs a friend — tell us what's going on.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary btn-large" href="/book/">Request Service</a>
+          <a class="btn btn-ghost" href="tel:+14058772223">Call (405) 877-2223</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

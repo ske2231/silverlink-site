@@ -1,0 +1,185 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Friendly IT Support for Homes, Seniors & Small Business | SilverLink OKC";
+const description = "Patient, plain-English tech help in the Oklahoma City metro. Same friendly expert every time — remote or on-site. One-time fixes from $79, monthly care plans available.";
+---
+
+<BaseLayout title={title} description={description} active="it">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">IT support · Oklahoma City metro</span>
+        <h1>Tech help that <span class="warm">speaks your language.</span></h1>
+        <p class="lede">
+          Phones, Wi-Fi, email, printers, passwords, scams — the tech headaches that
+          eat your afternoon, handled by someone who explains it like a neighbor
+          would. No jargon, no rushing, no hauling your computer to a shop.
+          And you get the same person — MK — every single time.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-large" href="/book/">Get Tech Help</a>
+          <a class="btn btn-ghost" href="tel:+14058772223">Call (405) 877-2223</a>
+        </div>
+        <p class="hero-note">
+          <strong>Seniors are our specialty.</strong> Unhurried help, plain English —
+          no question too small, never rushed.
+        </p>
+      </div>
+      <div>
+        <div class="card">
+          <h3 style="margin-top: 0;">Two easy ways to get help</h3>
+          <ul class="checklist">
+            <li><strong>Remote session</strong> — secure screen-share while you watch. Most software issues solved on the call, often same-day.</li>
+            <li><strong>On-site visit</strong> — we come to you anywhere in the OKC metro. Hardware, Wi-Fi, and anything hands-on, fixed on the spot.</li>
+          </ul>
+          <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 0;">
+            Mon–Fri 9 AM–6 PM · Sat 10 AM–2 PM. Care-plan members get priority scheduling.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIENCES -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Who we help</span>
+        <h2>Made for real people, not IT departments</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="icon" aria-hidden="true" style="font-size: 1.8rem;">👵</span>
+          <h3 style="margin-top: 0.6rem;">For Seniors</h3>
+          <p><strong>Our specialty.</strong> Unhurried help in plain English — no question too small, never rushed.</p>
+          <p>Phones, tablets &amp; email setup · video calls with family · spotting scams &amp; suspicious calls · printers · passwords you'll actually remember.</p>
+        </div>
+        <div class="step">
+          <span class="icon" aria-hidden="true" style="font-size: 1.8rem;">🏡</span>
+          <h3 style="margin-top: 0.6rem;">For Homes &amp; Families</h3>
+          <p>Wi-Fi that reaches every room, new devices set up right, and the nagging problems finally fixed.</p>
+          <p>New computer &amp; phone setup with data transfer · virus &amp; malware removal · backup setup · smart-home devices · network tune-ups.</p>
+        </div>
+        <div class="step">
+          <span class="icon" aria-hidden="true" style="font-size: 1.8rem;">🏪</span>
+          <h3 style="margin-top: 0.6rem;">For Small Businesses</h3>
+          <p>Friendly managed IT without the enterprise price tag — or one-off help when something breaks.</p>
+          <p>Microsoft 365 &amp; Google Workspace admin · network &amp; Wi-Fi · employee onboarding &amp; offboarding · security basics · vendor wrangling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ONE-TIME PRICING -->
+  <section class="section alt" id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Honest pricing</span>
+        <h2>One-time help</h2>
+        <p>Flat rates, quoted up front. If we can't fix it, we'll tell you straight.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num" aria-hidden="true">$</div>
+          <h3>Quick Fix — $79</h3>
+          <p>One remote troubleshooting session, up to 45 minutes. Secure screen-share, no travel fee, most issues solved on the call.</p>
+        </div>
+        <div class="step">
+          <div class="num" aria-hidden="true">$</div>
+          <h3>Setup &amp; Optimize — $149</h3>
+          <p>New computer or phone set up right: data transferred, accounts signed in, security baseline applied. Up to 90 minutes.</p>
+        </div>
+        <div class="step">
+          <div class="num" aria-hidden="true">$</div>
+          <h3>Network Tune-Up — $129</h3>
+          <p>Wi-Fi that actually reaches the back bedroom. Router placement, settings optimization, whole-home coverage check.</p>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top: 4rem;">
+        <span class="eyebrow">Ongoing peace of mind</span>
+        <h2>Monthly care plans</h2>
+        <p>Month-to-month on every plan — cancel anytime. Same MK, priority scheduling.</p>
+      </div>
+      <div class="plans plans-2">
+        <div class="plan">
+          <h3>Essential Care</h3>
+          <p class="price">$199</p>
+          <p class="per">per month</p>
+          <ul>
+            <li>Up to 3 devices covered</li>
+            <li>2 remote support hours included</li>
+            <li>Proactive checkups &amp; updates</li>
+            <li>Backup health monitoring</li>
+            <li>Priority scheduling</li>
+          </ul>
+          <a class="btn btn-ghost" href="/book/">Start Essential Care</a>
+        </div>
+        <div class="plan">
+          <h3>Business Care</h3>
+          <p class="price">$449</p>
+          <p class="per">per month</p>
+          <ul>
+            <li>Up to 10 devices covered</li>
+            <li>5 remote support hours included</li>
+            <li>Microsoft 365 / Google Workspace admin</li>
+            <li>Network monitoring</li>
+            <li>Employee onboarding &amp; offboarding</li>
+          </ul>
+          <a class="btn btn-ghost" href="/book/">Discuss Business Care</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Questions, answered</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>I'm not very tech-savvy. Is this for me?</summary>
+          <p>Especially for you. A lot of our home clients are seniors, and everything is explained in plain English — no jargon, no rushing, no making you feel silly for asking. If you can describe what's wrong, we can fix it.</p>
+        </details>
+        <details>
+          <summary>Do I have to bring my computer somewhere?</summary>
+          <p>No. Most issues are handled over a secure screen-share while you watch, or we come to you anywhere in the OKC metro. You never haul equipment to a shop or wait in line.</p>
+        </details>
+        <details>
+          <summary>Is remote help safe?</summary>
+          <p>Yes. You see everything we do on your screen, you stay in control, and you can end the session anytime. We only connect with your permission, and only for the issue you asked about.</p>
+        </details>
+        <details>
+          <summary>What are your hours?</summary>
+          <p>Mon–Fri 9 AM–6 PM, Sat 10 AM–2 PM. Care-plan members get priority response scheduling.</p>
+        </details>
+        <details>
+          <summary>What areas do you serve?</summary>
+          <p>On-site visits cover the Oklahoma City metro. Remote support works anywhere.</p>
+        </details>
+        <details>
+          <summary>What if you can't fix it?</summary>
+          <p>We'll tell you straight — and point you to the right next step. We don't bill you for shrugging.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="padding-top: 1rem;">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Tech trouble? Let's fix it together.</h2>
+        <p>Call, text, or send a request — a real person will get back to you.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary btn-large" href="/book/">Request Help</a>
+          <a class="btn btn-ghost" href="tel:+14058772223">Call (405) 877-2223</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
