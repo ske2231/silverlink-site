@@ -6,13 +6,25 @@ const description = "Request a video walkthrough or friendly tech help from Silv
 ---
 
 <BaseLayout title={title} description={description} active="book">
+  <!-- PHOTO HERO -->
+  <section class="photo-hero photo-hero--short">
+    <div class="ph-bg" aria-hidden="true">
+      <img src="/images/photo-01.webp" alt="" fetchpriority="high" />
+    </div>
+    <div class="ph-shade" aria-hidden="true"></div>
+    <div class="wrap">
+      <span class="eyebrow">Get started</span>
+      <h1>Book a walkthrough <span class="warm">or get tech help.</span></h1>
+      <p class="lede">Tell us what you need — a human (MK) will get back to you.</p>
+      <div class="hero-actions">
+        <a class="btn btn-light" href="tel:+14058772223">Call (405) 877-2223</a>
+        <a class="btn btn-light" href="mailto:mk@silverlinkok.com">mk@silverlinkok.com</a>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Get started</span>
-        <h2>Book a walkthrough or get tech help</h2>
-        <p>Tell us what you need — a human (MK) will get back to you.</p>
-      </div>
       <div class="contact-grid">
         <div class="contact-info">
           <h3>Talk to a human</h3>

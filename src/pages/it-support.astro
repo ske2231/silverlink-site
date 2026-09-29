@@ -6,44 +6,50 @@ const description = "Patient, plain-English tech help in the Oklahoma City metro
 ---
 
 <BaseLayout title={title} description={description} active="it">
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="eyebrow">IT support · Oklahoma City metro</span>
-        <h1>Tech help that <span class="warm">speaks your language.</span></h1>
-        <p class="lede">
-          Phones, Wi-Fi, email, printers, passwords, scams — the tech headaches that
-          eat your afternoon, handled by someone who explains it like a neighbor
-          would. No jargon, no rushing, no hauling your computer to a shop.
-          And you get the same person — MK — every single time.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary btn-large" href="/book/">Get Tech Help</a>
-          <a class="btn btn-ghost" href="tel:+14058772223">Call (405) 877-2223</a>
-        </div>
-        <p class="hero-note">
-          <strong>Seniors are our specialty.</strong> Unhurried help, plain English —
-          no question too small, never rushed.
-        </p>
+  <!-- PHOTO HERO -->
+  <section class="photo-hero">
+    <div class="ph-bg" aria-hidden="true">
+      <img src="/images/photo-02.webp" alt="" fetchpriority="high" />
+    </div>
+    <div class="ph-shade" aria-hidden="true"></div>
+    <div class="wrap">
+      <span class="eyebrow">IT support · Oklahoma City metro</span>
+      <h1>Tech help that <span class="warm">speaks your language.</span></h1>
+      <p class="lede">
+        Phones, Wi-Fi, email, printers, passwords, scams — the tech headaches that
+        eat your afternoon, handled by someone who explains it like a neighbor
+        would. No jargon, no rushing, no hauling your computer to a shop.
+        And you get the same person — MK — every single time.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-large" href="/book/">Get Tech Help</a>
+        <a class="btn btn-light" href="tel:+14058772223">Call (405) 877-2223</a>
       </div>
-      <div>
-        <div class="card">
-          <h3 style="margin-top: 0;">Two easy ways to get help</h3>
-          <ul class="checklist">
-            <li><strong>Remote session</strong> — secure screen-share while you watch. Most software issues solved on the call, often same-day.</li>
-            <li><strong>On-site visit</strong> — we come to you anywhere in the OKC metro. Hardware, Wi-Fi, and anything hands-on, fixed on the spot.</li>
-          </ul>
-          <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 0;">
-            Mon–Fri 9 AM–6 PM · Sat 10 AM–2 PM. Care-plan members get priority scheduling.
-          </p>
-        </div>
+      <p class="hero-note">
+        <strong>Seniors are our specialty.</strong> Unhurried help, plain English —
+        no question too small, never rushed.
+      </p>
+    </div>
+  </section>
+
+  <!-- TWO WAYS -->
+  <section class="section" style="padding-bottom: 2rem;">
+    <div class="wrap">
+      <div class="card">
+        <h3 style="margin-top: 0;">Two easy ways to get help</h3>
+        <ul class="checklist">
+          <li><strong>Remote session</strong> — secure screen-share while you watch. Most software issues solved on the call, often same-day.</li>
+          <li><strong>On-site visit</strong> — we come to you anywhere in the OKC metro. Hardware, Wi-Fi, and anything hands-on, fixed on the spot.</li>
+        </ul>
+        <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 0;">
+          Mon–Fri 9 AM–6 PM · Sat 10 AM–2 PM. Care-plan members get priority scheduling.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- AUDIENCES -->
-  <section class="section">
+  <section class="section" style="padding-top: 2rem;">
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow">Who we help</span>
@@ -172,12 +178,18 @@ const description = "Patient, plain-English tech help in the Oklahoma City metro
   <!-- CTA -->
   <section class="section" style="padding-top: 1rem;">
     <div class="wrap">
-      <div class="cta-band">
-        <h2>Tech trouble? Let's fix it together.</h2>
-        <p>Call, text, or send a request — a real person will get back to you.</p>
-        <div class="cta-actions">
-          <a class="btn btn-primary btn-large" href="/book/">Request Help</a>
-          <a class="btn btn-ghost" href="tel:+14058772223">Call (405) 877-2223</a>
+      <div class="cta-photo">
+        <div class="ph-bg" aria-hidden="true">
+          <img src="/images/tour-still-exterior.jpg" alt="" loading="lazy" />
+        </div>
+        <div class="ph-shade" aria-hidden="true"></div>
+        <div class="cta-inner">
+          <h2>Tech trouble? Let's fix it together.</h2>
+          <p>Call, text, or send a request — a real person will get back to you.</p>
+          <div class="cta-actions">
+            <a class="btn btn-primary btn-large" href="/book/">Request Help</a>
+            <a class="btn btn-light" href="tel:+14058772223">Call (405) 877-2223</a>
+          </div>
         </div>
       </div>
     </div>

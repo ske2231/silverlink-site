@@ -6,41 +6,51 @@ const description = "SilverLink turns listing photos into room-to-room video wal
 ---
 
 <BaseLayout title={title} description={description} active="home">
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="eyebrow">SilverLink LLC · Oklahoma City, OK</span>
-        <h1>One friendly local expert — <span class="warm">for your listings and your laptop.</span></h1>
-        <p class="lede">
-          SilverLink does two things with the same care: we turn your listing photos
-          into smooth, room-to-room video tours for Oklahoma realtors — and we fix
-          tech headaches for homes, seniors, and small businesses, patiently and in
-          plain English. No jargon, no runaround, no call centers.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="/walkthroughs/">Get a Walkthrough Video</a>
-          <a class="btn btn-ghost" href="/it-support/">Get Tech Help</a>
-        </div>
-        <p class="hero-note">
-          <strong>Realtor?</strong> Send photos, get a video back in 48 hours.<br />
-          <strong>Tech trouble?</strong> Call or text <a href="tel:+14058772223">(405) 877-2223</a> — a real person (MK) answers.
-        </p>
+  <!-- PHOTO HERO -->
+  <section class="photo-hero">
+    <div class="ph-bg" aria-hidden="true">
+      <img src="/images/photo-01.webp" alt="" fetchpriority="high" />
+    </div>
+    <div class="ph-shade" aria-hidden="true"></div>
+    <div class="wrap">
+      <span class="eyebrow">SilverLink LLC · Oklahoma City, OK</span>
+      <h1>One friendly local expert — <span class="warm">for your listings and your laptop.</span></h1>
+      <p class="lede">
+        SilverLink does two things with the same care: we turn your listing photos
+        into smooth, room-to-room video tours for Oklahoma realtors — and we fix
+        tech headaches for homes, seniors, and small businesses, patiently and in
+        plain English. No jargon, no runaround, no call centers.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/walkthroughs/">Get a Walkthrough Video</a>
+        <a class="btn btn-light" href="/it-support/">Get Tech Help</a>
+      </div>
+      <p class="hero-note">
+        <strong>Realtor?</strong> Send photos, get a video back in 48 hours.<br />
+        <strong>Tech trouble?</strong> Call or text <a href="tel:+14058772223">(405) 877-2223</a> — a real person (MK) answers.
+      </p>
+    </div>
+  </section>
+
+  <!-- SAMPLE TOUR VIDEO -->
+  <div class="feature-band">
+    <div class="wrap feature-grid">
+      <div class="feature-video">
+        <video controls preload="metadata" poster="/tour-poster.jpg" aria-label="Sample virtual walkthrough video">
+          <source src="/sample-tour.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
       <div>
-        <div class="hero-media">
-          <video controls preload="metadata" poster="/tour-poster.jpg" aria-label="Sample virtual walkthrough video">
-            <source src="/sample-tour.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          <div class="media-caption">
-            <span><strong>Sample tour</strong> — built from ordinary listing photos</span>
-            <span>0:57</span>
-          </div>
+        <span class="eyebrow" style="border-color: rgba(255,248,238,.4); color: #ffe9d4; background: rgba(30,17,8,.35);">Sample tour</span>
+        <h2>Built from ordinary listing photos</h2>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/walkthroughs/">Get a Walkthrough Video</a>
+          <a class="btn btn-light" href="/book/">Book a Tour</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- TRUST -->
   <div class="trust" role="list" aria-label="Why SilverLink">
@@ -61,40 +71,50 @@ const description = "SilverLink turns listing photos into room-to-room video wal
         <p>Whether you're selling a house or just trying to get your printer working, you get the same promise: done right, explained kindly.</p>
       </div>
       <div class="cards">
-        <div class="card accent-card">
-          <span class="icon" aria-hidden="true">🏠</span>
-          <h3>Video Walkthroughs for Realtors</h3>
-          <p>
-            You already took the photos — we do everything else. Smooth forward-motion
-            video, room labels, your branding on the title card, and a shareable link
-            that plays beautifully on any phone. From <strong>$149</strong> per listing.
-          </p>
-          <ul class="checklist">
-            <li>True walking motion — never a slideshow</li>
-            <li>Branded + MLS-ready unbranded versions</li>
-            <li>48-hour standard turnaround</li>
-          </ul>
-          <div class="card-actions">
-            <a class="btn btn-primary" href="/walkthroughs/">See How It Works</a>
-            <a class="btn btn-ghost" href="/book/">Book a Tour</a>
+        <div class="card media-card accent-card">
+          <div class="media-img">
+            <img src="/images/tour-still-kitchen.jpg" alt="Still from a SilverLink walking tour: bright kitchen" loading="lazy" />
+          </div>
+          <div class="media-body">
+            <span class="icon" aria-hidden="true">🏠</span>
+            <h3>Video Walkthroughs for Realtors</h3>
+            <p>
+              You already took the photos — we do everything else. Smooth forward-motion
+              video, room labels, your branding on the title card, and a shareable link
+              that plays beautifully on any phone. From <strong>$149</strong> per listing.
+            </p>
+            <ul class="checklist">
+              <li>True walking motion — never a slideshow</li>
+              <li>Branded + MLS-ready unbranded versions</li>
+              <li>48-hour standard turnaround</li>
+            </ul>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="/walkthroughs/">See How It Works</a>
+              <a class="btn btn-ghost" href="/book/">Book a Tour</a>
+            </div>
           </div>
         </div>
-        <div class="card accent-card">
-          <span class="icon" aria-hidden="true">💛</span>
-          <h3>Patient IT Support for Everyone Else</h3>
-          <p>
-            Phones, Wi-Fi, email, printers, scams, setups — the tech headaches that
-            eat your afternoon, fixed by someone who explains it like a neighbor
-            would. Remote or on-site, from <strong>$79</strong>.
-          </p>
-          <ul class="checklist">
-            <li>Seniors are our specialty — never rushed</li>
-            <li>Remote screen-share or we come to you</li>
-            <li>Month-to-month care plans available</li>
-          </ul>
-          <div class="card-actions">
-            <a class="btn btn-primary" href="/it-support/">Get Tech Help</a>
-            <a class="btn btn-ghost" href="/book/">Book a Visit</a>
+        <div class="card media-card accent-card">
+          <div class="media-img">
+            <img src="/images/photo-03.webp" alt="Warm living room of an Oklahoma home" loading="lazy" />
+          </div>
+          <div class="media-body">
+            <span class="icon" aria-hidden="true">💛</span>
+            <h3>Patient IT Support for Everyone Else</h3>
+            <p>
+              Phones, Wi-Fi, email, printers, scams, setups — the tech headaches that
+              eat your afternoon, fixed by someone who explains it like a neighbor
+              would. Remote or on-site, from <strong>$79</strong>.
+            </p>
+            <ul class="checklist">
+              <li>Seniors are our specialty — never rushed</li>
+              <li>Remote screen-share or we come to you</li>
+              <li>Month-to-month care plans available</li>
+            </ul>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="/it-support/">Get Tech Help</a>
+              <a class="btn btn-ghost" href="/book/">Book a Visit</a>
+            </div>
           </div>
         </div>
       </div>
@@ -126,7 +146,7 @@ const description = "SilverLink turns listing photos into room-to-room video wal
           <p>Post it on the MLS, Zillow, Facebook, Instagram, and email. One link that plays beautifully on any phone.</p>
         </div>
       </div>
-      <div class="photo-strip" aria-label="Example listing photos">
+      <div class="photo-strip photo-strip--wide" aria-label="Example listing photos">
         <figure><img src="/images/photo-01.webp" alt="Listing photo: home exterior" loading="lazy" /><figcaption>Your photos…</figcaption></figure>
         <figure><img src="/images/photo-03.webp" alt="Listing photo: living room" loading="lazy" /><figcaption>…become rooms…</figcaption></figure>
         <figure><img src="/images/photo-05.webp" alt="Listing photo: kitchen" loading="lazy" /><figcaption>…in a walking tour.</figcaption></figure>
@@ -176,12 +196,18 @@ const description = "SilverLink turns listing photos into room-to-room video wal
   <!-- CTA -->
   <section class="section" style="padding-top: 1rem;">
     <div class="wrap">
-      <div class="cta-band">
-        <h2>Let's make your day a little easier</h2>
-        <p>A listing that needs a tour, a laptop that needs a friend — tell us what's going on.</p>
-        <div class="cta-actions">
-          <a class="btn btn-primary btn-large" href="/book/">Request Service</a>
-          <a class="btn btn-ghost" href="tel:+14058772223">Call (405) 877-2223</a>
+      <div class="cta-photo">
+        <div class="ph-bg" aria-hidden="true">
+          <img src="/images/tour-still-bedroom.jpg" alt="" loading="lazy" />
+        </div>
+        <div class="ph-shade" aria-hidden="true"></div>
+        <div class="cta-inner">
+          <h2>Let's make your day a little easier</h2>
+          <p>A listing that needs a tour, a laptop that needs a friend — tell us what's going on.</p>
+          <div class="cta-actions">
+            <a class="btn btn-primary btn-large" href="/book/">Request Service</a>
+            <a class="btn btn-light" href="tel:+14058772223">Call (405) 877-2223</a>
+          </div>
         </div>
       </div>
     </div>

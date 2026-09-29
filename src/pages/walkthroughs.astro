@@ -6,40 +6,50 @@ const description = "SilverLink turns your listing photos into smooth, room-to-r
 ---
 
 <BaseLayout title={title} description={description} active="walkthroughs">
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="eyebrow">For Oklahoma realtors</span>
-        <h1>Your listing photos, <span class="warm">walking and talking.</span></h1>
-        <p class="lede">
-          Send the photos you already have. Get back a smooth, room-to-room video tour
-          with your branding — ready for the MLS, Zillow, and social. No film crew,
-          no appointments, no hassle. From <strong>$149</strong> with 48-hour turnaround.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary btn-large" href="/book/">Book a Walkthrough</a>
-          <a class="btn btn-ghost" href="#pricing">See Pricing</a>
-        </div>
-        <p class="hero-note">
-          <strong>First listing?</strong> The sample tour below was built from ordinary
-          listing photos — yours will look this good too.
-        </p>
+  <!-- PHOTO HERO -->
+  <section class="photo-hero photo-hero--short">
+    <div class="ph-bg" aria-hidden="true">
+      <img src="/images/tour-still-kitchen.jpg" alt="" fetchpriority="high" />
+    </div>
+    <div class="ph-shade" aria-hidden="true"></div>
+    <div class="wrap">
+      <span class="eyebrow">For Oklahoma realtors</span>
+      <h1>Your listing photos, <span class="warm">walking and talking.</span></h1>
+      <p class="lede">
+        Send the photos you already have. Get back a smooth, room-to-room video tour
+        with your branding — ready for the MLS, Zillow, and social. No film crew,
+        no appointments, no hassle. From <strong>$149</strong> with 48-hour turnaround.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-large" href="/book/">Book a Walkthrough</a>
+        <a class="btn btn-light" href="#pricing">See Pricing</a>
+      </div>
+      <p class="hero-note">
+        <strong>First listing?</strong> The sample tour below was built from ordinary
+        listing photos — yours will look this good too.
+      </p>
+    </div>
+  </section>
+
+  <!-- SAMPLE TOUR VIDEO -->
+  <div class="feature-band">
+    <div class="wrap feature-grid">
+      <div class="feature-video">
+        <video controls preload="metadata" poster="/tour-poster.jpg" aria-label="Sample virtual walkthrough video">
+          <source src="/sample-tour.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
       <div>
-        <div class="hero-media">
-          <video controls preload="metadata" poster="/tour-poster.jpg" aria-label="Sample virtual walkthrough video">
-            <source src="/sample-tour.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          <div class="media-caption">
-            <span><strong>Sample tour</strong> — 9313 Southlake Dr, Oklahoma City</span>
-            <span>0:57</span>
-          </div>
+        <span class="eyebrow" style="border-color: rgba(255,248,238,.4); color: #ffe9d4; background: rgba(30,17,8,.35);">Sample tour</span>
+        <h2>9313 Southlake Dr, Oklahoma City</h2>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/book/">Book a Walkthrough</a>
+          <a class="btn btn-light" href="#pricing">See Pricing</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- BEFORE / AFTER -->
   <section class="section">
@@ -53,7 +63,7 @@ const description = "SilverLink turns your listing photos into smooth, room-to-r
           again: these are the photos it came from.
         </p>
       </div>
-      <div class="photo-strip" aria-label="Listing photos used in the sample tour">
+      <div class="photo-strip photo-strip--wide" aria-label="Listing photos used in the sample tour">
         <figure><img src="/images/photo-01.webp" alt="Listing photo: home exterior" loading="lazy" /><figcaption>Front exterior</figcaption></figure>
         <figure><img src="/images/photo-02.webp" alt="Listing photo: entryway" loading="lazy" /><figcaption>Entryway</figcaption></figure>
         <figure><img src="/images/photo-03.webp" alt="Listing photo: living room" loading="lazy" /><figcaption>Living room</figcaption></figure>
@@ -191,12 +201,18 @@ const description = "SilverLink turns your listing photos into smooth, room-to-r
   <!-- CTA -->
   <section class="section" style="padding-top: 1rem;">
     <div class="wrap">
-      <div class="cta-band">
-        <h2>Got a listing? Let's walk it.</h2>
-        <p>Send your photos today, share your tour in 48 hours.</p>
-        <div class="cta-actions">
-          <a class="btn btn-primary btn-large" href="/book/">Book a Walkthrough</a>
-          <a class="btn btn-ghost" href="tel:+14058772223">Call (405) 877-2223</a>
+      <div class="cta-photo">
+        <div class="ph-bg" aria-hidden="true">
+          <img src="/images/tour-still-bedroom.jpg" alt="" loading="lazy" />
+        </div>
+        <div class="ph-shade" aria-hidden="true"></div>
+        <div class="cta-inner">
+          <h2>Got a listing? Let's walk it.</h2>
+          <p>Send your photos today, share your tour in 48 hours.</p>
+          <div class="cta-actions">
+            <a class="btn btn-primary btn-large" href="/book/">Book a Walkthrough</a>
+            <a class="btn btn-light" href="tel:+14058772223">Call (405) 877-2223</a>
+          </div>
         </div>
       </div>
     </div>
