@@ -1,194 +1,289 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const title = "SilverLink — Video Walkthroughs & Friendly IT Support | Oklahoma City";
-const description = "SilverLink turns listing photos into room-to-room video walkthroughs for Oklahoma realtors — and gives patient, plain-English tech help to homes, seniors, and small businesses in the OKC metro.";
+const title = "SilverLink — IT Support for Businesses, Families & Seniors | Oklahoma City";
+const description = "Friendly, plain-English IT support in the OKC metro. Managed IT for small businesses from $99/user/mo, care plans for families and seniors from $49/mo, one-time fixes from $79. Remote or on-site. Call (405) 877-2223.";
 ---
 
 <BaseLayout title={title} description={description} active="home">
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "SilverLink LLC",
+    "description": "IT support and managed services for small businesses, families, and seniors in the Oklahoma City metro.",
+    "telephone": "+1-405-877-2223",
+    "email": "mk@silverlinkok.com",
+    "url": "https://www.silverlinkok.com/",
+    "areaServed": "Oklahoma City metro",
+    "address": { "@type": "PostalAddress", "addressLocality": "Oklahoma City", "addressRegion": "OK", "addressCountry": "US" },
+    "openingHours": ["Mo-Fr 09:00-18:00", "Sa 10:00-14:00"],
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "11" }
+  })} />
+
   <!-- PHOTO HERO -->
   <section class="photo-hero">
     <div class="ph-bg" aria-hidden="true">
-      <img src="/images/photo-01.webp" alt="" fetchpriority="high" />
+      <img src="/images/photo-02.webp" alt="" fetchpriority="high" />
     </div>
     <div class="ph-shade" aria-hidden="true"></div>
     <div class="wrap">
-      <span class="eyebrow">SilverLink LLC · Oklahoma City, OK</span>
-      <h1>One friendly local expert — <span class="warm">for your listings and your laptop.</span></h1>
+      <span class="eyebrow">SilverLink LLC · IT support · Oklahoma City metro</span>
+      <h1>Tech headaches, <span class="warm">handled.</span></h1>
       <p class="lede">
-        SilverLink does two things with the same care: we turn your listing photos
-        into smooth, room-to-room video tours for Oklahoma realtors — and we fix
-        tech headaches for homes, seniors, and small businesses, patiently and in
-        plain English. No jargon, no runaround, no call centers.
+        Friendly IT support for small businesses, families, and seniors in the OKC metro.
+        Remote or on-site, explained in plain English, by the same local expert every
+        single time. No jargon, no call centers, no runaround.
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="/walkthroughs/">Get a Walkthrough Video</a>
-        <a class="btn btn-light" href="/it-support/">Get Tech Help</a>
+        <a class="btn btn-primary btn-large" href="tel:+14058772223">Call or Text (405) 877-2223</a>
+        <a class="btn btn-light" href="#pricing">See Pricing</a>
       </div>
       <p class="hero-note">
-        <strong>Realtor?</strong> Send photos, get a video back in 48 hours.<br />
-        <strong>Tech trouble?</strong> Call or text <a href="tel:+14058772223">(405) 877-2223</a> — a real person (MK) answers.
+        <strong>Something broken right now?</strong> Call — same-day remote help is usually
+        available. <strong>CompTIA A+ &amp; Security+ certified</strong> · Google rated 5.0 ★ · 18 years in IT.
       </p>
     </div>
   </section>
 
-  <!-- SAMPLE TOUR VIDEO -->
-  <div class="feature-band">
-    <div class="wrap feature-grid">
-      <div class="feature-video">
-        <video controls preload="metadata" poster="/tour-poster.jpg" aria-label="Sample virtual walkthrough video">
-          <source src="/sample-tour.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div>
-        <span class="eyebrow" style="border-color: rgba(255,248,238,.4); color: #ffe9d4; background: rgba(30,17,8,.35);">Sample tour</span>
-        <h2>Built from ordinary listing photos</h2>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="/walkthroughs/">Get a Walkthrough Video</a>
-          <a class="btn btn-light" href="/book/">Book a Tour</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TRUST -->
+  <!-- TRUST BAND -->
   <div class="trust" role="list" aria-label="Why SilverLink">
     <div class="wrap">
-      <div class="trust-item" role="listitem"><div class="t">48 hours</div><div class="s">Walkthrough turnaround</div></div>
-      <div class="trust-item" role="listitem"><div class="t">Same friendly knowledgeable specialist</div><div class="s">Every call, every visit</div></div>
-      <div class="trust-item" role="listitem"><div class="t">No jargon</div><div class="s">Plain-English tech help</div></div>
+      <div class="trust-item" role="listitem"><div class="t">18 years</div><div class="s">Professional IT experience</div></div>
+      <div class="trust-item" role="listitem"><div class="t">A+ &amp; Security+</div><div class="s">CompTIA certified</div></div>
+      <div class="trust-item" role="listitem"><div class="t">5.0 ★</div><div class="s">Google rated</div></div>
       <div class="trust-item" role="listitem"><div class="t">Local</div><div class="s">Oklahoma owned &amp; operated</div></div>
     </div>
   </div>
 
-  <!-- TWO SERVICES -->
+  <!-- WHO WE HELP -->
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Two services, one standard</span>
-        <h2>Helpful, honest, and close to home</h2>
-        <p>Whether you're selling a house or just trying to get your printer working, you get the same promise: done right, explained kindly.</p>
+        <span class="eyebrow">Who we help</span>
+        <h2>One expert, three kinds of people</h2>
+        <p>Same promise for everyone: done right, explained kindly, priced honestly.</p>
       </div>
-      <div class="cards">
-        <div class="card media-card accent-card">
-          <div class="media-img">
-            <img src="/images/tour-still-kitchen.jpg" alt="Still from a SilverLink walking tour: bright kitchen" loading="lazy" />
-          </div>
-          <div class="media-body">
-            <span class="icon" aria-hidden="true">🏠</span>
-            <h3>Video Walkthroughs for Realtors</h3>
-            <p>
-              You already took the photos — we do everything else. Smooth forward-motion
-              video, room labels, your branding on the title card, and a shareable link
-              that plays beautifully on any phone. From <strong>$149</strong> per listing.
-            </p>
-            <ul class="checklist">
-              <li>True walking motion — never a slideshow</li>
-              <li>Branded + MLS-ready unbranded versions</li>
-              <li>48-hour standard turnaround</li>
-            </ul>
-            <div class="card-actions">
-              <a class="btn btn-primary" href="/walkthroughs/">See How It Works</a>
-              <a class="btn btn-ghost" href="/book/">Book a Tour</a>
-            </div>
-          </div>
+      <div class="steps">
+        <div class="step">
+          <span class="icon" aria-hidden="true" style="font-size: 1.8rem;">🏪</span>
+          <h3 style="margin-top: 0.6rem;">Small Businesses</h3>
+          <p><strong>Your entire IT department for $99 per user, per month.</strong> Desktops, Wi-Fi, email, security — handled, so you never lose a workday to tech again.</p>
+          <p>Microsoft 365 &amp; Google Workspace · network &amp; Wi-Fi · employee onboarding &amp; offboarding · security &amp; scam protection · vendor wrangling.</p>
         </div>
-        <div class="card media-card accent-card">
-          <div class="media-img">
-            <img src="/images/photo-03.webp" alt="Warm living room of an Oklahoma home" loading="lazy" />
-          </div>
-          <div class="media-body">
-            <span class="icon" aria-hidden="true">💛</span>
-            <h3>Patient IT Support for Everyone Else</h3>
-            <p>
-              Phones, Wi-Fi, email, printers, scams, setups — the tech headaches that
-              eat your afternoon, fixed by someone who explains it like a neighbor
-              would. Remote or on-site, from <strong>$79</strong>.
-            </p>
-            <ul class="checklist">
-              <li>Seniors are our specialty — never rushed</li>
-              <li>Remote screen-share or we come to you</li>
-              <li>Month-to-month care plans available</li>
-            </ul>
-            <div class="card-actions">
-              <a class="btn btn-primary" href="/it-support/">Get Tech Help</a>
-              <a class="btn btn-ghost" href="/book/">Book a Visit</a>
-            </div>
-          </div>
+        <div class="step">
+          <span class="icon" aria-hidden="true" style="font-size: 1.8rem;">🏡</span>
+          <h3 style="margin-top: 0.6rem;">Families</h3>
+          <p>Wi-Fi that reaches every room, new devices set up right, backups that actually run, and the nagging problems finally fixed.</p>
+          <p>New computer &amp; phone setup with data transfer · virus &amp; malware removal · smart home &amp; cameras · parental controls · monthly care plans from $49.</p>
+        </div>
+        <div class="step">
+          <span class="icon" aria-hidden="true" style="font-size: 1.8rem;">👵</span>
+          <h3 style="margin-top: 0.6rem;">Seniors</h3>
+          <p><strong>Our specialty.</strong> Unhurried help in plain English — no question too small, never rushed, never made to feel silly.</p>
+          <p>Phones, tablets &amp; email · video calls with grandkids · scam &amp; fraud protection · printers · a monthly in-home visit option.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section alt" id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Honest pricing</span>
+        <h2>Plans that pay for themselves</h2>
+        <p>Month-to-month on everything — cancel anytime. Flat rates quoted up front.</p>
+      </div>
+
+      <!-- BUSINESS -->
+      <div class="plans plans-2">
+        <div class="plan featured">
+          <span class="badge">Best value for offices</span>
+          <h3>Business Care</h3>
+          <p class="price">$99<span style="font-size: 1.1rem; font-weight: 600;"> /user</span></p>
+          <p class="per">per user, per month · 2+ users</p>
+          <ul>
+            <li>Unlimited remote support during business hours</li>
+            <li>Same-day response for members</li>
+            <li>Microsoft 365 / Google Workspace admin</li>
+            <li>Patching, antivirus &amp; backup monitoring on every device</li>
+            <li>Network, Wi-Fi &amp; printer management</li>
+            <li>Employee onboarding &amp; offboarding</li>
+            <li>Quarterly check-in &amp; security review</li>
+            <li>We deal with your vendors so you don't</li>
+          </ul>
+          <a class="btn btn-primary" href="/book/">Get a Free IT Checkup</a>
+        </div>
+        <div class="plan">
+          <h3>Not ready for monthly?</h3>
+          <p class="price" style="font-size: 1.6rem;">Business help à la carte</p>
+          <p class="per">One-time visits, flat rate</p>
+          <ul>
+            <li>On-site fix or setup — $149 flat, up to 90 minutes</li>
+            <li>Remote Quick Fix — $79, up to 45 minutes</li>
+            <li>Office Wi-Fi &amp; network tune-up — $129</li>
+            <li>Security &amp; scam hardening — $249</li>
+            <li>Free 15-minute phone assessment first</li>
+          </ul>
+          <a class="btn btn-ghost" href="/book/">Book a Visit</a>
+        </div>
+      </div>
+
+      <!-- HOME PLANS -->
+      <div class="section-head" style="margin-top: 4rem;">
+        <span class="eyebrow">For home, family &amp; seniors</span>
+        <h2>Monthly care plans</h2>
+        <p>Like having a tech-savvy grandkid on call — without waiting for the holidays.</p>
+      </div>
+      <div class="plans">
+        <div class="plan">
+          <h3>Essentials</h3>
+          <p class="price">$49</p>
+          <p class="per">per month · 1 computer</p>
+          <ul>
+            <li>Remote help during business hours</li>
+            <li>Updates &amp; tune-ups handled for you</li>
+            <li>Antivirus &amp; backup monitoring</li>
+            <li>Discounted on-site visits ($99)</li>
+          </ul>
+          <a class="btn btn-ghost" href="/book/">Start Essentials</a>
+        </div>
+        <div class="plan featured">
+          <span class="badge">Most popular</span>
+          <h3>Family Care</h3>
+          <p class="price">$59</p>
+          <p class="per">per month · up to 4 devices</p>
+          <ul>
+            <li>Everything in Essentials</li>
+            <li>Covers computers, phones &amp; tablets</li>
+            <li>Remote help for the whole family</li>
+            <li>Discounted on-site visits ($99)</li>
+            <li>Backup checks on the family photos</li>
+          </ul>
+          <a class="btn btn-primary" href="/book/">Start Family Care</a>
+        </div>
+        <div class="plan">
+          <h3>Senior Peace of Mind</h3>
+          <p class="price">$179</p>
+          <p class="per">per month · whole household</p>
+          <ul>
+            <li>Unlimited devices, unlimited remote help</li>
+            <li>A friendly in-home visit every month</li>
+            <li>Scam &amp; fraud protection set up and watched</li>
+            <li>Family members can call on your behalf</li>
+            <li>Priority response — never a long wait</li>
+          </ul>
+          <a class="btn btn-ghost" href="/book/">Start Peace of Mind</a>
+        </div>
+      </div>
+
+      <!-- ONE-TIME -->
+      <div class="section-head" style="margin-top: 4rem;">
+        <span class="eyebrow">No commitment</span>
+        <h2>One-time help</h2>
+        <p>Flat rates, quoted up front. If we can't fix it, we'll tell you straight — we don't bill you for shrugging.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num" aria-hidden="true">$</div>
+          <h3>Quick Fix — $79</h3>
+          <p>One remote troubleshooting session, up to 45 minutes. Secure screen-share you watch the whole time. No travel fee.</p>
+        </div>
+        <div class="step">
+          <div class="num" aria-hidden="true">$</div>
+          <h3>Setup &amp; Optimize — $149</h3>
+          <p>New computer or phone set up right: data transferred, accounts signed in, security baseline applied. Up to 90 minutes.</p>
+        </div>
+        <div class="step">
+          <div class="num" aria-hidden="true">$</div>
+          <h3>Network Tune-Up — $129</h3>
+          <p>Wi-Fi that actually reaches the back bedroom. Router placement, optimization, whole-home coverage check.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMERGENCY BAND -->
+  <section class="feature-band">
+    <div class="wrap" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: space-between;">
+      <div>
+        <h2 style="margin: 0 0 0.4rem;">Something broken right now?</h2>
+        <p style="margin: 0; color: #ffe9d4;">Call or text — if it can be fixed remotely, we can usually fix it today.</p>
+      </div>
+      <a class="btn btn-light btn-large" href="tel:+14058772223">Call (405) 877-2223</a>
     </div>
   </section>
 
   <!-- HOW IT WORKS -->
-  <section class="section alt">
+  <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">For realtors</span>
-        <h2>From photos to walkthrough in three steps</h2>
-        <p>No filming appointments. No special equipment. You already did the hard part.</p>
+        <span class="eyebrow">How it works</span>
+        <h2>Getting help is easy</h2>
       </div>
       <div class="steps">
         <div class="step">
           <div class="num" aria-hidden="true">1</div>
-          <h3>Send your listing photos</h3>
-          <p>Phone snapshots or professional shots — plus the address and specs. Takes about five minutes.</p>
+          <h3>Reach out</h3>
+          <p>Call, text, or send the request form. A real person — MK — responds the same day, usually within hours.</p>
         </div>
         <div class="step">
           <div class="num" aria-hidden="true">2</div>
-          <h3>We build your walking tour</h3>
-          <p>Smooth forward-motion video stitched room to room, with room labels, a branded title card, and your contact info on the closing card.</p>
+          <h3>We fix it</h3>
+          <p>Remote screen-share or on-site visit, whatever the problem needs. You watch everything we do.</p>
         </div>
         <div class="step">
           <div class="num" aria-hidden="true">3</div>
-          <h3>Share it everywhere</h3>
-          <p>Post it on the MLS, Zillow, Facebook, Instagram, and email. One link that plays beautifully on any phone.</p>
+          <h3>It stays fixed</h3>
+          <p>You get a plain-English summary of what happened and how to avoid it next time. 30-day warranty on the work.</p>
         </div>
       </div>
-      <div class="photo-strip photo-strip--wide" aria-label="Example listing photos">
-        <figure><img src="/images/photo-01.webp" alt="Listing photo: home exterior" loading="lazy" /><figcaption>Your photos…</figcaption></figure>
-        <figure><img src="/images/photo-03.webp" alt="Listing photo: living room" loading="lazy" /><figcaption>…become rooms…</figcaption></figure>
-        <figure><img src="/images/photo-05.webp" alt="Listing photo: kitchen" loading="lazy" /><figcaption>…in a walking tour.</figcaption></figure>
-      </div>
-      <p class="transform-note">
-        The photos above became the <strong>57-second walking tour</strong> at the top of this page.
-        Same photos, same home — just moving.
-      </p>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="section">
+  <section class="section alt">
     <div class="wrap">
       <div class="section-head">
-        <h2>Good questions</h2>
+        <h2>Questions, answered</h2>
       </div>
       <div class="faq">
         <details>
           <summary>I'm not very tech-savvy. Is this for me?</summary>
-          <p>Especially for you. A lot of our home clients are seniors, and everything is explained in plain English — no jargon, no rushing, no making you feel silly for asking. If you can describe what's wrong, we can fix it.</p>
+          <p>Especially for you. Many of our clients are seniors, and everything is explained in plain English — no jargon, no rushing, no making you feel silly for asking. If you can describe what's wrong, we can fix it.</p>
         </details>
         <details>
           <summary>Do I have to bring my computer somewhere?</summary>
           <p>No. Most issues are handled over a secure screen-share while you watch, or we come to you anywhere in the OKC metro. You never haul equipment to a shop or wait in line.</p>
         </details>
         <details>
-          <summary>Is the walkthrough a slideshow with zoom effects?</summary>
-          <p>No. Each photo is animated with smooth forward camera motion and stitched in walking order, room to room — so it feels like actually walking through the home.</p>
+          <summary>What does "per user" pricing mean for businesses?</summary>
+          <p>Simple: $99 a month per person on your team. Everyone gets support, every device they use gets managed — no surprise invoices, no counting machines. Most OKC IT firms charge $149 or more per user and make you call a help desk. With us, you get MK on every call.</p>
         </details>
         <details>
-          <summary>How fast will I get my walkthrough video?</summary>
-          <p>Standard turnaround is 48 hours from the time we receive your photos. Listing Partner plans include 24-hour turnaround, and a 24-hour rush is available on any tour for $49.</p>
+          <summary>Is remote help safe?</summary>
+          <p>Yes. You see everything we do on your screen, you stay in control, and you can end the session anytime. We only connect with your permission, and only for the issue you asked about.</p>
         </details>
         <details>
-          <summary>Who owns the finished video?</summary>
-          <p>You do. Every tour comes with full usage rights and a downloadable file, plus a shareable link you can post anywhere.</p>
+          <summary>What are your hours?</summary>
+          <p>Mon–Fri 9 AM–6 PM, Sat 10 AM–2 PM. Care-plan members get priority scheduling.</p>
         </details>
         <details>
           <summary>What areas do you serve?</summary>
-          <p>Walkthrough videos are built remotely from your photos, so we serve all of Oklahoma. On-site IT visits cover the Oklahoma City metro, and remote support works anywhere.</p>
+          <p>On-site visits cover the Oklahoma City metro. Remote support works anywhere.</p>
         </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- REALTOR CROSS-SELL -->
+  <section class="section" style="padding-top: 1rem;">
+    <div class="wrap">
+      <div class="card" style="text-align: center;">
+        <p style="margin: 0 0 0.6rem; color: var(--muted);">Realtor? 🏠</p>
+        <h3 style="margin-top: 0;">We also turn your listing photos into video walkthroughs.</h3>
+        <p style="margin-bottom: 1.2rem;">Send photos, get a smooth room-to-room video back in 48 hours — from $149 per listing.</p>
+        <a class="btn btn-ghost" href="/walkthroughs/">See Walkthrough Videos</a>
       </div>
     </div>
   </section>
@@ -198,15 +293,15 @@ const description = "SilverLink turns listing photos into room-to-room video wal
     <div class="wrap">
       <div class="cta-photo">
         <div class="ph-bg" aria-hidden="true">
-          <img src="/images/tour-still-bedroom.jpg" alt="" loading="lazy" />
+          <img src="/images/photo-03.webp" alt="" loading="lazy" />
         </div>
         <div class="ph-shade" aria-hidden="true"></div>
         <div class="cta-inner">
-          <h2>Let's make your day a little easier</h2>
-          <p>A listing that needs a tour, a laptop that needs a friend — tell us what's going on.</p>
+          <h2>Let's get it fixed today.</h2>
+          <p>Call, text, or send a request — a real person will get back to you.</p>
           <div class="cta-actions">
-            <a class="btn btn-primary btn-large" href="/book/">Request Service</a>
-            <a class="btn btn-light" href="tel:+14058772223">Call (405) 877-2223</a>
+            <a class="btn btn-primary btn-large" href="tel:+14058772223">Call (405) 877-2223</a>
+            <a class="btn btn-light" href="/book/">Request Help Online</a>
           </div>
         </div>
       </div>
