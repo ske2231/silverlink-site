@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const title = "Book a Walkthrough or Get Tech Help | SilverLink";
+const title = "Book IT Help or a Realtor Walkthrough | SilverLink OKC";
 const description = "Request a video walkthrough or friendly tech help from SilverLink. Call or text (405) 877-2223, email mk@silverlinkok.com, or send a request online.";
 ---
 
@@ -9,12 +9,12 @@ const description = "Request a video walkthrough or friendly tech help from Silv
   <!-- PHOTO HERO -->
   <section class="photo-hero photo-hero--short">
     <div class="ph-bg" aria-hidden="true">
-      <img src="/images/it-desk.webp" alt="" fetchpriority="high" />
+      <img src="/images/it-desk.webp" alt="A desk with a computer, ready for remote IT help from SilverLink" width="1024" height="576" fetchpriority="high" />
     </div>
     <div class="ph-shade" aria-hidden="true"></div>
     <div class="wrap">
       <span class="eyebrow">Get started</span>
-      <h1>Book a walkthrough <span class="warm">or get tech help.</span></h1>
+      <h1>Book a walkthrough <span class="warm">or get tech help in Oklahoma City.</span></h1>
       <p class="lede">Tell us what you need — a human (MK) will get back to you.</p>
       <div class="hero-actions">
         <a class="btn btn-light" href="tel:+14058772223">Call (405) 877-2223</a>
@@ -37,9 +37,14 @@ const description = "Request a video walkthrough or friendly tech help from Silv
             same-day during business hours.
           </p>
         </div>
-        <form class="contact-form" id="booking-form" aria-label="Request service">
+        <form class="contact-form" id="booking-form" aria-label="Request service" action="https://formsubmit.co/mk@silverlinkok.com" method="POST">
+          <input type="hidden" name="_subject" value="Website request — SilverLink" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://silverlinkok.com/thanks/" />
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <h3>Request service</h3>
-          <p class="sub">Fill this out and it will open a pre-addressed email to us — nothing is stored on this site.</p>
+          <p class="sub">Fill this out and we'll get back to you — usually the same day during business hours.</p>
           <div class="form-row">
             <div class="field">
               <label for="f-name">Your name</label>
@@ -66,23 +71,19 @@ const description = "Request a video walkthrough or friendly tech help from Silv
                 <option value="3-Tour Pack ($399)">3-Tour Pack ($399)</option>
                 <option value="Listing Partner ($499/mo)">Listing Partner ($499/mo)</option>
               </optgroup>
-              <optgroup label="Business — monthly">
-                <option value="Business Care ($99/user/mo)">Business Care ($99/user/mo)</option>
-              </optgroup>
-              <optgroup label="Business — one-time">
+              <optgroup label="IT support — one-time">
+                <option value="Quick Fix ($79)">Quick Fix — remote session ($79)</option>
+                <option value="Setup & Optimize ($149)">Setup &amp; Optimize ($149)</option>
+                <option value="Network Tune-Up ($129)">Network Tune-Up ($129)</option>
                 <option value="Business on-site visit ($149)">Business on-site visit ($149)</option>
                 <option value="Office network tune-up ($129)">Office network tune-up ($129)</option>
                 <option value="Security hardening ($249)">Security hardening ($249)</option>
               </optgroup>
-              <optgroup label="Home & seniors — monthly">
+              <optgroup label="IT support — monthly">
+                <option value="Business Care ($99/user/mo)">Business Care ($99/user/mo)</option>
                 <option value="Essentials ($49/mo)">Essentials ($49/mo)</option>
                 <option value="Family Care ($59/mo)">Family Care ($59/mo)</option>
                 <option value="Senior Peace of Mind ($179/mo)">Senior Peace of Mind ($179/mo)</option>
-              </optgroup>
-              <optgroup label="Home — one-time">
-                <option value="Quick Fix ($79)">Quick Fix — remote session ($79)</option>
-                <option value="Setup & Optimize ($149)">Setup &amp; Optimize ($149)</option>
-                <option value="Network Tune-Up ($129)">Network Tune-Up ($129)</option>
               </optgroup>
               <option value="Not sure yet">Not sure yet — just have questions</option>
             </select>
@@ -92,31 +93,9 @@ const description = "Request a video walkthrough or friendly tech help from Silv
             <textarea id="f-msg" name="message" placeholder="Describe the tech issue, or the listing timeline…"></textarea>
           </div>
           <button class="btn btn-primary" type="submit" style="width: 100%;">Send Request</button>
-          <p class="form-note">Submitting opens your email app with the details filled in — just hit send.</p>
+          <p class="form-note">Prefer email? Write to <a href="mailto:mk@silverlinkok.com">mk@silverlinkok.com</a> or call <a href="tel:+14058772223">(405) 877-2223</a>.</p>
         </form>
       </div>
     </div>
   </section>
-
-  <script>
-    document.getElementById("booking-form")?.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const data = new FormData(e.target as HTMLFormElement);
-      const lines = [
-        "New service request from silverlinkok.com",
-        "",
-        "Name: " + (data.get("name") || ""),
-        "Phone: " + (data.get("phone") || ""),
-        "Email: " + (data.get("email") || ""),
-        "Property: " + (data.get("address") || ""),
-        "Interested in: " + (data.get("package") || ""),
-        "",
-        "Details:",
-        data.get("message") || "(none)",
-      ];
-      const subject = encodeURIComponent("Website request — " + (data.get("name") || "new lead"));
-      const body = encodeURIComponent(lines.join("\n"));
-      window.location.href = "mailto:mk@silverlinkok.com?subject=" + subject + "&body=" + body;
-    });
-  </script>
 </BaseLayout>

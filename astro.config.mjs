@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://www.silverlinkok.com",
+  site: "https://silverlinkok.com",
   outDir: "./dist",
 });

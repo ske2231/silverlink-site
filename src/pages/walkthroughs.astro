@@ -2,19 +2,98 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = "Video Walkthroughs for Realtors | SilverLink Oklahoma";
-const description = "SilverLink turns your listing photos into smooth, room-to-room video walkthroughs for Oklahoma realtors. 48-hour turnaround from $149. Branded + MLS-ready versions included.";
+const description = "Turn listing photos into room-to-room video walkthroughs for Oklahoma realtors. From $149, 48-hour turnaround, MLS-ready. See a sample tour.";
+const videoObject = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name: "Sample realtor video walkthrough — 9313 Southlake Dr, Oklahoma City",
+  description:
+    "A room-to-room video walkthrough built from ordinary listing photos by SilverLink for Oklahoma realtors. Smooth forward camera motion, room to room — never a slideshow.",
+  thumbnailUrl: "https://silverlinkok.com/tour-poster.jpg",
+  contentUrl: "https://silverlinkok.com/sample-tour.mp4",
+  embedUrl: "https://silverlinkok.com/walkthroughs/",
+};
+const service = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Realtor video walkthroughs",
+  provider: { "@type": "LocalBusiness", name: "SilverLink LLC", url: "https://silverlinkok.com/" },
+  areaServed: "Oklahoma",
+  offers: [
+    { "@type": "Offer", name: "Single Tour", price: "149", priceCurrency: "USD" },
+    { "@type": "Offer", name: "3-Tour Pack", price: "399", priceCurrency: "USD" },
+    { "@type": "Offer", name: "Listing Partner", price: "499", priceCurrency: "USD" },
+  ],
+};
+const faq = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What do you need from me?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Your listing photos (phone snapshots or professional shots), the property address and specs, and your logo or branding. That's it — no filming appointment needed.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How fast is turnaround, really?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "48 hours from when we receive your photos, on standard orders. Listing Partners get 24-hour turnaround, and a 24-hour rush is available on any tour for $49.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I use it on the MLS?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Every tour includes an unbranded version built for MLS rules, alongside your branded version for everything else.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is it just a slideshow with zoom effects?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No — that's the whole point. Each photo is animated with smooth forward camera motion and stitched in walking order, room to room, so it feels like actually walking through the home.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Who owns the finished video?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "You do. Full usage rights, a downloadable file, and a shareable link you can post anywhere.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you film on-site?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No — everything is built from the photos you send, which keeps it fast and affordable. All of Oklahoma is in our service area.",
+      },
+    },
+  ],
+};
 ---
 
-<BaseLayout title={title} description={description} active="walkthroughs">
+<BaseLayout title={title} description={description} active="walkthroughs" ogImage="/tour-poster.jpg">
+  <script type="application/ld+json" set:html={JSON.stringify(videoObject)} />
+  <script type="application/ld+json" set:html={JSON.stringify(service)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faq)} />
   <!-- PHOTO HERO -->
   <section class="photo-hero photo-hero--short">
     <div class="ph-bg" aria-hidden="true">
-      <img src="/images/tour-still-kitchen.jpg" alt="" fetchpriority="high" />
+      <img src="/images/tour-still-kitchen.jpg" alt="Bright kitchen in a SilverLink video walkthrough" width="1280" height="720" fetchpriority="high" />
     </div>
     <div class="ph-shade" aria-hidden="true"></div>
     <div class="wrap">
       <span class="eyebrow">For Oklahoma realtors</span>
-      <h1>Your listing photos, <span class="warm">walking and talking.</span></h1>
+      <h1>Video walkthroughs for Oklahoma realtors — <span class="warm">from your listing photos.</span></h1>
       <p class="lede">
         Send the photos you already have. Get back a smooth, room-to-room video tour
         with your branding — ready for the MLS, Zillow, and social. No film crew,
@@ -43,6 +122,7 @@ const description = "SilverLink turns your listing photos into smooth, room-to-r
       <div>
         <span class="eyebrow" style="border-color: rgba(255,248,238,.4); color: #ffe9d4; background: rgba(30,17,8,.35);">Sample tour</span>
         <h2>9313 Southlake Dr, Oklahoma City</h2>
+        <p style="color: #ffe9d4;">Watch it walk: front exterior to entryway, living room, and kitchen — built from the six ordinary listing photos shown below.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="/book/">Book a Walkthrough</a>
           <a class="btn btn-light" href="#pricing">See Pricing</a>
@@ -203,7 +283,7 @@ const description = "SilverLink turns your listing photos into smooth, room-to-r
     <div class="wrap">
       <div class="cta-photo">
         <div class="ph-bg" aria-hidden="true">
-          <img src="/images/tour-still-bedroom.jpg" alt="" loading="lazy" />
+          <img src="/images/tour-still-bedroom.jpg" alt="Bedroom in a SilverLink video walkthrough" width="1280" height="720" loading="lazy" />
         </div>
         <div class="ph-shade" aria-hidden="true"></div>
         <div class="cta-inner">

@@ -1,34 +1,99 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const title = "SilverLink — IT Support for Businesses, Families & Seniors | Oklahoma City";
-const description = "Friendly, plain-English IT support in the OKC metro. Managed IT for small businesses from $99/user/mo, care plans for families and seniors from $49/mo, one-time fixes from $79. Remote or on-site. Call (405) 877-2223.";
+const title = "IT Support Oklahoma City | SilverLink LLC";
+const description =
+  "Friendly IT support in Oklahoma City. Managed IT from $99/user/mo, care plans from $49/mo, one-time fixes from $79. Remote or on-site. Call (405) 877-2223.";
+
+const localBusiness = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "SilverLink LLC",
+  description:
+    "IT support and managed services for small businesses, families, and seniors in the Oklahoma City metro.",
+  telephone: "+1-405-877-2223",
+  email: "mk@silverlinkok.com",
+  url: "https://silverlinkok.com/",
+  priceRange: "$$",
+  areaServed: ["Oklahoma City", "Edmond", "Norman", "Moore", "Yukon", "Mustang", "Midwest City", "Del City"],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Oklahoma City",
+    addressRegion: "OK",
+    postalCode: "73159",
+    addressCountry: "US",
+  },
+  openingHours: ["Mo-Fr 09:00-18:00", "Sa 10:00-14:00"],
+};
+
+const faq = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "I'm not very tech-savvy. Is this for me?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Especially for you. Many of our clients are seniors, and everything is explained in plain English — no jargon, no rushing, no making you feel silly for asking. If you can describe what's wrong, we can fix it.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do I have to bring my computer somewhere?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. Most issues are handled over a secure screen-share while you watch, or we come to you anywhere in the OKC metro. You never haul equipment to a shop or wait in line.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: 'What does "per user" pricing mean for businesses?',
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Simple: $99 a month per person on your team. Everyone gets support, every device they use gets managed — no surprise invoices, no counting machines. Most OKC IT firms charge $149 or more per user and make you call a help desk. With us, you get MK on every call.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is remote help safe?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. You see everything we do on your screen, you stay in control, and you can end the session anytime. We only connect with your permission, and only for the issue you asked about.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What are your hours?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Mon–Fri 9 AM–6 PM, Sat 10 AM–2 PM. Care-plan members get priority scheduling.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What areas do you serve?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "On-site visits cover the Oklahoma City metro — including Edmond, Norman, Moore, Yukon, Mustang, Midwest City, and Del City. Remote support works anywhere.",
+      },
+    },
+  ],
+};
 ---
 
 <BaseLayout title={title} description={description} active="home">
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "SilverLink LLC",
-    "description": "IT support and managed services for small businesses, families, and seniors in the Oklahoma City metro.",
-    "telephone": "+1-405-877-2223",
-    "email": "mk@silverlinkok.com",
-    "url": "https://www.silverlinkok.com/",
-    "areaServed": "Oklahoma City metro",
-    "address": { "@type": "PostalAddress", "addressLocality": "Oklahoma City", "addressRegion": "OK", "addressCountry": "US" },
-    "openingHours": ["Mo-Fr 09:00-18:00", "Sa 10:00-14:00"],
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "11" }
-  })} />
+  <script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faq)} />
 
-  <!-- PHOTO HERO -->
   <section class="photo-hero">
     <div class="ph-bg" aria-hidden="true">
-      <img src="/images/it-hero.webp" alt="" fetchpriority="high" />
+      <img src="/images/it-hero.webp" alt="Friendly IT support in Oklahoma City — tech help at your home or office" width="1024" height="576" fetchpriority="high" />
     </div>
     <div class="ph-shade" aria-hidden="true"></div>
     <div class="wrap">
       <span class="eyebrow">SilverLink LLC · IT support · Oklahoma City metro</span>
-      <h1>Tech headaches, <span class="warm">handled.</span></h1>
+      <h1>IT support in Oklahoma City — <span class="warm">tech headaches, handled.</span></h1>
       <p class="lede">
         Friendly IT support for small businesses, families, and seniors in the OKC metro.
         Remote or on-site, explained in plain English, by the same local expert every
@@ -40,22 +105,20 @@ const description = "Friendly, plain-English IT support in the OKC metro. Manage
       </div>
       <p class="hero-note">
         <strong>Something broken right now?</strong> Call — same-day remote help is usually
-        available. <strong>CompTIA A+ &amp; Security+ certified</strong> · Google rated 5.0 ★ · 18 years in IT.
+        available. <strong>CompTIA A+ certified · Security+ in progress</strong> · 18 years in IT.
       </p>
     </div>
   </section>
 
-  <!-- TRUST BAND -->
   <div class="trust" role="list" aria-label="Why SilverLink">
     <div class="wrap">
       <div class="trust-item" role="listitem"><div class="t">18 years</div><div class="s">Professional IT experience</div></div>
-      <div class="trust-item" role="listitem"><div class="t">A+ &amp; Security+</div><div class="s">CompTIA certified</div></div>
-      <div class="trust-item" role="listitem"><div class="t">5.0 ★</div><div class="s">Google rated</div></div>
+      <div class="trust-item" role="listitem"><div class="t">A+ certified</div><div class="s">CompTIA · Security+ in progress</div></div>
+      <div class="trust-item" role="listitem"><div class="t">Same-day</div><div class="s">Remote help, usually today</div></div>
       <div class="trust-item" role="listitem"><div class="t">Local</div><div class="s">Oklahoma owned &amp; operated</div></div>
     </div>
   </div>
 
-  <!-- WHO WE HELP -->
   <section class="section">
     <div class="wrap">
       <div class="section-head">
@@ -86,7 +149,6 @@ const description = "Friendly, plain-English IT support in the OKC metro. Manage
     </div>
   </section>
 
-  <!-- PRICING -->
   <section class="section alt" id="pricing">
     <div class="wrap">
       <div class="section-head">
@@ -94,7 +156,6 @@ const description = "Friendly, plain-English IT support in the OKC metro. Manage
         <h2>Plans that pay for themselves</h2>
         <p>Month-to-month on everything — cancel anytime. Flat rates quoted up front.</p>
       </div>
-
       <!-- BUSINESS -->
       <div class="plans plans-2">
         <div class="plan featured">
@@ -128,7 +189,6 @@ const description = "Friendly, plain-English IT support in the OKC metro. Manage
           <a class="btn btn-ghost" href="/book/">Book a Visit</a>
         </div>
       </div>
-
       <!-- HOME PLANS -->
       <div class="section-head" style="margin-top: 4rem;">
         <span class="eyebrow">For home, family &amp; seniors</span>
@@ -176,7 +236,6 @@ const description = "Friendly, plain-English IT support in the OKC metro. Manage
           <a class="btn btn-ghost" href="/book/">Start Peace of Mind</a>
         </div>
       </div>
-
       <!-- ONE-TIME -->
       <div class="section-head" style="margin-top: 4rem;">
         <span class="eyebrow">No commitment</span>
@@ -203,7 +262,6 @@ const description = "Friendly, plain-English IT support in the OKC metro. Manage
     </div>
   </section>
 
-  <!-- EMERGENCY BAND -->
   <section class="feature-band">
     <div class="wrap" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: space-between;">
       <div>
@@ -214,7 +272,6 @@ const description = "Friendly, plain-English IT support in the OKC metro. Manage
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
   <section class="section">
     <div class="wrap">
       <div class="section-head">
@@ -241,7 +298,6 @@ const description = "Friendly, plain-English IT support in the OKC metro. Manage
     </div>
   </section>
 
-  <!-- FAQ -->
   <section class="section alt">
     <div class="wrap">
       <div class="section-head">
@@ -270,13 +326,12 @@ const description = "Friendly, plain-English IT support in the OKC metro. Manage
         </details>
         <details>
           <summary>What areas do you serve?</summary>
-          <p>On-site visits cover the Oklahoma City metro. Remote support works anywhere.</p>
+          <p>On-site visits cover the Oklahoma City metro — including Edmond, Norman, Moore, Yukon, Mustang, Midwest City, and Del City. Remote support works anywhere.</p>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- REALTOR CROSS-SELL -->
   <section class="section" style="padding-top: 1rem;">
     <div class="wrap">
       <div class="card" style="text-align: center;">
@@ -288,24 +343,11 @@ const description = "Friendly, plain-English IT support in the OKC metro. Manage
     </div>
   </section>
 
-  <!-- 3J CROSS-SELL -->
-  <section class="section" style="padding-top: 1rem;">
-    <div class="wrap">
-      <div class="card" style="text-align: center;">
-        <p style="margin: 0 0 0.6rem; color: var(--muted);">Car trouble? 🚗</p>
-        <h3 style="margin-top: 0;">We also run 3J Mobile Auto Repair.</h3>
-        <p style="margin-bottom: 1.2rem;">The mechanic that comes to you — mobile auto repair anywhere in the OKC metro. Call (405) 221-8900 for a repair estimate or to book an appointment, 24/7. Want your estimate by text? Say so on the call and we'll text it to you — message frequency varies, message and data rates may apply.</p>
-        <a class="btn btn-ghost" href="/sms/">How text opt-in works</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
   <section class="section" style="padding-top: 1rem;">
     <div class="wrap">
       <div class="cta-photo">
         <div class="ph-bg" aria-hidden="true">
-          <img src="/images/it-business.webp" alt="MK helping an Oklahoma small business owner with her computer" loading="lazy" />
+          <img src="/images/it-business.webp" alt="MK helping an Oklahoma small business owner with her computer" width="1024" height="576" loading="lazy" />
         </div>
         <div class="ph-shade" aria-hidden="true"></div>
         <div class="cta-inner">
